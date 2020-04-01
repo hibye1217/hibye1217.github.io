@@ -9,10 +9,36 @@ body{
     height: 50px;
     justify-content: center;
     align-items: center;
-    /* background-color: #DDDDDD; */
+    background-color: #DDDDDD;
 }
 
 #title_text{
     font-size: 28px;
     font-weight: bold;
+}
+
+.space{
+    height: 30px;
+}
+
+.project{
+    position: relative;
+    border: 2px solid #000000;
+    width: 90%;
+    height: 60px;
+    left: 5%;
+    background-color: #DDDDDD;
+    display: flex;
+    align-items: center;
+}
+
+.project_name{
+    margin: 5px 5px 0px 5px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.project_desc{
+    margin: 0px 5px 5px 5px;
+    font-size: 16px;
 }

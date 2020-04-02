@@ -2,7 +2,8 @@
 hibye1217 with abnormal Projects.
 
 ## Projecst
-- Make Projects about Math (Mathjax)
+- Projects about Math (Mathjax)
+  - Project Name : Math with Jax
 - Make Projects about ProblemSolving
 - Make Projects about Algorithms
 - Make Projects about Private

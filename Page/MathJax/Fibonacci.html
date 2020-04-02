@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/Main.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Fibonacci!</title>
+</head>
+<body>
+    <header>
+        <div id="title" onclick="location.href='../Main.html'">
+            <div id="title_text">leonld94's Fibonacci Function</div>
+        </div>
+    </header>
+    <section id="body">
+        <div id="body-flex">
+            <div id="header">
+                <h2>Function : </h2>
+                \[ f(n) = \sum_{k=0}^{\lfloor (n-1)/2 \rfloor} \frac{(n-k-1)!}{k!(n-2k-1)!} \]
+            </div>
+            <div id="explain">
+                <h2>Why is this function work?</h2>
+                <h3>1. Modifing the function</h3>
+                <p>
+                    Let's say \( a \) is equal to \( n-k-1 \).<br>
+                    Then function \( f \) will look like this.
+                    \[ f(n) = \sum_{k=0}^{\lfloor (n-1)/2 \rfloor} \frac{a!}{k!(a-k)!} \]
+                    Which is same with Combinations Formula \( _{a}C_{k} \).
+                    \[ f(n) = \sum_{k=0}^{\lfloor (n-1)/2 \rfloor} {_{a}C_{k}} \]
+                </p>
+                <h3>2. Think about \( a, k \).</h3>
+                <p>
+                    Let's write every possible combinations of \( (k, a) \).<br>
+                    if \( n = 0 \), then the result will be \( (0, 0) \).<br>
+                    if \( n = 1 \), then the result will be \( (0, 1) \).<br>
+                    if \( n = 2 \), then the result will be \( (0, 2), (1, 1) \).<br>
+                    if \( n = 3 \), then the result will be \( (0, 3), (1, 2) \).<br>
+                    if \( n = 4 \), then the result will be \( (0, 4), (1, 3), (2, 2) \).<br>
+                    if \( n = 5 \), then the result will be \( (0, 5), (1, 4), (2, 3) \).<br>
+                    As you can see, when we increase the value of \( k \), then it will cause the decrease the value of \( a \).<br>
+                    And, the number of combinations increase when the value of \( n \) is even number.
+                </p>
+                <h3>3. Pascal's Triangle.</h3>
+                <p>
+                    Pascal's Triangle is looked like this.<br>
+                    \( 1 \)<br>
+                    \( 1 \) \( 1 \)<br>
+                    \( 1 \) \( 2 \) \( 1 \)<br>
+                    \( 1 \) \( 3 \) \( 3 \) \( 1 \)<br>
+                    \( 1 \) \( 4 \) \( 6 \) \( 4 \) \( 1 \)<br>
+                    When we draw an diagnal line trough this triangle, we will get Fibonacci number.<br>
+                    This was already proved, and we will use this proof.<br>
+                    when \( k \) increase, then \( a \) decrease. We already checked that in Chapter 2.<br>
+                    Now, this Pascal's Triangle
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -15,6 +15,7 @@ body{
 #title_text{
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .space{
@@ -27,13 +28,14 @@ body{
 
 .project{
     position: relative;
-    border: 2px solid #000000;
+    border: 1px solid #000000;
     width: 90%;
     height: 60px;
     left: 5%;
     background-color: #DDDDDD;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .project:hover{
@@ -53,4 +55,12 @@ body{
 .project_desc{
     margin: 0px 5px 5px 5px;
     font-size: 16px;
+}
+
+
+
+#body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

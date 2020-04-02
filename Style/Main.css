@@ -21,6 +21,10 @@ body{
     height: 30px;
 }
 
+#project{
+    border-collapse: collapse;
+}
+
 .project{
     position: relative;
     border: 2px solid #000000;
@@ -30,6 +34,14 @@ body{
     background-color: #DDDDDD;
     display: flex;
     align-items: center;
+}
+
+.project:hover{
+    background-color: #BBBBBB;
+}
+
+.project:active{
+    background-color: #999999;
 }
 
 .project_name{

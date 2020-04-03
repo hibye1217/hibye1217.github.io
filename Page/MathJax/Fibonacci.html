@@ -17,44 +17,65 @@
     <section id="body">
         <div id="body-flex">
             <div id="header">
-                <h2>Function : </h2>
+                <h2>함수 : </h2>
                 \[ f(n) = \sum_{k=0}^{\lfloor (n-1)/2 \rfloor} \frac{(n-k-1)!}{k!(n-2k-1)!} \]
             </div>
             <div id="explain">
-                <h2>Why is this function work?</h2>
-                <h3>1. Modifing the function</h3>
+                <h2>증명 : </h2>
+                <h3>1. 함수 수정하기.</h3>
                 <p>
-                    Let's say \( a \) is equal to \( n-k-1 \).<br>
-                    Then function \( f \) will look like this.
+                    \( a = n-k-1 \)이라고 해봅시다.<br>
+                    그러면 함수 \( f \)를 이렇게 쓸 수 있습니다.
                     \[ f(n) = \sum_{k=0}^{\lfloor (n-1)/2 \rfloor} \frac{a!}{k!(a-k)!} \]
-                    Which is same with Combinations Formula \( _{a}C_{k} \).
+                    여기서 \( \frac{a!}{k!(a-k)!} = _{a}C_{k} \)이므로
                     \[ f(n) = \sum_{k=0}^{\lfloor (n-1)/2 \rfloor} {_{a}C_{k}} \]
+                    라는 식을 얻게 됩니다.
                 </p>
-                <h3>2. Think about \( a, k \).</h3>
+                <h3>2. 각각의 \( n \)에 따른 \( a \)와 \( k \) 분석하기.</h3>
                 <p>
-                    Let's write every possible combinations of \( (k, a) \).<br>
-                    if \( n = 0 \), then the result will be \( (0, 0) \).<br>
-                    if \( n = 1 \), then the result will be \( (0, 1) \).<br>
-                    if \( n = 2 \), then the result will be \( (0, 2), (1, 1) \).<br>
-                    if \( n = 3 \), then the result will be \( (0, 3), (1, 2) \).<br>
-                    if \( n = 4 \), then the result will be \( (0, 4), (1, 3), (2, 2) \).<br>
-                    if \( n = 5 \), then the result will be \( (0, 5), (1, 4), (2, 3) \).<br>
-                    As you can see, when we increase the value of \( k \), then it will cause the decrease the value of \( a \).<br>
-                    And, the number of combinations increase when the value of \( n \) is even number.
-                </p>
-                <h3>3. Pascal's Triangle.</h3>
+                    각각의 \( n \) 값에 대하여 가능한 모든 \( (k, a) \) 쌍을 써봅시다.<br>
+                    \( n = 0 \)이면, 가능한 조합은 \( (0, 0) \)입니다.<br>
+                    \( n = 1 \)이면, 가능한 조합은 \( (0, 1) \)입니다.<br>
+                    \( n = 2 \)이면, 가능한 조합은 \( (0, 2), (1, 1) \)입니다.<br>
+                    \( n = 3 \)이면, 가능한 조합은 \( (0, 3), (1, 2) \)입니다.<br>
+                    \( n = 4 \)이면, 가능한 조합은 \( (0, 4), (1, 3), (2, 2) \)입니다.<br>
+                    \( n = 5 \)이면, 가능한 조합은 \( (0, 5), (1, 4), (2, 3) \)입니다.<br>
+                    여기서 두 가지 사실을 관측할 수 있는데,<br>
+                    우선 \( k \)가 커지면 \( a \)가 작아진다는 점과<br>
+                    \( n \)이 짝수일 경우 조합의 개수가 하나 더 많아진다는 점입니다.
+                <h3>3. 파스칼의 삼각형.</h3>
                 <p>
-                    Pascal's Triangle is looked like this.<br>
-                    \( 1 \)<br>
-                    \( 1 \) \( 1 \)<br>
-                    \( 1 \) \( 2 \) \( 1 \)<br>
-                    \( 1 \) \( 3 \) \( 3 \) \( 1 \)<br>
-                    \( 1 \) \( 4 \) \( 6 \) \( 4 \) \( 1 \)<br>
-                    When we draw an diagnal line trough this triangle, we will get Fibonacci number.<br>
-                    This was already proved, and we will use this proof.<br>
-                    when \( k \) increase, then \( a \) decrease. We already checked that in Chapter 2.<br>
-                    Now, this Pascal's Triangle
+                    파스칼의 삼각형은 이렇게 생겼습니다.
+                    <div class="left_align">
+                        <div class="left_align_flex">
+                            \( 1 \)<br>
+                            \( 1 \) \( 1 \)<br>
+                            \( 1 \) \( 2 \) <span style="color: #FF0000">\( 1 \)</span><br>
+                            \( 1 \) <span style="color: #FF0000">\( 3 \)</span> \( 3 \) \( 1 \)<br>
+                            <span style="color: #FF0000">\( 1 \)</span> \( 4 \) \( 6 \) \( 4 \) \( 1 \)<br>
+                        </div>
+                    </div>
+                    파스칼의 삼각형에서 오른쪽 위로 올라가는 대각선을 긋고, 대각선이 지나는 수들을 더하면 피보나치 수가 나옵니다.<br>
+                    이는 이미 증명된 것이고, 우리는 이 증명을 사용할 것입니다.<br>
+                    파스칼의 삼각형의 특징 중 하나는 \( (n, r) \) 위치에 있는 수는 \( _{n}C_{r} \)이라는 것입니다.<br>
+                    우리는 방금 \( a \)와 \( k \)를 분석하면서 \( k \)가 커지면 \( a \)가 작아진다는 것을 알게 되었습니다.<br>
+                    고로 \( n \) 값에 대하여 가능한 모든 \( (k, a) \) 값을 선택하면 오른쪽 위로 올라가는 대각선이 그려집니다.<br>
+                    위에서 <span style="color: #FF0000">빨간색</span>으로 칠한 부분은 \( n = 4 \)일 때의 예시입니다.
                 </p>
+                <h3>4. 범위 확인하기</h3>
+                <p>
+                    다 끝난 것 같지만, 아직 하나가 남았습니다.<br>
+                    우리는 아직 이 대각선이 모든 수를 지나는 지 모릅니다.<br>
+                    마지막으로, 이를 확인할 것입니다.<br>
+                    조금 전 \( n \)을 분석할 때, \( n \)이 짝수일 때만 조합의 개수가 1개 더 많아졌습니다.<br>
+                    우선 \( n \)이 짝수일 때랑 홀수일 때로 나누고, 귀납법을 사용해서 이를 증명할 것입니다.<br>
+                    참고로, 함수의 범위는 \( \left[0, \lfloor (n-1)/2 \rfloor\right] \)입니다.
+                    <br>
+                    만약 \( n = 1 \)이면, 범위는 \( \left[0, 0\right] \)으로 1개이고, 가능한 조합은 1개이므로 성립한다.<br>
+                    TODO : 귀납법 홀수
+                    TODO : 귀납법 짝수
+                </p>
+                TODO : QED
             </div>
         </div>
     </section>

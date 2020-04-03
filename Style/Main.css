@@ -64,3 +64,20 @@ body{
     justify-content: center;
     text-align: center;
 }
+
+p{
+    margin: 0px;
+}
+
+.left_align{
+    margin: 0px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.left_align_flex{
+    margin: 0px;
+    text-align: left;
+}

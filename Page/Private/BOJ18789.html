@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/Main.css">
+    <title>BOJ 18789?</title>
+    <script>
+        alert("Access Denied.");
+        location.href = "../Main.html";
+        
+        var input = prompt("Input the Key.");
+        var arr = new Array(1020);
+        var res = new Array(1020);
+        var rnk = new Array(1020);
+        var chk = true;
+        if (input === null || input.length != 112000){
+            alert("Access Denied.");
+            location.href = "../Main.html";
+        }
+        for (let k = 1; k <= 1000; k++){
+            arr[k] = new Array(10);
+            for (let i = 1; i <= 8; i++){
+                arr[k][i] = new Array(20);
+                for (let j = 1; j <= 14; j++){
+                    var key = (j-1) + 14*(i-1) + 112*(k-1);
+                    if (isNaN(input[key])) chk = false;
+                    if (!chk) break;
+                    arr[k][i][j] = parseInt(input[key]);
+                }
+                if (!chk) break;
+            }
+            if (!chk) break;
+        }
+        if (!chk){
+            alert("Access Denied.");
+            location.href = "../Main.html";
+        }
+
+        function Generate(){
+            var div = document.getElementById('result');
+            div.innerHTML = "Generating...";
+            
+            Judge();
+            Sort();
+            Show(1);
+        }
+
+        function Show(rank){
+            var div = document.getElementById('result');
+            div.innerHTML = "";
+            for (let i = 1; i <= 8; i++){
+                for (let j = 1; j <= 14; j++){
+                    div.innerHTML += arr[ rnk[rank] ][i][j] + " ";
+                }
+                div.innerHTML += "<br>";
+            }
+            div.innerHTML += "Fitness : " + res[ rnk[rank] ];
+        }
+
+        function Sort(){
+            for (let i = 1; i <= 1000; i++) rnk[i] = i;
+            for (let i = 1; i <= 1000; i++){
+                for (let j = 1; j <= 1000-i; j++){
+                    if (res[ rnk[j] ] > res[ rnk[j+1] ]){
+                        var tmp = rnk[j];
+                        rnk[j] = rnk[j+1];
+                        rnk[j+1] = tmp;
+                    }
+                }
+            }
+        }
+
+        function Judge(){
+            for (let k = 1; k <= 1000; k++){
+                for (let l = 1; ; l++){
+                    var result = false;
+                    for (let i = 1; i <= 8; i++){
+                        for (let j = 1; j <= 14; j++){
+                            if (arr[k][i][j] == 0) continue;
+                            result = result || dfs(k, i, j, l, 0, 0);
+                        }
+                    }
+                    if (!result){
+                        res[k] = l-1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function dfs(map, y, x, target, number, depth){
+            if (number == target) return true;
+            if (depth > 4) return false;
+            number *= 10;
+            if (number > target) return false;
+
+            var dx = [-1, 0, 1, 0], dy = [0, 1, 0, -1];
+            var result = false;
+            for (var k = 0; k < 4; k++){
+                var X = x+dx[k], Y = y+dy[k];
+                if (1 > X || X > 14 || 1 > Y || Y > 8) continue;
+                result = result || dfs(map, Y, X, target, number+arr[map][Y][X], depth+1);
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div id="title" onclick="location.href='../Private.html'">
+            <div id="title_text">BOJ 18789</div>
+        </div>
+    </header>
+    <section>
+        <div id="result" style="background-color: #000000; color: #FFFFFF">
+            Press Button to see result
+        </div>
+        <button onclick="Generate()">Press to Generate</button>
+    </section>
+</body>
+</html>

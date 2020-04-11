@@ -7,7 +7,7 @@ hibye1217 with abnormal Projects.
 
 ## History
 1. leonld94's Fibonacci Function (MathJax)
-~~2. BOJ 18789 (P.P.)~~
+2. ~~BOJ 18789 (P.P.)~~
 
 ## MainPage
 <https://hibye1217.github.io/Page/Main.html>

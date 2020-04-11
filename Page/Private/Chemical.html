@@ -19,7 +19,6 @@
             for (let i = 1; i <= len; i++){
                 var atom = json.Chemical[i-1];
                 arr[i] = new Atom(atom.number, atom.symbol, atom.korean, atom.english);
-                console.log(arr[i]);
             }
         }
 
@@ -38,20 +37,65 @@
             var input = document.getElementById('sentence').value;
             var len = input.length;
             var result = validate(input);
+            document.getElementById('english').innerHTML = "";
+            document.getElementById('korean').innerHTML = "";
+            document.getElementById('number').innerHTML = "";
             if (result == "-1"){
                 alert("Non-English Character Detected.");
                 return;
             }
-
-            var found = find(result);
+            var found = find(new Array(), result, 0);
             if (found == false) alert("Nothing Found!");
         }
 
-        function find(str){
+        function find(res, str, ptr){
             var len = str.length;
+            if (len-ptr == 0){
+                var english = document.getElementById('english');
+                var korean = document.getElementById('korean');
+                var number = document.getElementById('number');
+                var l = res.length;
+                for (let i = 0; i < l; i++){
+                    english.innerHTML += arr[ res[i] ].english + " ";
+                    korean.innerHTML += arr[ res[i] ].korean + " ";
+                    number.innerHTML += arr[ res[i] ].number + " ";
+                }
+                english.innerHTML += "<br>";
+                korean.innerHTML += "<br>";
+                number.innerHTML += "<br>";
+                return true;
+            }
             var found = false;
             for (let i = 1; i <= count; i++){
-                
+                var atom = arr[i].symbol;
+                var alen = atom.length;
+
+                if (len-ptr < alen) continue;
+
+                if (alen == 1){
+                    var a1 = atom.charCodeAt(0);
+                    var s1 = str.charCodeAt(ptr);
+                    a1 += 32;
+
+                    if (a1 == s1){
+                        res.push(i);
+                        console.log(res, i);
+                        if (find(res, str, ptr+1) == true) found = true;
+                        res.pop();
+                    }
+                }
+                if (alen == 2){
+                    var a1 = atom.charCodeAt(0), a2 = atom.charCodeAt(1);
+                    var s1 = str.charCodeAt(ptr), s2 = str.charCodeAt(ptr+1);
+                    a1 += 32;
+
+                    if (a1 == s1 && a2 == s2){
+                        res.push(i);
+                        console.log(res, i);
+                        if (find(res, str, ptr+2) == true) found = true;
+                        res.pop();
+                    }
+                }
             }
             return found;
         }
@@ -84,8 +128,17 @@
                 <h2>문장을 입력하세요. (영어만 가능합니다.) : </h2>
                 <input id="sentence" type="text" style="width: 80%"> <button onclick="Generate()">Generate!</button><br>
             </div>
-            <div id="english">
+            <div>
                 <h2>결과 (영어) : </h2>
+                <div id="english"></div>
+            </div>
+            <div>
+                <h2>결과 (한글) : </h2>
+                <div id="korean"></div>
+            </div>
+            <div>
+                <h2>결과 (원자번호) : </h2>
+                <div id="number"></div>
             </div>
         </div>
     </section>

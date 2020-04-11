@@ -13,40 +13,79 @@
             this.english = eng;
         }
 
+        function fillArray(json){
+            var len = json.Chemical.length;
+            count = len;
+            for (let i = 1; i <= len; i++){
+                var atom = json.Chemical[i-1];
+                arr[i] = new Atom(atom.number, atom.symbol, atom.korean, atom.english);
+                console.log(arr[i]);
+            }
+        }
+
         var arr = new Array(150);
         var request = new XMLHttpRequest();
-        var url = "hibye1217.github.io/Data/Chemical.json";
+        var url = "https://leonld94.github.io/University_File/Chemical.json";
+        var count = -1;
         request.open('Get', url);
         request.responseType = 'json';
         request.send();
         request.onload = function(){
             fillArray(request.response);
         }
-
-        function fillArray(json){
-            var len = json.Chemical.length;
-            for (let i = 1; i <= len; i++){
-                var atom = json.Chemical[i];
-                arr[i] = new Atom(atom.number, atom.symbol, atom.korean, atom.english);
-                console.log(arr[i]);
+        
+        function Generate(){
+            var input = document.getElementById('sentence').value;
+            var len = input.length;
+            var result = validate(input);
+            if (result == "-1"){
+                alert("Non-English Character Detected.");
+                return;
             }
+
+            var found = find(result);
+            if (found == false) alert("Nothing Found!");
+        }
+
+        function find(str){
+            var len = str.length;
+            var found = false;
+            for (let i = 1; i <= count; i++){
+                
+            }
+            return found;
+        }
+
+        function validate(string){
+            var len = string.length;
+            var result = "";
+            var valid = true;
+            for (let i = 0; i < len; i++){
+                var char = string.charCodeAt(i);
+                if (65 <= char && char <= 90) char += 32;
+                if (97 <= char && char <= 122) result += String.fromCharCode(char);
+                else if (char == 32) continue;
+                else valid = false;
+            }
+            if (valid == false) return "-1";
+            else return result;
         }
     </script>
 </head>
 <body>
     <header>
-        <div id="title" onclick="location.href='../MathJax.html'">
+        <div id="title" onclick="location.href='../Private.html'">
             <div id="title_text">Chemical Sentence</div>
         </div>
     </header>
     <section id="body">
         <div id="body-flex" style="width: 100%">
-            <div id="header">
+            <div id="input">
                 <h2>문장을 입력하세요. (영어만 가능합니다.) : </h2>
-                <form>
-                    <input type="text" style="width: 80%"> <button onclick="Generate()">Generate!</button><br>
-                    <label><input type="checkbox" checked> 띄어쓰기 무시하기</label>
-                </form>
+                <input id="sentence" type="text" style="width: 80%"> <button onclick="Generate()">Generate!</button><br>
+            </div>
+            <div id="english">
+                <h2>결과 (영어) : </h2>
             </div>
         </div>
     </section>

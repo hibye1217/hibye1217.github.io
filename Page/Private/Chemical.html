@@ -51,15 +51,18 @@
         function find(res, str, ptr){
             var len = str.length;
             if (len-ptr == 0){
+                var symbol = document.getElementById('symbol');
                 var english = document.getElementById('english');
                 var korean = document.getElementById('korean');
                 var number = document.getElementById('number');
                 var l = res.length;
                 for (let i = 0; i < l; i++){
+                    symbol.innerHTML += arr[ res[i] ].english + " ";
                     english.innerHTML += arr[ res[i] ].english + " ";
                     korean.innerHTML += arr[ res[i] ].korean + " ";
                     number.innerHTML += arr[ res[i] ].number + " ";
                 }
+                symbol.innerHTML += "<br>";
                 english.innerHTML += "<br>";
                 korean.innerHTML += "<br>";
                 number.innerHTML += "<br>";
@@ -127,6 +130,10 @@
             <div id="input">
                 <h2>문장을 입력하세요. (영어만 가능합니다.) : </h2>
                 <input id="sentence" type="text" style="width: 80%"> <button onclick="Generate()">Generate!</button><br>
+            </div>
+            <div>
+                <h2>결과 (기호) : </h2>
+                <div id="symbol"></div>
             </div>
             <div>
                 <h2>결과 (영어) : </h2>

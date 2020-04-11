@@ -1,13 +1,14 @@
 # hibye1217.github.io
-hibye1217 with abnormal Projects.
+hibye1217 with some abnormal Projects.
+
+## Main Page
+<https://hibye1217.github.io/Page/Main.html>
 
 ## Projects
 - Math : Math with Jax (MathJax)
 - Private : Private Project (P.P.)
 
-## History
+### Project History
 1. leonld94's Fibonacci Function (MathJax)
 2. ~~BOJ 18789 (P.P.)~~
-
-## MainPage
-<https://hibye1217.github.io/Page/Main.html>
+2. Chemical Sentence (P.P.) / On Working...

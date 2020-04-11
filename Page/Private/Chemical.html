@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/Main.css">
+    <title>Chemical!</title>
+    <script>
+        function Atom(num, sym, kor, eng){
+            this.number = num;
+            this.symbol = sym;
+            this.korean = kor;
+            this.english = eng;
+        }
+
+        var arr = new Array(150);
+        var request = new XMLHttpRequest();
+        var url = "hibye1217.github.com/Data/Chemical.json";
+        request.open('Get', url);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function(){
+            fillArray(request.response);
+        }
+
+        function fillArray(json){
+            var len = json.Chemical.length;
+            for (let i = 1; i <= len; i++){
+                var atom = json.Chemical[i];
+                arr[i] = new Atom(atom.number, atom.symbol, atom.korean, atom.english);
+                console.log(arr[i]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div id="title" onclick="location.href='../MathJax.html'">
+            <div id="title_text">Chemical Sentence</div>
+        </div>
+    </header>
+    <section id="body">
+        <div id="body-flex" style="width: 100%">
+            <div id="header">
+                <h2>문장을 입력하세요. (영어만 가능합니다.) : </h2>
+                <form>
+                    <input type="text" style="width: 80%"> <button onclick="Generate()">Generate!</button><br>
+                    <label><input type="checkbox" checked> 띄어쓰기 무시하기</label>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

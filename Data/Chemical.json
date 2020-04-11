@@ -1,0 +1,712 @@
+{
+	"Chemical": [
+		{
+			"number": "1",
+			"symbol": "H",
+			"korean": "수소",
+			"english": "Hydrogen"
+		},
+		{
+			"number": "2",
+			"symbol": "He",
+			"korean": "헬륨",
+			"english": "Helium"
+		},
+		{
+			"number": "3",
+			"symbol": "Li",
+			"korean": "리튬",
+			"english": "Lithium"
+		},
+		{
+			"number": "4",
+			"symbol": "Be",
+			"korean": "베릴륨",
+			"english": "Beryllium"
+		},
+		{
+			"number": "5",
+			"symbol": "B",
+			"korean": "붕소",
+			"english": "Boron"
+		},
+		{
+			"number": "6",
+			"symbol": "C",
+			"korean": "탄소",
+			"english": "Carbon"
+		},
+		{
+			"number": "7",
+			"symbol": "N",
+			"korean": "질소",
+			"english": "Nitrogen"
+		},
+		{
+			"number": "8",
+			"symbol": "O",
+			"korean": "산소",
+			"english": "Oxygen"
+		},
+		{
+			"number": "9",
+			"symbol": "F",
+			"korean": "플루오린",
+			"english": "Fluorine"
+		},
+		{
+			"number": "10",
+			"symbol": "Ne",
+			"korean": "네온",
+			"english": "Neon"
+		},
+		{
+			"number": "11",
+			"symbol": "Na",
+			"korean": "나트륨",
+			"english": "Sodium"
+		},
+		{
+			"number": "12",
+			"symbol": "Mg",
+			"korean": "마그네슘",
+			"english": "Magnesium"
+		},
+		{
+			"number": "13",
+			"symbol": "Al",
+			"korean": "알루미늄",
+			"english": "Aluminium"
+		},
+		{
+			"number": "14",
+			"symbol": "Si",
+			"korean": "규소",
+			"english": "Silicon"
+		},
+		{
+			"number": "15",
+			"symbol": "P",
+			"korean": "인",
+			"english": "Phosphorus"
+		},
+		{
+			"number": "16",
+			"symbol": "S",
+			"korean": "황",
+			"english": "Sulfur"
+		},
+		{
+			"number": "17",
+			"symbol": "Cl",
+			"korean": "염소",
+			"english": "Chlorine"
+		},
+		{
+			"number": "18",
+			"symbol": "Ar",
+			"korean": "아르곤",
+			"english": "Argon"
+		},
+		{
+			"number": "19",
+			"symbol": "K",
+			"korean": "칼륨",
+			"english": "Potassium"
+		},
+		{
+			"number": "20",
+			"symbol": "Ca",
+			"korean": "칼슘",
+			"english": "Calcium"
+		},
+		{
+			"number": "21",
+			"symbol": "Sc",
+			"korean": "스칸듐",
+			"english": "Scandium"
+		},
+		{
+			"number": "22",
+			"symbol": "Ti",
+			"korean": "티타늄",
+			"english": "Titanium"
+		},
+		{
+			"number": "23",
+			"symbol": "V",
+			"korean": "바나듐",
+			"english": "Vanadium"
+		},
+		{
+			"number": "24",
+			"symbol": "Cr",
+			"korean": "크롬",
+			"english": "Chromium"
+		},
+		{
+			"number": "25",
+			"symbol": "Mn",
+			"korean": "망가니즈",
+			"english": "Manganese"
+		},
+		{
+			"number": "26",
+			"symbol": "Fe",
+			"korean": "철",
+			"english": "Iron"
+		},
+		{
+			"number": "27",
+			"symbol": "Co",
+			"korean": "코발트",
+			"english": "Cobalt"
+		},
+		{
+			"number": "28",
+			"symbol": "Ni",
+			"korean": "니켈",
+			"english": "Nickel"
+		},
+		{
+			"number": "29",
+			"symbol": "Cu",
+			"korean": "구리",
+			"english": "Copper"
+		},
+		{
+			"number": "30",
+			"symbol": "Zn",
+			"korean": "아연",
+			"english": "Zinc"
+		},
+		{
+			"number": "31",
+			"symbol": "Ga",
+			"korean": "갈륨",
+			"english": "Gallium"
+		},
+		{
+			"number": "32",
+			"symbol": "Ge",
+			"korean": "게르마늄",
+			"english": "Germanium"
+		},
+		{
+			"number": "33",
+			"symbol": "As",
+			"korean": "비소",
+			"english": "Arsenic"
+		},
+		{
+			"number": "34",
+			"symbol": "Se",
+			"korean": "셀레늄",
+			"english": "Selenium"
+		},
+		{
+			"number": "35",
+			"symbol": "Br",
+			"korean": "브로민",
+			"english": "Bromine"
+		},
+		{
+			"number": "36",
+			"symbol": "Kr",
+			"korean": "크립톤",
+			"english": "Krypton"
+		},
+		{
+			"number": "37",
+			"symbol": "Rb",
+			"korean": "루비듐",
+			"english": "Rubidium"
+		},
+		{
+			"number": "38",
+			"symbol": "Sr",
+			"korean": "스트론튬",
+			"english": "Strontium"
+		},
+		{
+			"number": "39",
+			"symbol": "Y",
+			"korean": "이트륨",
+			"english": "Yttrium"
+		},
+		{
+			"number": "40",
+			"symbol": "Zr",
+			"korean": "지르코늄",
+			"english": "Zirconium"
+		},
+		{
+			"number": "41",
+			"symbol": "Nb",
+			"korean": "나이오븀",
+			"english": "Niobium"
+		},
+		{
+			"number": "42",
+			"symbol": "Mo",
+			"korean": "몰리브데넘",
+			"english": "Molybdenum"
+		},
+		{
+			"number": "43",
+			"symbol": "Tc",
+			"korean": "테크네튬",
+			"english": "Technetium"
+		},
+		{
+			"number": "44",
+			"symbol": "Ru",
+			"korean": "루테늄",
+			"english": "Ruthenium"
+		},
+		{
+			"number": "45",
+			"symbol": "Rh",
+			"korean": "로듐",
+			"english": "Rhodium"
+		},
+		{
+			"number": "46",
+			"symbol": "Pd",
+			"korean": "팔라듐",
+			"english": "Palladium"
+		},
+		{
+			"number": "47",
+			"symbol": "Ag",
+			"korean": "은",
+			"english": "Silver"
+		},
+		{
+			"number": "48",
+			"symbol": "Cd",
+			"korean": "카드뮴",
+			"english": "Cadmium"
+		},
+		{
+			"number": "49",
+			"symbol": "In",
+			"korean": "인듐",
+			"english": "Indium"
+		},
+		{
+			"number": "50",
+			"symbol": "Sn",
+			"korean": "주석",
+			"english": "Tin"
+		},
+		{
+			"number": "51",
+			"symbol": "Sb",
+			"korean": "안티모니",
+			"english": "Antimony"
+		},
+		{
+			"number": "52",
+			"symbol": "Te",
+			"korean": "텔루륨",
+			"english": "Tellurium"
+		},
+		{
+			"number": "53",
+			"symbol": "I",
+			"korean": "아이오딘",
+			"english": "Iodine"
+		},
+		{
+			"number": "54",
+			"symbol": "Xe",
+			"korean": "제논",
+			"english": "Xenon"
+		},
+		{
+			"number": "55",
+			"symbol": "Cs",
+			"korean": "세슘",
+			"english": "Caesium"
+		},
+		{
+			"number": "56",
+			"symbol": "Ba",
+			"korean": "바륨",
+			"english": "Barium"
+		},
+		{
+			"number": "57",
+			"symbol": "La",
+			"korean": "란타넘",
+			"english": "Lanthanum"
+		},
+		{
+			"number": "58",
+			"symbol": "Ce",
+			"korean": "세륨",
+			"english": "Cerium"
+		},
+		{
+			"number": "59",
+			"symbol": "Pr",
+			"korean": "프라세오디뮴",
+			"english": "Praseodymium"
+		},
+		{
+			"number": "60",
+			"symbol": "Nd",
+			"korean": "네오디뮴",
+			"english": "Neodymium"
+		},
+		{
+			"number": "61",
+			"symbol": "Pm",
+			"korean": "프로메튬",
+			"english": "Promethium"
+		},
+		{
+			"number": "62",
+			"symbol": "Sm",
+			"korean": "사마륨",
+			"english": "Samarium"
+		},
+		{
+			"number": "63",
+			"symbol": "Eu",
+			"korean": "유로퓸",
+			"english": "Europium"
+		},
+		{
+			"number": "64",
+			"symbol": "Gd",
+			"korean": "가돌리늄",
+			"english": "Gadolinium"
+		},
+		{
+			"number": "65",
+			"symbol": "Tb",
+			"korean": "터븀",
+			"english": "Terbium"
+		},
+		{
+			"number": "66",
+			"symbol": "Dy",
+			"korean": "디스프로슘",
+			"english": "Dysprosium"
+		},
+		{
+			"number": "67",
+			"symbol": "Ho",
+			"korean": "홀뮴",
+			"english": "Holmium"
+		},
+		{
+			"number": "68",
+			"symbol": "Er",
+			"korean": "어븀",
+			"english": "Erbium"
+		},
+		{
+			"number": "69",
+			"symbol": "Tm",
+			"korean": "툴륨",
+			"english": "Thulium"
+		},
+		{
+			"number": "70",
+			"symbol": "Yb",
+			"korean": "이터븀",
+			"english": "Ytterbium"
+		},
+		{
+			"number": "71",
+			"symbol": "Lu",
+			"korean": "루테튬",
+			"english": "Lutetium"
+		},
+		{
+			"number": "72",
+			"symbol": "Hf",
+			"korean": "하프늄",
+			"english": "Hafnium"
+		},
+		{
+			"number": "73",
+			"symbol": "Ta",
+			"korean": "탄탈럼",
+			"english": "Tantalum"
+		},
+		{
+			"number": "74",
+			"symbol": "W",
+			"korean": "텅스텐",
+			"english": "Tungsten"
+		},
+		{
+			"number": "75",
+			"symbol": "Re",
+			"korean": "레늄",
+			"english": "Rhenium"
+		},
+		{
+			"number": "76",
+			"symbol": "Os",
+			"korean": "오스뮴",
+			"english": "Osmium"
+		},
+		{
+			"number": "77",
+			"symbol": "Ir",
+			"korean": "이리듐",
+			"english": "Iridium"
+		},
+		{
+			"number": "78",
+			"symbol": "Pt",
+			"korean": "백금",
+			"english": "Platinum"
+		},
+		{
+			"number": "79",
+			"symbol": "Au",
+			"korean": "금",
+			"english": "Gold"
+		},
+		{
+			"number": "80",
+			"symbol": "Hg",
+			"korean": "수은",
+			"english": "Mercury"
+		},
+		{
+			"number": "81",
+			"symbol": "Tl",
+			"korean": "탈륨",
+			"english": "Thallium"
+		},
+		{
+			"number": "82",
+			"symbol": "Pb",
+			"korean": "납",
+			"english": "Lead"
+		},
+		{
+			"number": "83",
+			"symbol": "Bi",
+			"korean": "비스무트",
+			"english": "Bismuth"
+		},
+		{
+			"number": "84",
+			"symbol": "Po",
+			"korean": "폴로늄",
+			"english": "Polonium"
+		},
+		{
+			"number": "85",
+			"symbol": "At",
+			"korean": "아스타틴",
+			"english": "Astatine"
+		},
+		{
+			"number": "86",
+			"symbol": "Rn",
+			"korean": "라돈",
+			"english": "Radon"
+		},
+		{
+			"number": "87",
+			"symbol": "Fr",
+			"korean": "프랑슘",
+			"english": "Francium"
+		},
+		{
+			"number": "88",
+			"symbol": "Ra",
+			"korean": "라듐",
+			"english": "Radium"
+		},
+		{
+			"number": "89",
+			"symbol": "Ac",
+			"korean": "악티늄",
+			"english": "Actinium"
+		},
+		{
+			"number": "90",
+			"symbol": "Th",
+			"korean": "토륨",
+			"english": "Thorium"
+		},
+		{
+			"number": "91",
+			"symbol": "Pa",
+			"korean": "프로트악티늄",
+			"english": "Protactinium"
+		},
+		{
+			"number": "92",
+			"symbol": "U",
+			"korean": "우라늄",
+			"english": "Uranium"
+		},
+		{
+			"number": "93",
+			"symbol": "Np",
+			"korean": "넵투늄",
+			"english": "Neptunium"
+		},
+		{
+			"number": "94",
+			"symbol": "Pu",
+			"korean": "플루토늄",
+			"english": "Plutonium"
+		},
+		{
+			"number": "95",
+			"symbol": "Am",
+			"korean": "아메리슘",
+			"english": "Americium"
+		},
+		{
+			"number": "96",
+			"symbol": "Cm",
+			"korean": "퀴륨",
+			"english": "Curium"
+		},
+		{
+			"number": "97",
+			"symbol": "Bk",
+			"korean": "버클륨",
+			"english": "Berkelium"
+		},
+		{
+			"number": "98",
+			"symbol": "Cf",
+			"korean": "캘리포늄",
+			"english": "Californium"
+		},
+		{
+			"number": "99",
+			"symbol": "Es",
+			"korean": "아인슈타이늄",
+			"english": "Einsteinium"
+		},
+		{
+			"number": "100",
+			"symbol": "Fm",
+			"korean": "페르뮴",
+			"english": "Fermium"
+		},
+		{
+			"number": "101",
+			"symbol": "Md",
+			"korean": "멘델레븀",
+			"english": "Mendelevium"
+		},
+		{
+			"number": "102",
+			"symbol": "No",
+			"korean": "노벨륨",
+			"english": "Nobelium"
+		},
+		{
+			"number": "103",
+			"symbol": "Lr",
+			"korean": "로렌슘",
+			"english": "Lawrencium"
+		},
+		{
+			"number": "104",
+			"symbol": "Rf",
+			"korean": "러더포듐",
+			"english": "Rutherfordium"
+		},
+		{
+			"number": "105",
+			"symbol": "Db",
+			"korean": "더브늄",
+			"english": "Dubnium"
+		},
+		{
+			"number": "106",
+			"symbol": "Sg",
+			"korean": "시보귬",
+			"english": "Seaborgium"
+		},
+		{
+			"number": "107",
+			"symbol": "Bh",
+			"korean": "보륨",
+			"english": "Bohrium"
+		},
+		{
+			"number": "108",
+			"symbol": "Hs",
+			"korean": "하슘",
+			"english": "Hassium"
+		},
+		{
+			"number": "109",
+			"symbol": "Mt",
+			"korean": "마이트너륨",
+			"english": "Meitnerium"
+		},
+		{
+			"number": "110",
+			"symbol": "Ds",
+			"korean": "다름슈타튬",
+			"english": "Darmstadtium"
+		},
+		{
+			"number": "111",
+			"symbol": "Rg",
+			"korean": "뢴트게늄",
+			"english": "Roentgenium"
+		},
+		{
+			"number": "112",
+			"symbol": "Cn",
+			"korean": "코페르니슘",
+			"english": "Copernicium"
+		},
+		{
+			"number": "113",
+			"symbol": "Nh",
+			"korean": "니호늄",
+			"english": "Nihonium"
+		},
+		{
+			"number": "114",
+			"symbol": "Fl",
+			"korean": "플레로븀",
+			"english": "Flerovium"
+		},
+		{
+			"number": "115",
+			"symbol": "Mc",
+			"korean": "모스코븀",
+			"english": "Moscovium"
+		},
+		{
+			"number": "116",
+			"symbol": "Lv",
+			"korean": "리버모륨",
+			"english": "Livermorium"
+		},
+		{
+			"number": "117",
+			"symbol": "Ts",
+			"korean": "테네신",
+			"english": "Tennessine"
+		},
+		{
+			"number": "118",
+			"symbol": "Og",
+			"korean": "오가네손",
+			"english": "Oganesson"
+		}
+	]
+}

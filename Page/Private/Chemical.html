@@ -13,24 +13,130 @@
             this.english = eng;
         }
 
-        function fillArray(json){
-            var len = json.Chemical.length;
-            count = len;
-            for (let i = 1; i <= len; i++){
-                var atom = json.Chemical[i-1];
-                arr[i] = new Atom(atom.number, atom.symbol, atom.korean, atom.english);
-            }
-        }
-
         var arr = new Array(150);
-        var request = new XMLHttpRequest();
-        var url = "https://leonld94.github.io/University_File/Chemical.json";
-        var count = -1;
-        request.open('Get', url);
-        request.responseType = 'json';
-        request.send();
-        request.onload = function(){
-            fillArray(request.response);
+        var count;
+        fillArray();
+
+        function fillArray(){
+            arr[1] = new Atom("1", "H", "수소", "Hydrogen");
+            arr[2] = new Atom("2", "He", "헬륨", "Helium");
+            arr[3] = new Atom("3", "Li", "리튬", "Lithium");
+            arr[4] = new Atom("4", "Be", "베릴륨", "Beryllium");
+            arr[5] = new Atom("5", "B", "붕소", "Boron");
+            arr[6] = new Atom("6", "C", "탄소", "Carbon");
+            arr[7] = new Atom("7", "N", "질소", "Nitrogen");
+            arr[8] = new Atom("8", "O", "산소", "Oxygen");
+            arr[9] = new Atom("9", "F", "플루오린", "Fluorine");
+            arr[10] = new Atom("10", "Ne", "네온", "Neon");
+            arr[11] = new Atom("11", "Na", "나트륨", "Sodium");
+            arr[12] = new Atom("12", "Mg", "마그네슘", "Magnesium");
+            arr[13] = new Atom("13", "Al", "알루미늄", "Aluminium");
+            arr[14] = new Atom("14", "Si", "규소", "Silicon");
+            arr[15] = new Atom("15", "P", "인", "Phosphorus");
+            arr[16] = new Atom("16", "S", "황", "Sulfur");
+            arr[17] = new Atom("17", "Cl", "염소", "Chlorine");
+            arr[18] = new Atom("18", "Ar", "아르곤", "Argon");
+            arr[19] = new Atom("19", "K", "칼륨", "Potassium");
+            arr[20] = new Atom("20", "Ca", "칼슘", "Calcium");
+            arr[21] = new Atom("21", "Sc", "스칸듐", "Scandium");
+            arr[22] = new Atom("22", "Ti", "티타늄", "Titanium");
+            arr[23] = new Atom("23", "V", "바나듐", "Vanadium");
+            arr[24] = new Atom("24", "Cr", "크롬", "Chromium");
+            arr[25] = new Atom("25", "Mn", "망가니즈", "Manganese");
+            arr[26] = new Atom("26", "Fe", "철", "Iron");
+            arr[27] = new Atom("27", "Co", "코발트", "Cobalt");
+            arr[28] = new Atom("28", "Ni", "니켈", "Nickel");
+            arr[29] = new Atom("29", "Cu", "구리", "Copper");
+            arr[30] = new Atom("30", "Zn", "아연", "Zinc");
+            arr[31] = new Atom("31", "Ga", "갈륨", "Gallium");
+            arr[32] = new Atom("32", "Ge", "게르마늄", "Germanium");
+            arr[33] = new Atom("33", "As", "비소", "Arsenic");
+            arr[34] = new Atom("34", "Se", "셀레늄", "Selenium");
+            arr[35] = new Atom("35", "Br", "브로민", "Bromine");
+            arr[36] = new Atom("36", "Kr", "크립톤", "Krypton");
+            arr[37] = new Atom("37", "Rb", "루비듐", "Rubidium");
+            arr[38] = new Atom("38", "Sr", "스트론튬", "Strontium");
+            arr[39] = new Atom("39", "Y", "이트륨", "Yttrium");
+            arr[40] = new Atom("40", "Zr", "지르코늄", "Zirconium");
+            arr[41] = new Atom("41", "Nb", "나이오븀", "Niobium");
+            arr[42] = new Atom("42", "Mo", "몰리브데넘", "Molybdenum");
+            arr[43] = new Atom("43", "Tc", "테크네튬", "Technetium");
+            arr[44] = new Atom("44", "Ru", "루테늄", "Ruthenium");
+            arr[45] = new Atom("45", "Rh", "로듐", "Rhodium");
+            arr[46] = new Atom("46", "Pd", "팔라듐", "Palladium");
+            arr[47] = new Atom("47", "Ag", "은", "Silver");
+            arr[48] = new Atom("48", "Cd", "카드뮴", "Cadmium");
+            arr[49] = new Atom("49", "In", "인듐", "Indium");
+            arr[50] = new Atom("50", "Sn", "주석", "Tin");
+            arr[51] = new Atom("51", "Sb", "안티모니", "Antimony");
+            arr[52] = new Atom("52", "Te", "텔루륨", "Tellurium");
+            arr[53] = new Atom("53", "I", "아이오딘", "Iodine");
+            arr[54] = new Atom("54", "Xe", "제논", "Xenon");
+            arr[55] = new Atom("55", "Cs", "세슘", "Caesium");
+            arr[56] = new Atom("56", "Ba", "바륨", "Barium");
+            arr[57] = new Atom("57", "La", "란타넘", "Lanthanum");
+            arr[58] = new Atom("58", "Ce", "세륨", "Cerium");
+            arr[59] = new Atom("59", "Pr", "프라세오디뮴", "Praseodymium");
+            arr[60] = new Atom("60", "Nd", "네오디뮴", "Neodymium");
+            arr[61] = new Atom("61", "Pm", "프로메튬", "Promethium");
+            arr[62] = new Atom("62", "Sm", "사마륨", "Samarium");
+            arr[63] = new Atom("63", "Eu", "유로퓸", "Europium");
+            arr[64] = new Atom("64", "Gd", "가돌리늄", "Gadolinium");
+            arr[65] = new Atom("65", "Tb", "터븀", "Terbium");
+            arr[66] = new Atom("66", "Dy", "디스프로슘", "Dysprosium");
+            arr[67] = new Atom("67", "Ho", "홀뮴", "Holmium");
+            arr[68] = new Atom("68", "Er", "어븀", "Erbium");
+            arr[69] = new Atom("69", "Tm", "툴륨", "Thulium");
+            arr[70] = new Atom("70", "Yb", "이터븀", "Ytterbium");
+            arr[71] = new Atom("71", "Lu", "루테튬", "Lutetium");
+            arr[72] = new Atom("72", "Hf", "하프늄", "Hafnium");
+            arr[73] = new Atom("73", "Ta", "탄탈럼", "Tantalum");
+            arr[74] = new Atom("74", "W", "텅스텐", "Tungsten");
+            arr[75] = new Atom("75", "Re", "레늄", "Rhenium");
+            arr[76] = new Atom("76", "Os", "오스뮴", "Osmium");
+            arr[77] = new Atom("77", "Ir", "이리듐", "Iridium");
+            arr[78] = new Atom("78", "Pt", "백금", "Platinum");
+            arr[79] = new Atom("79", "Au", "금", "Gold");
+            arr[80] = new Atom("80", "Hg", "수은", "Mercury");
+            arr[81] = new Atom("81", "Tl", "탈륨", "Thallium");
+            arr[82] = new Atom("82", "Pb", "납", "Lead");
+            arr[83] = new Atom("83", "Bi", "비스무트", "Bismuth");
+            arr[84] = new Atom("84", "Po", "폴로늄", "Polonium");
+            arr[85] = new Atom("85", "At", "아스타틴", "Astatine");
+            arr[86] = new Atom("86", "Rn", "라돈", "Radon");
+            arr[87] = new Atom("87", "Fr", "프랑슘", "Francium");
+            arr[88] = new Atom("88", "Ra", "라듐", "Radium");
+            arr[89] = new Atom("89", "Ac", "악티늄", "Actinium");
+            arr[90] = new Atom("90", "Th", "토륨", "Thorium");
+            arr[91] = new Atom("91", "Pa", "프로트악티늄", "Protactinium");
+            arr[92] = new Atom("92", "U", "우라늄", "Uranium");
+            arr[93] = new Atom("93", "Np", "넵투늄", "Neptunium");
+            arr[94] = new Atom("94", "Pu", "플루토늄", "Plutonium");
+            arr[95] = new Atom("95", "Am", "아메리슘", "Americium");
+            arr[96] = new Atom("96", "Cm", "퀴륨", "Curium");
+            arr[97] = new Atom("97", "Bk", "버클륨", "Berkelium");
+            arr[98] = new Atom("98", "Cf", "캘리포늄", "Californium");
+            arr[99] = new Atom("99", "Es", "아인슈타이늄", "Einsteinium");
+            arr[100] = new Atom("100", "Fm", "페르뮴", "Fermium");
+            arr[101] = new Atom("101", "Md", "멘델레븀", "Mendelevium");
+            arr[102] = new Atom("102", "No", "노벨륨", "Nobelium");
+            arr[103] = new Atom("103", "Lr", "로렌슘", "Lawrencium");
+            arr[104] = new Atom("104", "Rf", "러더포듐", "Rutherfordium");
+            arr[105] = new Atom("105", "Db", "더브늄", "Dubnium");
+            arr[106] = new Atom("106", "Sg", "시보귬", "Seaborgium");
+            arr[107] = new Atom("107", "Bh", "보륨", "Bohrium");
+            arr[108] = new Atom("108", "Hs", "하슘", "Hassium");
+            arr[109] = new Atom("109", "Mt", "마이트너륨", "Meitnerium");
+            arr[110] = new Atom("110", "Ds", "다름슈타튬", "Darmstadtium");
+            arr[111] = new Atom("111", "Rg", "뢴트게늄", "Roentgenium");
+            arr[112] = new Atom("112", "Cn", "코페르니슘", "Copernicium");
+            arr[113] = new Atom("113", "Nh", "니호늄", "Nihonium");
+            arr[114] = new Atom("114", "Fl", "플레로븀", "Flerovium");
+            arr[115] = new Atom("115", "Mc", "모스코븀", "Moscovium");
+            arr[116] = new Atom("116", "Lv", "리버모륨", "Livermorium");
+            arr[117] = new Atom("117", "Ts", "테네신", "Tennessine");
+            arr[118] = new Atom("118", "Og", "오가네손", "Oganesson");
+            count = 118;
         }
         
         function Generate(){

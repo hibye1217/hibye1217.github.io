@@ -8,8 +8,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Function!</title>
     <script>
-        alert("Access Denied.");
-        location.href = "../Private.html"
+        
     </script>
 </head>
 <body>
@@ -20,8 +19,204 @@
     </header>
     <section id="body">
         <div id="body-flex" style="width: 100%">
-            
+            <h2>결과 : </h2>
+            <div id="output">Loading...</div>
         </div>
     </section>
+
+    <script>
+        function Point(x, y){
+            this.x = x;
+            this.y = y;
+        }
+
+        function GCD(x, y){
+            if (y == 0) return x;
+            else return GCD(y, x%y);
+        }
+
+        function Fraction(up, down){
+            this.up = up;
+            this.down = down;
+
+            this.add = function(f){
+                this.up = this.up*f.down + this.down*f.up;
+                this.down = this.down*f.down;
+                this.simplify();
+            }
+
+            this.multiply = function(f){
+                this.up *= f.up;
+                this.down *= f.down;
+                this.simplify();
+            }
+
+            this.simplify = function(){
+                if (this.down < 0){
+                    this.up *= -1;
+                    this.down *= -1;
+                }
+                if (this.up == 0){
+                    this.down = 1;
+                }
+                else{
+                    var gcd = GCD(Math.abs(this.up), Math.abs(this.down));
+                    this.up /= gcd;
+                    this.down /= gcd;
+                }
+            }
+        }
+
+        var find = "hibye1217.github.io/Page/Private/Function.html?p=";
+        var str = location.href.substr(location.href.indexOf(find)+find.length);
+        var points = new Array(120);
+        var count = 0;
+
+        if (!getPoints()){
+            alert("Access Denied");
+            location.href = "../Private.html";
+        }
+
+        console.log(points);
+
+        if (count == 0){
+            var output = document.getElementById('output');
+            output.innerHTML = "There are no inputs yet...";
+        }
+        else{
+            var xmatrix, Xmatrix, Ymatrix, Amatrix;
+            makeMatrix();
+            inverseMatrix();
+            getAnswer();
+
+            var output = document.getElementById('output');
+            output.innerHTML = "\\[ f(x) = ";
+            for (let i = 1; i <= count; i++){
+                output.innerHTML += "\\frac{ "+ Amatrix[i].up +" }{ "+ Amatrix[i].down +" }";
+                if (i != count){
+                    output.innerHTML += "x^" + (count-i) + " + ";
+                }
+            }
+            output.innerHTML += " ]\\";
+        }
+
+        function getAnswer(){
+            for (let i = 1; i <= count; i++){
+                Amatrix[i] = new Fraction(0, 1);
+                for (let j = 1; j <= count; j++){
+                    var res = new Fraction(Xmatrix[i][j].up, Xmatrix[i][j].down);
+                    res.multiply(Ymatrix[j]);
+                    Amatrix[i].add(res);
+                }
+            }
+        }
+
+        function inverseMatrix(){
+            for (let i = 1; i <= count; i++){
+                if (xmatrix[i][i] == 0){
+                    for (let j = 1; j <= count; j++){
+                        var tmp = xmatrix[i][j];
+                        xmatrix[i][j] = xmatrix[i+1][j];
+                        xmatrix[i+1][j] = tmp;
+
+                        tmp = Xmatrix[i][j];
+                        Xmatrix[i][j] = Xmatrix[i+1][j];
+                        Xmatrix[i+1][j] = tmp;
+
+                        tmp = Ymatrix[i][j];
+                        Ymatrix[i][j] = Ymatrix[i+1][j];
+                        Ymatrix[i+1][j] = tmp;
+                    }
+                }
+
+                var div = new Fraction(xmatrix[i][i].down, xmatrix[i][i].up);
+                for (let j = 1; j <= count; j++){
+                    xmatrix[i][j].multiply(div);
+                    Xmatrix[i][j].multiply(div);
+                }
+
+                for (let l = 1; l < count; l++){
+                    let j;
+                    if (i+l > count) j = i+l-count;
+                    else j = i+l;
+
+                    var mul = new Fraction(-xmatrix[j][i].up, xmatrix[j][i].down);
+                    for (let k = 1; k <= count; k++){
+                        var frc = new Fraction(xmatrix[i][k].up, xmatrix[i][k].down);
+                        frc.multiply(mul);
+                        xmatrix[j][k].add(frc);
+                    }
+                }
+            }
+        }
+
+        function makeMatrix(){
+            xmatrix = new Array(count+1);
+            for (let i = 1; i <= count; i++){
+                xmatrix[i] = new Array(count+1);
+                var X = 1;
+                for (let j = count; j >= 1; j--){
+                    xmatrix[i][j] = new Fraction(X, 1);
+                    console.log(xmatrix[i][j], X);
+                    X *= points[i].x;
+                }
+            }
+
+            Xmatrix = new Array(count+1);
+            for (let i = 1; i <= count; i++){
+                Xmatrix[i] = new Array(count+1);
+                for (let j = 1; j <= count; j++){
+                    if (i == j) Xmatrix[i][j] = new Fraction(1, 1);
+                    else Xmatrix[i][j] = new Fraction(0, 1);
+                }
+            }
+            console.log(xmatrix, Xmatrix);
+            Ymatrix = new Array(count+1);
+            for (let i = 1; i <= count; i++){
+                Ymatrix[i] = new Fraction(points[count].y, 1);
+            }
+
+            Amatrix = new Array(count+1);
+        }
+
+        function getPoints(){
+            var len = str.length;
+            var number = 1;
+            var x = 0, y = 0;
+            for (let i = 0; i < len; i++){
+                var char = str.charCodeAt(i);
+                if ('0'.charCodeAt() <= char && char <= '9'.charCodeAt()){
+                    if (number == 1){
+                        x *= 10;
+                        x += (char - '0'.charCodeAt());
+                    }
+                    else{
+                        y *= 10;
+                        y += (char - '0'.charCodeAt());
+                    }
+                }
+                else if (','.charCodeAt() == char){
+                    if (number == 2) return false;
+                    number = 2;
+                }
+                else if ('+'.charCodeAt() == char){
+                    if (number == 1) return false;
+                    number = 1;
+                    count += 1;
+                    points[count] = new Point(x, y);
+                    x = y = 0;
+                }
+                else if (';'.charCodeAt() == char){
+                    if (number == 1 && i != 0) return false;
+                    count += 1;
+                    points[count] = new Point(x, y);
+                    x = y = 0;
+                    break;
+                }
+                else return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

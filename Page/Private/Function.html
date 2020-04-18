@@ -9,7 +9,7 @@
     <title>Function!</title>
     <script>
         function loadMathJax(){
-            MathJax.typeset()
+            MathJax.typeset();
         }
 
         var points = new Array(120);
@@ -66,7 +66,7 @@
 
         function inverseMatrix(){
             for (let i = 1; i <= count; i++){
-                if (xmatrix[i][i] == 0){
+                if (xmatrix[i][i].up == 0){
                     for (let j = 1; j <= count; j++){
                         var tmp = xmatrix[i][j];
                         xmatrix[i][j] = xmatrix[i+1][j];
@@ -262,34 +262,58 @@
         }
 
         function makePoint(){
-            var xinput = prompt("Input the X Coordinate.");
-            var yinput = prompt("Input the Y Coordinate.");
+            var coordinate = prompt("Input the Coordinate.");
+            if (coordinate.indexOf(' ') == -1){
+                alert("Failed to add point.");
+                return;
+            }
+
+            var xinput = coordinate.substr(0, coordinate.indexOf(' '));
+            var yinput = coordinate.substr(coordinate.indexOf(' ')+1);
+            console.log(xinput, yinput);
+            if (isNaN(xinput) || isNaN(yinput)){
+                alert("Failed to add point.");
+                return;
+            }
+
+            xinput = parseInt(xinput);
+            yinput = parseInt(yinput);
             var found = false;
             for (let i = 1; i <= count; i++){
-                if (parseInt(xinput) == points[i].x) found = true;
+                if (xinput == points[i].x) found = true;
             }
-            if (isNaN(xinput) || isNaN(yinput) || found){
+            if (found){
                 alert("Failed to add point.");
                 return;
             }
 
             count += 1;
             points[count] = {
-                x: parseInt(xinput),
-                y: parseInt(yinput)
+                x: xinput,
+                y: yinput
             }
 
             Print();
         }
 
         function erasePoint(){
-            var erase = prompt("Input the # of point you want to remove.");
-            if (isNaN(erase) || 1 > parseInt(erase) || parseInt(erase) > count){
+            var erase = prompt("Input the X coordinate.");
+            if (isNaN(erase)){
+                alert("Failed to erase point.");
+                return;
+            }
+            erase = parseInt(erase);
+
+            var found = -1;
+            for (let i = 1; i <= count; i++){
+                if (points[i].x == erase) found = i;
+            }
+            if (found == -1){
                 alert("Failed to erase point.");
                 return;
             }
 
-            for (let i = parseInt(erase); i < count; i++){
+            for (let i = found; i < count; i++){
                 points[i] = {
                     x: points[i+1].x,
                     y: points[i+1].y

@@ -8,103 +8,56 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Function!</title>
     <script>
-        
-    </script>
-</head>
-<body>
-    <header>
-        <div id="title" onclick="location.href='../Private.html'">
-            <div id="title_text">Special Function</div>
-        </div>
-    </header>
-    <section id="body">
-        <div id="body-flex" style="width: 100%">
-            <h2>결과 : </h2>
-            <div id="output">Loading...</div>
-        </div>
-    </section>
+        function loadMathJax(){
+            MathJax.typeset()
+        }
 
-    <script>
-        function Point(x, y){
-            this.x = x;
-            this.y = y;
+        var points = new Array(120);
+        var count = 0;
+        var xmatrix, Xmatrix, Ymatrix, Amatrix;
+
+        var add = function(f){
+            this.up = this.up*f.down + this.down*f.up;
+            this.down = this.down*f.down;
+            this.simplify();
+        }
+        var multiply = function(f){
+            this.up *= f.up;
+            this.down *= f.down;
+            this.simplify();
+        }
+        var simplify = function(){
+            if (this.up == -0) this.up = 0;
+            if (this.down < 0){
+                this.up *= -1;
+                this.down *= -1;
+            }
+            if (this.up == 0){
+                this.down = 1;
+            }
+            else{
+                var gcd = GCD(Math.abs(this.up), Math.abs(this.down));
+                this.up /= gcd;
+                this.down /= gcd;
+            }
         }
 
         function GCD(x, y){
             if (y == 0) return x;
             else return GCD(y, x%y);
         }
-
-        function Fraction(up, down){
-            this.up = up;
-            this.down = down;
-
-            this.add = function(f){
-                this.up = this.up*f.down + this.down*f.up;
-                this.down = this.down*f.down;
-                this.simplify();
-            }
-
-            this.multiply = function(f){
-                this.up *= f.up;
-                this.down *= f.down;
-                this.simplify();
-            }
-
-            this.simplify = function(){
-                if (this.down < 0){
-                    this.up *= -1;
-                    this.down *= -1;
-                }
-                if (this.up == 0){
-                    this.down = 1;
-                }
-                else{
-                    var gcd = GCD(Math.abs(this.up), Math.abs(this.down));
-                    this.up /= gcd;
-                    this.down /= gcd;
-                }
-            }
-        }
-
-        var find = "hibye1217.github.io/Page/Private/Function.html?p=";
-        var str = location.href.substr(location.href.indexOf(find)+find.length);
-        var points = new Array(120);
-        var count = 0;
-
-        if (!getPoints()){
-            alert("Access Denied");
-            location.href = "../Private.html";
-        }
-
-        console.log(points);
-
-        if (count == 0){
-            var output = document.getElementById('output');
-            output.innerHTML = "There are no inputs yet...";
-        }
-        else{
-            var xmatrix, Xmatrix, Ymatrix, Amatrix;
-            makeMatrix();
-            inverseMatrix();
-            getAnswer();
-
-            var output = document.getElementById('output');
-            output.innerHTML = "\\[ f(x) = ";
-            for (let i = 1; i <= count; i++){
-                output.innerHTML += "\\frac{ "+ Amatrix[i].up +" }{ "+ Amatrix[i].down +" }";
-                if (i != count){
-                    output.innerHTML += "x^" + (count-i) + " + ";
-                }
-            }
-            output.innerHTML += " ]\\";
-        }
-
+        
         function getAnswer(){
             for (let i = 1; i <= count; i++){
-                Amatrix[i] = new Fraction(0, 1);
                 for (let j = 1; j <= count; j++){
-                    var res = new Fraction(Xmatrix[i][j].up, Xmatrix[i][j].down);
+                    var res = {
+                        up: Xmatrix[i][j].up,
+                        down: Xmatrix[i][j].down,
+                        add: add,
+                        multiply: multiply,
+                        simplify: simplify
+                    }
+
                     res.multiply(Ymatrix[j]);
                     Amatrix[i].add(res);
                 }
@@ -129,22 +82,52 @@
                     }
                 }
 
-                var div = new Fraction(xmatrix[i][i].down, xmatrix[i][i].up);
+                var div = {
+                    up: xmatrix[i][i].down,
+                    down: xmatrix[i][i].up,
+                    add: add,
+                    multiply: multiply,
+                    simplify: simplify
+                }
+
                 for (let j = 1; j <= count; j++){
                     xmatrix[i][j].multiply(div);
                     Xmatrix[i][j].multiply(div);
                 }
 
-                for (let l = 1; l < count; l++){
-                    let j;
-                    if (i+l > count) j = i+l-count;
-                    else j = i+l;
+                for (let j = 1; j <= count; j++){
+                    if (i == j) continue;
 
-                    var mul = new Fraction(-xmatrix[j][i].up, xmatrix[j][i].down);
+                    var mul = {
+                        up: -xmatrix[j][i].up,
+                        down: xmatrix[j][i].down,
+                        add: add,
+                        multiply: multiply,
+                        simplify: simplify
+                    }
+
                     for (let k = 1; k <= count; k++){
-                        var frc = new Fraction(xmatrix[i][k].up, xmatrix[i][k].down);
+                        var frc = {
+                            up: xmatrix[i][k].up,
+                            down: xmatrix[i][k].down,
+                            add: add,
+                            multiply: multiply,
+                            simplify: simplify
+                        }
+
                         frc.multiply(mul);
                         xmatrix[j][k].add(frc);
+
+                        frc = {
+                            up: Xmatrix[i][k].up,
+                            down: Xmatrix[i][k].down,
+                            add: add,
+                            multiply: multiply,
+                            simplify: simplify
+                        }
+
+                        frc.multiply(mul);
+                        Xmatrix[j][k].add(frc);
                     }
                 }
             }
@@ -156,8 +139,14 @@
                 xmatrix[i] = new Array(count+1);
                 var X = 1;
                 for (let j = count; j >= 1; j--){
-                    xmatrix[i][j] = new Fraction(X, 1);
-                    console.log(xmatrix[i][j], X);
+                    xmatrix[i][j] = {
+                        up: X,
+                        down: 1,
+                        add: add,
+                        multiply: multiply,
+                        simplify: simplify
+                    }
+
                     X *= points[i].x;
                 }
             }
@@ -166,57 +155,171 @@
             for (let i = 1; i <= count; i++){
                 Xmatrix[i] = new Array(count+1);
                 for (let j = 1; j <= count; j++){
-                    if (i == j) Xmatrix[i][j] = new Fraction(1, 1);
-                    else Xmatrix[i][j] = new Fraction(0, 1);
+                    if (i == j){
+                        Xmatrix[i][j] = {
+                            up: 1,
+                            down: 1,
+                            add: add,
+                            multiply: multiply,
+                            simplify: simplify
+                        }
+                    }
+                    else{
+                        Xmatrix[i][j] = {
+                            up: 0,
+                            down: 1,
+                            add: add,
+                            multiply: multiply,
+                            simplify: simplify
+                        }
+                    }
                 }
             }
-            console.log(xmatrix, Xmatrix);
+            
             Ymatrix = new Array(count+1);
             for (let i = 1; i <= count; i++){
-                Ymatrix[i] = new Fraction(points[count].y, 1);
+                Ymatrix[i] = {
+                    up: points[i].y,
+                    down: 1,
+                    add: add,
+                    multiply: multiply,
+                    simplify: simplify
+                }
             }
 
             Amatrix = new Array(count+1);
+            for (let i = 1; i <= count; i++){
+                Amatrix[i] = {
+                    up: 0,
+                    down: 1,
+                    add: add,
+                    multiply: multiply,
+                    simplify: simplify
+                }
+            }
         }
 
-        function getPoints(){
-            var len = str.length;
-            var number = 1;
-            var x = 0, y = 0;
-            for (let i = 0; i < len; i++){
-                var char = str.charCodeAt(i);
-                if ('0'.charCodeAt() <= char && char <= '9'.charCodeAt()){
-                    if (number == 1){
-                        x *= 10;
-                        x += (char - '0'.charCodeAt());
+        function Print(){
+            var output = document.getElementById('output');
+            if (count == 0){
+                output.innerHTML = "There are no points...";
+            }
+            else{
+                makeMatrix();
+                inverseMatrix();
+                getAnswer();
+
+                output.innerHTML = "\\[ f(x) = ";
+                var showed = false, first = true;
+                for (let i = 1; i <= count; i++){
+                    if (Amatrix[i].up == 0 && (showed || i != count)) continue;
+                    showed = true;
+
+                    if (!first || Amatrix[i].up < 0){
+                        if (Amatrix[i].up > 0){
+                            output.innerHTML += "+"
+                        }
+                        else{
+                            output.innerHTML += "-"
+                        }
+                    }
+                    first = false;
+
+                    if (Amatrix[i].down == 1){
+                        if (Amatrix[i].up == 1){
+                            if (i == count){
+                                output.innerHTML += Math.abs(Amatrix[i].up);
+                            }
+                            else{
+                                // Nothing.
+                            }
+                        }
+                        else{
+                            output.innerHTML += Math.abs(Amatrix[i].up);
+                        }
                     }
                     else{
-                        y *= 10;
-                        y += (char - '0'.charCodeAt());
+                        output.innerHTML += "\\frac{ " + Math.abs(Amatrix[i].up) +" }{ "+ Amatrix[i].down +" }";
                     }
+                    
+                    if (count-i == 1) output.innerHTML += "x";
+                    else if (count-i > 1) output.innerHTML += "x^" + (count-i); 
                 }
-                else if (','.charCodeAt() == char){
-                    if (number == 2) return false;
-                    number = 2;
-                }
-                else if ('+'.charCodeAt() == char){
-                    if (number == 1) return false;
-                    number = 1;
-                    count += 1;
-                    points[count] = new Point(x, y);
-                    x = y = 0;
-                }
-                else if (';'.charCodeAt() == char){
-                    if (number == 1 && i != 0) return false;
-                    count += 1;
-                    points[count] = new Point(x, y);
-                    x = y = 0;
-                    break;
-                }
-                else return false;
+                output.innerHTML += " \\]";
             }
-            return true;
+
+            var outpoint = document.getElementById('outpoint');
+            outpoint.innerHTML = "\\( ";
+            for (let i = 1; i <= count; i++){
+                outpoint.innerHTML += "(" + points[i].x + ", " + points[i].y + ")";
+                if (i != count){
+                    outpoint.innerHTML += ", ";
+                }
+            }
+            outpoint.innerHTML += " \\)";
+
+            loadMathJax();
+        }
+
+        function makePoint(){
+            var xinput = prompt("Input the X Coordinate.");
+            var yinput = prompt("Input the Y Coordinate.");
+            var found = false;
+            for (let i = 1; i <= count; i++){
+                if (parseInt(xinput) == points[i].x) found = true;
+            }
+            if (isNaN(xinput) || isNaN(yinput) || found){
+                alert("Failed to add point.");
+                return;
+            }
+
+            count += 1;
+            points[count] = {
+                x: parseInt(xinput),
+                y: parseInt(yinput)
+            }
+
+            Print();
+        }
+
+        function erasePoint(){
+            var erase = prompt("Input the # of point you want to remove.");
+            if (isNaN(erase) || 1 > parseInt(erase) || parseInt(erase) > count){
+                alert("Failed to erase point.");
+                return;
+            }
+
+            for (let i = parseInt(erase); i < count; i++){
+                points[i] = {
+                    x: points[i+1].x,
+                    y: points[i+1].y
+                }
+            }
+            count -= 1;
+            
+            Print();
         }
     </script>
+</head>
+<body>
+    <header>
+        <div id="title" onclick="location.href='../Private.html'">
+            <div id="title_text">Special Function</div>
+        </div>
+    </header>
+    <section id="body">
+        <div id="body-flex" style="width: 100%">
+            <div id="input">
+                <h2>결과 : </h2>
+                <div id="output">There are no points...</div>
+                <button onclick="makePoint()">Make Point</button>
+                <button onclick="erasePoint()">Erase Point</button>
+            </div>
+            <div id="point">
+                <h2>지나는 점 : </h2>
+                <div id="outpoint"></div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

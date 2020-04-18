@@ -15,4 +15,4 @@ hibye1217 with some abnormal Projects.
 1. **leonld94's Fibonacci Function (MathJax)**
 2. ~~BOJ 18789 (P.P.)~~
 3. **Chemical Sentence (P.P.)**
-4. *Special Function (P.P.)*
+4. **Special Function (P.P.)**

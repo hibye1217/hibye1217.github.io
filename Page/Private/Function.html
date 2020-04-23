@@ -209,11 +209,13 @@
                 inverseMatrix();
                 getAnswer();
 
-                output.innerHTML = "\\[ f(x) = ";
+                output.innerHTML = "\\( f(x) = \\) ";
                 var showed = false, first = true;
                 for (let i = 1; i <= count; i++){
                     if (Amatrix[i].up == 0 && (showed || i != count)) continue;
                     showed = true;
+
+                    output.innerHTML += " \\( "
 
                     if (!first || Amatrix[i].up < 0){
                         if (Amatrix[i].up > 0){
@@ -243,9 +245,10 @@
                     }
                     
                     if (count-i == 1) output.innerHTML += "x";
-                    else if (count-i > 1) output.innerHTML += "x^{" + (count-i) + "}"; 
+                    else if (count-i > 1) output.innerHTML += "x^{" + (count-i) + "}";
+
+                    output.innerHTML += " \\)"
                 }
-                output.innerHTML += " \\]";
             }
 
             var outpoint = document.getElementById('outpoint');
@@ -335,7 +338,7 @@
         <div id="body-flex" style="width: 100%">
             <div id="input">
                 <h2>결과 : </h2>
-                <div id="output">There are no points...</div>
+                <div id="output" style="font-size: 24px">There are no points...</div>
                 <button onclick="makePoint()">Make Point</button>
                 <button onclick="erasePoint()">Erase Point</button>
             </div>

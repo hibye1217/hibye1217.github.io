@@ -7,7 +7,6 @@ hibye1217 with some abnormal Projects.
 ## Projects
 - Math : Math with Jax (MathJax / MJ)
 - Private : Private Project (PP)
-- ????? : ??????? (???)
 
 ### Project History
 **Completed**  
@@ -17,4 +16,3 @@ hibye1217 with some abnormal Projects.
 2. ~~18789 (P.P.)~~
 3. **Chemical Sentence / CS (P.P.)**
 4. **Special Function / SF (P.P.)**
-5. *New Project Coming Soon... (???)*

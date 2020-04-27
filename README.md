@@ -7,12 +7,12 @@ hibye1217 with some abnormal Projects.
 ## Projects
 - Math : Math with Jax (MathJax / MJ)
 - Private : Private Project (PP)
+- Game : Existed Games (EG)
 
 ### Project History
-**Completed**  
-~~Canceled~~  
-*Currently Working*  
+**Completed** / ~~Canceled~~ / *Currently Working*  
 1. **leonld94's Fibonacci Function / LFF (MJ)**
-2. ~~18789 (P.P.)~~
-3. **Chemical Sentence / CS (P.P.)**
-4. **Special Function / SF (P.P.)**
+2. ~~18789 (PP)~~
+3. **Chemical Sentence / CS (PP)**
+4. **Special Function / SF (PP)**
+5. *Tic-Tac-Toe / TTT (EG)*

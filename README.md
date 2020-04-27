@@ -15,4 +15,5 @@ hibye1217 with some abnormal Projects.
 2. ~~18789 (PP)~~
 3. **Chemical Sentence / CS (PP)**
 4. **Special Function / SF (PP)**
-5. *Tic-Tac-Toe / TTT (EG)*
+5. **Tic-Tac-Toe / TTT (EG)**
+6. *Special Function - Logic / SFL (MJ)*

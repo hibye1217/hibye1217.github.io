@@ -5,6 +5,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../Style/Main.css">
     <title>18789?</title>
+    <script>
+        function AccessDenied(){
+            alert("Access Denied.");
+            location.href = "../Main.html"
+        }
+
+        const n = 8, m = 14, cnt = 1000;
+        var arr = new Array(cnt+1);
+        var input = prompt("Enter the Code");
+        if (input == null || input.length != n*m*cnt) AccessDenied();
+        
+        for (let k = 1; k <= cnt; k++){
+            arr[k] = new Array(n+1);
+            for (let i = 1; i <= n; i++){
+                arr[k][i] = new Array(m+1);
+                for (let j = 1; j <= m; j++){
+                    var p = (k-1)*n*m + (i-1)*m + (j-1);
+                    var char = input.charCodeAt(p);
+                    if (48 > char || char > 57) AccessDenied();
+                    arr[k][i][j] = char - 48;
+                }
+            }
+        }
+
+        function Run(){
+            
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -14,7 +42,20 @@
     </header>
     <section id="body">
         <div id="body-flex" style="width: 100%">
-            
+            <div id="result">
+                <div id="win" style="background-color: #FFBB00">
+                    Rank 1
+                </div>
+                <div id="mid" style="background-color: #000000; color: #FFFFFF">
+                    Rank 500
+                </div>
+                <div id="los" style="background-color: #FF0000">
+                    Rank 1000
+                </div>
+            </div>
+            <div id="buttons">
+                <button>Evolve</button>
+            </div>
         </div>
     </section>
 </body>

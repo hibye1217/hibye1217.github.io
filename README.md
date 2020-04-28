@@ -17,3 +17,6 @@ hibye1217 with some abnormal Projects.
 4. **Special Function / SF (PP)**
 5. **Tic-Tac-Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
+
+## Version
+Current Site Version is v40.

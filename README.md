@@ -19,4 +19,4 @@ hibye1217 with some abnormal Projects.
 6. **Special Function - Logic / SFL (MJ)**
 
 ## Version
-Current Site Version is v41.
+Current Site Version is v42.

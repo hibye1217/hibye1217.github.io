@@ -18,5 +18,13 @@ hibye1217 with some abnormal Projects.
 5. **Tic-Tac-Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 
+### Need to do
+- LFF: None
+- 18789: Auto Evolve, Graph
+- CS: None
+- SF: Fix Overflow
+- TTT: None
+- SFL: None
+
 ## Version
 Current Site Version is v46.

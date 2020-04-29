@@ -12,7 +12,7 @@ hibye1217 with some abnormal Projects.
 ### Project History
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
-2. ***18789 (PP)***
+2. **18789 (PP)**
 3. **Chemical Sentence / CS (PP)**
 4. **Special Function / SF (PP)**
 5. **Tic-Tac-Toe / TTT (EG)**
@@ -25,6 +25,3 @@ hibye1217 with some abnormal Projects.
 - SF: Fix Overflow
 - TTT: None
 - SFL: None
-
-## Version
-Current Site Version is v46.

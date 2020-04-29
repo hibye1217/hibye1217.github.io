@@ -44,7 +44,11 @@
         function Evolve(){
             for (let r = cnt; r > cnt/2; r--){
                 var child = rank[r];
-                var parent = rank[cnt+1-r];
+                var parent = rank[cnt-r+1];
+                if (rand(1, 1000) > r){
+                    child = rank[cnt-r+1];
+                    parent = rank[r];
+                }
                 
                 for (let i = 1; i <= n; i++){
                     for (let j = 1; j <= m; j++){
@@ -145,6 +149,18 @@
             Judge();
             Print();
         }
+
+        function Copy(){
+            var str = "";
+            for (let k = 1; k <= cnt; k++){
+                for (let i = 1; i <= n; i++){
+                    for (let j = 1; j <= m; j++){
+                        str += arr[k][i][j];
+                    }
+                }
+            }
+            alert(str);
+        }
     </script>
 </head>
 <body>
@@ -168,6 +184,7 @@
             </div>
             <div id="buttons">
                 <button onclick="Run()">Evolve</button>
+                <button onclick="Copy()">Get Result</button>
             </div>
         </div>
     </section>

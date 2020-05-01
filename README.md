@@ -18,7 +18,7 @@ hibye1217 with some abnormal Projects.
 5. **Tic-Tac-Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 
-### Need to do
+### TODO
 - LFF: None
 - 18789: Auto Evolve, Graph
 - CS: None

@@ -26,4 +26,4 @@ hibye1217 with some abnormal Projects.
 - SF: Fix Overflow
 - TTT: None
 - SFL: None
-- SB : Score, Team, Team's Average, Team Color, And Many Other Things
+- SB : Next - Erase Player

@@ -57,10 +57,10 @@
 
                 rank = document.createElement('td');
                 rank.className = "rank";
-                rank.innerHTML = i;
-                if (i%10 == 1 && i%100 != 11) rank.innerHTML += "st";
-                else if (i%10 == 2 && i%100 != 12) rank.innerHTML += "nd";
-                else if (i%10 == 3 && i%100 != 13) rank.innerHTML += "rd";
+                rank.innerHTML = j;
+                if (j%10 == 1 && j%100 != 11) rank.innerHTML += "st";
+                else if (j%10 == 2 && j%100 != 12) rank.innerHTML += "nd";
+                else if (j%10 == 3 && j%100 != 13) rank.innerHTML += "rd";
                 else rank.innerHTML += "th";
                 tr.appendChild(rank);
 
@@ -83,7 +83,7 @@
             }
         }
 
-        function Add(){
+        function AddPlayer(){
             var input = prompt("Name?");
             if (input == null || input.length == 0){
                 RequestFailed();
@@ -102,6 +102,55 @@
             Score[count] = 0;
 
             Print();
+        }
+
+        function AddScore(){
+            var input = prompt("Name?");
+            if (input == null || input.length == 0){
+                RequestFailed();
+                return;
+            }
+            var idx = -1;
+            for (let i = 1; i <= count; i++){
+                if (input == Name[i]) idx = i;
+            }
+            if (idx == -1){
+                RequestFailed();
+                return;
+            }
+            
+            input = prompt("Add?");
+            if (input == null || input.length == 0 || isNaN(input)){
+                RequestFailed();
+                return;
+            }
+            Score[idx] += parseInt(input);
+
+            Print();
+        }
+
+        function Save(){
+            var string = "";
+            string += "function Manual(){\n";
+
+            string += "  teamCount = " + teamCount + ";\n";
+            for (let i = 1; i <= teamCount; i++){
+                string += "  TeamName[" + i + "] = \"" + TeamName[i] + "\";\n";
+            }
+
+            string += "  count = " + count + ";\n";
+            for (let i = 1; i <= count; i++){
+                string += "  Name[" + i + "] = \"" + Name[i] + "\";\n";
+                string += "  Score[" + i + "] = " + Score[i] + ";\n";
+                string += "  Team[" + i + "] = " + Team[i] + ";\n";
+            }
+
+            string += "  Print();\n";
+            string += "}\n";
+
+            string += "Manual();";
+
+            console.log(string);
         }
     </script>
 </head>
@@ -130,7 +179,9 @@
                 </table>
             </div>
             <div id="input">
-                <button onclick="Add()">Add Player</button>
+                <button onclick="AddPlayer()">Add Player</button>
+                <button onclick="AddScore()">Add Score</button>
+                <button onclick="Save()" title="F12">Save</button>
             </div>
         </div>
     </section>

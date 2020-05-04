@@ -24,12 +24,28 @@
             alert("Request Failed.");
         }
 
-        var Name = new Array(1020), count = 0;
+        function FindName(){
+            var input = prompt("Name?");
+            if (input == null || input.length == 0){
+                return -1;
+            }
+            var idx = -1;
+            for (let i = 1; i <= count; i++){
+                if (input == Name[i]) idx = i;
+            }
+            return idx;
+        }
+
+        var count = 0, teamCount = 0;
+        var Name = new Array(1020);
         var Score = new Array(1020);
+        var Out = new Array(1020);
         var Rank = new Array(1020);
         var Team = new Array(1020);
-        var TeamName = new Array(1020), teamCount = 0;
-        TeamName[0] = "No Team";
+        var TeamName = new Array(1020);
+        var TeamColor = new Array(1020);
+        TeamName[0] = "No Team"; TeamColor[0] = "#000000";
+        var OutColor = "#BBBBBB";
 
         function Sort(){
             for (let i = 1; i <= count; i++) Rank[i] = i;
@@ -54,6 +70,7 @@
                 var tr = document.createElement('tr');
                 var rank, team, name, score;
                 let i = Rank[j];
+                var textColor = (Out[i] ? OutColor : TeamColor[i]);
 
                 rank = document.createElement('td');
                 rank.className = "rank";
@@ -62,21 +79,26 @@
                 else if (j%10 == 2 && j%100 != 12) rank.innerHTML += "nd";
                 else if (j%10 == 3 && j%100 != 13) rank.innerHTML += "rd";
                 else rank.innerHTML += "th";
+                rank.style.color = textColor;
                 tr.appendChild(rank);
 
                 team = document.createElement('td');
                 team.className = "team";
-                team.innerHTML = TeamName[ Team[i] ];
+                if (!Out[i]) team.innerHTML = TeamName[ Team[i] ];
+                else team.innerHTML = "ELIMINATED";
+                team.style.color = textColor;
                 tr.appendChild(team);
 
                 name = document.createElement('td');
                 name.className = "name";
                 name.innerHTML = Name[i];
+                name.style.color = textColor;
                 tr.appendChild(name);
 
                 score = document.createElement('td');
                 score.className = "score";
                 score.innerHTML = Score[i];
+                score.style.color = textColor;
                 tr.appendChild(score);
 
                 scoreboard.appendChild(tr);
@@ -100,20 +122,13 @@
             Name[count] = input;
             Team[count] = 0;
             Score[count] = 0;
+            Out[count] = false;
 
             Print();
         }
 
         function ErasePlayer(){
-            var input = prompt("Name?");
-            if (input == null || input.length == 0){
-                RequestFailed();
-                return;
-            }
-            var idx = -1;
-            for (let i = 1; i <= count; i++){
-                if (input == Name[i]) idx = i;
-            }
+            var idx = FindName();
             if (idx == -1){
                 RequestFailed();
                 return;
@@ -129,16 +144,32 @@
             Print();
         }
 
-        function AddScore(){
-            var input = prompt("Name?");
-            if (input == null || input.length == 0){
+        function EliminatePlayer(){
+            var idx = FindName();
+            if (idx == -1 || Out[idx]){
                 RequestFailed();
                 return;
             }
-            var idx = -1;
-            for (let i = 1; i <= count; i++){
-                if (input == Name[i]) idx = i;
+            
+            Out[idx] = true;
+
+            Print();
+        }
+
+        function RejoinPlayer(){
+            var idx = FindName();
+            if (idx == -1 || !Out[idx]){
+                RequestFailed();
+                return;
             }
+
+            Out[idx] = false;
+
+            Print();
+        }
+
+        function AddScore(){
+            var idx = FindName();
             if (idx == -1){
                 RequestFailed();
                 return;
@@ -161,6 +192,7 @@
             string += "  teamCount = " + teamCount + ";\n";
             for (let i = 1; i <= teamCount; i++){
                 string += "  TeamName[" + i + "] = \"" + TeamName[i] + "\";\n";
+                string += "  TeamColor[" + i + "] = \"" + TeamColor[i] + "\";\n";
             }
 
             string += "  count = " + count + ";\n";
@@ -168,6 +200,7 @@
                 string += "  Name[" + i + "] = \"" + Name[i] + "\";\n";
                 string += "  Score[" + i + "] = " + Score[i] + ";\n";
                 string += "  Team[" + i + "] = " + Team[i] + ";\n";
+                string += "  Out[" + i + "] = " + Out[i] + ";\n";
             }
 
             string += "  Print();\n";
@@ -205,8 +238,10 @@
             </div>
             <div id="input">
                 <button onclick="AddPlayer()">Add Player</button>
-                <button onclick="AddScore()">Add Score</button>
+                <button onclick="EliminatePlayer()">Eliminate Player</button>
+                <button onclick="RejoinPlayer()">Rejoin Player</button>
                 <button onclick="ErasePlayer()">Erase Player</button>
+                <button onclick="AddScore()">Add Score</button>
                 <button onclick="Save()" title="F12">Save</button>
             </div>
         </div>

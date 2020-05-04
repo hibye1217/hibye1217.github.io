@@ -18,6 +18,7 @@ hibye1217 with some abnormal Projects.
 5. **Tic-Tac-Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 7. *Scoreboard / SB (PP)*
+8. **Friend's Question 1 / FQ1 (MJ)**
 
 ### TODO
 - LFF: None
@@ -27,3 +28,4 @@ hibye1217 with some abnormal Projects.
 - TTT: None
 - SFL: None
 - SB: Teams (Add, Erase, Rank, Color)
+- FQ1: None

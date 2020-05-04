@@ -26,4 +26,4 @@ hibye1217 with some abnormal Projects.
 - SF: Fix Overflow
 - TTT: None
 - SFL: None
-- SB : Next - Erase Player
+- SB: Eliminate Player

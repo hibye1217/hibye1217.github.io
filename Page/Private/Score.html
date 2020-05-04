@@ -104,6 +104,31 @@
             Print();
         }
 
+        function ErasePlayer(){
+            var input = prompt("Name?");
+            if (input == null || input.length == 0){
+                RequestFailed();
+                return;
+            }
+            var idx = -1;
+            for (let i = 1; i <= count; i++){
+                if (input == Name[i]) idx = i;
+            }
+            if (idx == -1){
+                RequestFailed();
+                return;
+            }
+
+            for (let i = idx; i < count; i++){
+                Name[i] = Name[i+1];
+                Team[i] = Team[i+1];
+                Score[i] = Score[i+1];
+            }
+            count -= 1;
+
+            Print();
+        }
+
         function AddScore(){
             var input = prompt("Name?");
             if (input == null || input.length == 0){
@@ -181,6 +206,7 @@
             <div id="input">
                 <button onclick="AddPlayer()">Add Player</button>
                 <button onclick="AddScore()">Add Score</button>
+                <button onclick="ErasePlayer()">Erase Player</button>
                 <button onclick="Save()" title="F12">Save</button>
             </div>
         </div>

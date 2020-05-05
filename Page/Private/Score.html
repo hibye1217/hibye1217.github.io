@@ -18,6 +18,15 @@
         .score{
             width: 30%;
         }
+        .avg{
+            width: 25%;
+        }
+        .tot{
+            width: 25%;
+        }
+        .cnt{
+            width: 10%;
+        }
     </style>
     <script>
         function RequestFailed(){
@@ -42,12 +51,16 @@
         var Out = new Array(1020);
         var Rank = new Array(1020);
         var Team = new Array(1020);
+        var TeamAverage = new Array(1020);
+        var TeamTotal = new Array(1020);
+        var TeamMember = new Array(1020);
         var TeamName = new Array(1020);
         var TeamColor = new Array(1020);
+        var TeamRank = new Array(1020);
         TeamName[0] = "No Team"; TeamColor[0] = "#000000";
         var OutColor = "#BBBBBB";
 
-        function Sort(){
+        function Validate(){
             for (let i = 1; i <= count; i++) Rank[i] = i;
 
             for (let i = 1; i <= count; i++){
@@ -59,10 +72,32 @@
                     }
                 }
             }
+
+            for (let i = 1; i <= count; i++){
+                if (Out[i] || Team[i] == 0) continue;
+                TeamTotal[ Team[i] ] += Score[i];
+                TeamMember[ Team[i] ] += 1;
+            }
+
+            for (let i = 1; i <= teamCount; i++){
+                if (TeamMember[i] == 0) TeamAverage[i] = 0;
+                else TeamAverage[i] = TeamTotal[i] / TeamMember[i];
+                TeamRank[i] = i;
+            }
+
+            for (let i = 1; i <= teamCount; i++){
+                for (let j = 1; j <= teamCount-i; j++){
+                    if (TeamAverage[ TeamRank[j] ] < TeamAverage[ TeamRank[j+1] ]){
+                        var tmp = TeamRank[j];
+                        TeamRank[j] = TeamRank[j+1];
+                        TeamRank[j+1] = tmp;
+                    }
+                }
+            }
         }
 
         function Print(){
-            Sort();
+            Validate();
 
             var scoreboard = document.getElementById('scoreboard');
             while (scoreboard.childElementCount != 0) scoreboard.removeChild(scoreboard.childNodes[0]);
@@ -103,11 +138,56 @@
 
                 scoreboard.appendChild(tr);
             }
+
+            scoreboard = document.getElementById('tscoreboard');
+            while (scoreboard.childElementCount != 0) scoreboard.removeChild(scoreboard.childNodes[0]);
+            for (let j = 1; j <= teamCount; j++){
+                var tr = document.createElement('tr');
+                var rank, team, avg, tot, cnt;
+                let i = TeamRank[j];
+                var textColor = TeamColor[i];
+
+                rank = document.createElement('td');
+                rank.className = "rank";
+                rank.innerHTML = j;
+                if (j%10 == 1 && j%100 != 11) rank.innerHTML += "st";
+                else if (j%10 == 2 && j%100 != 12) rank.innerHTML += "nd";
+                else if (j%10 == 3 && j%100 != 13) rank.innerHTML += "rd";
+                else rank.innerHTML += "th";
+                rank.style.color = textColor;
+                tr.appendChild(rank);
+
+                team = document.createElement('td');
+                team.className = "team";
+                team.innerHTML = TeamName[i];
+                team.style.color = textColor;
+                tr.appendChild(team);
+
+                avg = document.createElement('td');
+                avg.className = "team";
+                avg.innerHTML = TeamAverage[i].toFixed(3);
+                avg.style.color = textColor;
+                tr.appendChild(avg);
+
+                tot = document.createElement('td');
+                tot.className = "tot";
+                tot.innerHTML = TeamTotal[i];
+                tot.style.color = textColor;
+                tr.appendChild(tot);
+
+                cnt = document.createElement('td');
+                cnt.className = "cnt";
+                cnt.innerHTML = TeamMember[i];
+                cnt.style.color = textColor;
+                tr.appendChild(cnt);
+
+                scoreboard.appendChild(tr);
+            }
         }
 
         function AddPlayer(){
             var input = prompt("Name?");
-            if (input == null || input.length == 0){
+            if (input == null || input.length == 0 || input.indexOf('.') != -1){
                 RequestFailed();
                 return;
             }
@@ -168,6 +248,29 @@
             Print();
         }
 
+        function AddTeam(){
+            var input = prompt("Name?");
+            if (input == null || input.length == 0){
+                RequestFailed();
+                return;
+            }
+            for (let i = 1; i <= teamCount; i++){
+                if (TeamName[i] == input){
+                    RequestFailed();
+                    return;
+                }
+            }
+
+            teamCount += 1;
+            TeamName[teamCount] = input;
+            TeamColor[teamCount] = "#000000";
+            TeamAverage[teamCount] = 0;
+            TeamTotal[teamCount] = 0;
+            TeamMember[teamCount] = 0;
+
+            Print();
+        }
+
         function AddScore(){
             var idx = FindName();
             if (idx == -1){
@@ -193,6 +296,9 @@
             for (let i = 1; i <= teamCount; i++){
                 string += "  TeamName[" + i + "] = \"" + TeamName[i] + "\";\n";
                 string += "  TeamColor[" + i + "] = \"" + TeamColor[i] + "\";\n";
+                string += "  TeamAverage[" + i + "] = " + TeamAverage[i] + ";\n";
+                string += "  TeamTotal[" + i + "] = " + TeamTotal[i] + ";\n";
+                string += "  TeamMember[" + i + "] = " + TeamMember[i] + ";\n";
             }
 
             string += "  count = " + count + ";\n";
@@ -221,7 +327,7 @@
     <section id="body">
         <div id="body-flex" style="width: 100%">
             <div id="result">
-                <h2>Scoreboard</h2>
+                <h2>Scoreboard (Individual)</h2>
                 <table style="width:90%;position:relative;left:5%">
                     <thead>
                         <tr>
@@ -236,11 +342,30 @@
                     </tbody>
                 </table>
             </div>
+            <div id="resultTeam">
+                <h2>Scoreboard (Team) : </h2>
+                <table style="width:90%;position:relative;left:5%">
+                    <thead>
+                        <tr>
+                            <th class="rank">Rank</th>
+                            <th class="name">Team Name</th>
+                            <th class="avg">Average Score</th>
+                            <th class="tot">Total Score</th>
+                            <th class="cnt">Members</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tscoreboard">
+
+                    </tbody>
+                </table>
+            </div>
             <div id="input">
+                <h2>What you can do : </h2>
                 <button onclick="AddPlayer()">Add Player</button>
                 <button onclick="EliminatePlayer()">Eliminate Player</button>
                 <button onclick="RejoinPlayer()">Rejoin Player</button>
                 <button onclick="ErasePlayer()">Erase Player</button>
+                <button onclick="AddTeam()">Add Team</button>
                 <button onclick="AddScore()">Add Score</button>
                 <button onclick="Save()" title="F12">Save</button>
             </div>

@@ -5,7 +5,7 @@ hibye1217 with some abnormal Projects.
 <https://hibye1217.github.io/Page/Main.html>
 
 ## Projects
-- Math : Math with Jax (MathJax / MJ)
+- Math : Math with Jax (MJ)
   - Leonld94' Fibonacci Function (LFF)
   - Special Function - Logic (SFL)
   - Friend's Question 1 (FQ1)
@@ -25,7 +25,7 @@ hibye1217 with some abnormal Projects.
 4. **Special Function / SF (PP)**
 5. **Tic Tac Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
-7. *Scoreboard / SB (PP)*
+7. Scoreboard / SB (PP)
 8. **Friend's Question 1 / FQ1 (MJ)**
 
 ## TODO

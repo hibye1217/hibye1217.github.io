@@ -28,7 +28,8 @@ hibye1217 with some abnormal Projects.
 5. **Tic Tac Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 7. Scoreboard / SB (PP)
-8. **Qurt and Cbrt / SC (MJ)**
+8. **Sqrt and Cbrt / SC (MJ)**
+9. *Words Make Word*
 
 ## TODO
 - 18789
@@ -41,4 +42,3 @@ hibye1217 with some abnormal Projects.
   - Change Team's Color
 - New Project/Folder
   - Project : Ghudegy Sentence (GS) at WP
-  - Project : Words Make Word (WMW) at WP

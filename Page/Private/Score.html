@@ -45,6 +45,18 @@
             return idx;
         }
 
+        function FindTeamName(){
+            var input = prompt("Name?");
+            if (input == null || input.length == 0){
+                return -1;
+            }
+            var idx = -1;
+            for (let i = 1; i <= teamCount; i++){
+                if (input == TeamName[i]) idx = i;
+            }
+            return idx;
+        }
+
         var count = 0, teamCount = 0;
         var Name = new Array(1020);
         var Score = new Array(1020);
@@ -218,6 +230,7 @@
                 Name[i] = Name[i+1];
                 Team[i] = Team[i+1];
                 Score[i] = Score[i+1];
+                Out[i] = Out[i+1];
             }
             count -= 1;
 
@@ -267,6 +280,25 @@
             TeamAverage[teamCount] = 0;
             TeamTotal[teamCount] = 0;
             TeamMember[teamCount] = 0;
+
+            Print();
+        }
+
+        function EraseTeam(){
+            var idx = FindTeamName();
+            if (idx == -1){
+                RequestFailed();
+                return;
+            }
+
+            for (let i = idx; i < teamCount; i++){
+                TeamName[i] = TeamName[i+1];
+                TeamColor[i] = TeamColor[i+1];
+                TeamAverage[i] = TeamAverage[i+1];
+                TeamTotal[i] = TeamTotal[i+1];
+                TeamMember[i] = TeamMember[i+1];
+            }
+            teamCount -= 1;
 
             Print();
         }
@@ -366,6 +398,7 @@
                 <button onclick="RejoinPlayer()">Rejoin Player</button>
                 <button onclick="ErasePlayer()">Erase Player</button>
                 <button onclick="AddTeam()">Add Team</button>
+                <button onclick="EraseTeam()">Erase Team</button>
                 <button onclick="AddScore()">Add Score</button>
                 <button onclick="Save()" title="F12">Save</button>
             </div>

@@ -51,4 +51,4 @@ hibye1217 with some abnormal Projects.
   - Friend's Question (FQ) to New Project Folder.
   - Make New Project : Ghudegy Sentence (PP/WP - GS)
     - Inspired: <https://www.acmicpc.net/problem/18822>
-  - Make New Project : Word Makes Word (WMW)
+  - Make New Project : Words Makes Word (WMW)

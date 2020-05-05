@@ -13,6 +13,7 @@ hibye1217 with some abnormal Projects.
 - Private Project (PP)
   - Word Play (WP)
     - Chemical Sentence (CS)
+    - Words Make Word (WMW)
   - 18789
   - Special Function (SF)
   - Scoreborad (SB)
@@ -23,13 +24,13 @@ hibye1217 with some abnormal Projects.
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
 2. **18789 (PP)**
-3. **Chemical Sentence / CS (PP)**
+3. **Chemical Sentence / CS (WP)**
 4. **Special Function / SF (PP)**
 5. **Tic Tac Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 7. Scoreboard / SB (PP)
-8. **Sqrt and Cbrt / SC (MJ)**
-9. *Words Make Word*
+8. **Sqrt and Cbrt / SC (FAQ)**
+9. *Words Make Word / WMW (WP)*
 
 ## TODO
 - 18789

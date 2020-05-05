@@ -13,7 +13,7 @@ hibye1217 with some abnormal Projects.
 - Private Project (PP)
   - Word Play (WP)
     - Chemical Sentence (CS)
-  - 18789 (BOJ)
+  - 18789
   - Special Function (SF)
   - Scoreborad (SB)
 - Existed Games (EG)
@@ -22,13 +22,13 @@ hibye1217 with some abnormal Projects.
 ### Project History
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
-2. **18789 / BOJ (PP)**
+2. **18789 (PP)**
 3. **Chemical Sentence / CS (PP)**
 4. **Special Function / SF (PP)**
 5. **Tic Tac Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 7. Scoreboard / SB (PP)
-8. **Friend's Question 1 / FQ1 (MJ)**
+8. **Qurt and Cbrt / SC (MJ)**
 
 ## TODO
 - 18789

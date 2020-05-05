@@ -29,26 +29,23 @@ hibye1217 with some abnormal Projects.
 8. **Friend's Question 1 / FQ1 (MJ)**
 
 ## TODO
-
-### 18789
-- Auto Evolve
-- Graph
-
-### SF
-- Fix Overflow
-  - I'm gonna use Python, but I don't know how to.
-
-### SB
-- Erase Team
-- Change Team's Color
-- Add Member to Team
-
-### Other
-- I will...
-  - Make New Project Folder : Word Play (WP)
-    - Probably CS would be moved to here.
-- Probably...
-  - Friend's Question (FQ) to New Project Folder.
-  - Make New Project : Ghudegy Sentence (PP/WP - GS)
-    - Inspired: <https://www.acmicpc.net/problem/18822>
-  - Make New Project : Words Makes Word (WMW)
+- 18789
+  - Make Auto Evolve
+  - Make a Graph
+- Special Funtion
+  - Fix Overflow
+- Scoreboard
+  - Add Member to Team
+  - Change Team's Color
+- New Project/Folder
+  - Folder : Friend's Abnormal Question (FAQ) at MJ
+  - Folder : Word Play (WP) at PP
+  - Project : Ghudegy Sentence (GS) at WP
+  - Project : Words Make Word (WMW) at WP
+- Move Project/Folder
+  - Project : CS to WP
+  - Project : FQ1 to FAQ
+- Change Project/Folder's Name
+  - Project : FQ1 to Sqrt and Cbrt (SAC)
+- Design
+  - Access All Folder/Project at Main

@@ -6,7 +6,7 @@ hibye1217 with some abnormal Projects.
 
 ## Projects
 - Math : Math with Jax (MathJax / MJ)
-  - Leonld94' FIbonacci Function (LFF)
+  - Leonld94' Fibonacci Function (LFF)
   - Special Function - Logic (SFL)
   - Friend's Question 1 (FQ1)
 - Private : Private Project (PP)
@@ -23,7 +23,7 @@ hibye1217 with some abnormal Projects.
 2. **18789 (PP)**
 3. **Chemical Sentence / CS (PP)**
 4. **Special Function / SF (PP)**
-5. **Tic-Tac-Toe / TTT (EG)**
+5. **Tic Tac Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 7. *Scoreboard / SB (PP)*
 8. **Friend's Question 1 / FQ1 (MJ)**
@@ -48,4 +48,4 @@ hibye1217 with some abnormal Projects.
 - Change Project/Folder's Name
   - Project : FQ1 to Sqrt and Cbrt (SAC)
 - Design
-  - Access All Folder/Project at Main
+  - *Access All Folder/Project at Main*

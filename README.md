@@ -28,9 +28,8 @@ hibye1217 with some abnormal Projects.
 4. **Special Function / SF (PP)**
 5. **Tic Tac Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
-7. Scoreboard / SB (PP)
+7. *Scoreboard / SB (PP)*
 8. **Sqrt and Cbrt / SC (FAQ)**
-9. *Words Make Word / WMW (WP)*
 
 ## TODO
 - 18789
@@ -39,7 +38,8 @@ hibye1217 with some abnormal Projects.
 - Special Funtion
   - Fix Overflow
 - Scoreboard
-  - Add Member to Team
+  - *Add Member to Team*
   - Change Team's Color
 - New Project/Folder
   - Project : Ghudegy Sentence (GS) at WP
+  - Project : Words Make Word (WMW) at WP

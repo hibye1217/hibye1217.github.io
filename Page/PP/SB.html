@@ -67,6 +67,30 @@
             Print();
         }
 
+        var ChangeColor = function(){
+            var par = this.parentElement.firstChild.innerHTML;
+            var rnk = parseInt(par.substring(0, par.length - 2));
+            var idx = TeamRank[rnk];
+            var str = prompt("Enter : #(HexCode)");
+            if (str == null || str.length != 7 || str[0] != '#'){
+                RequestFailed();
+                return;
+            }
+            for (let i = 1; i <= 6; i++){
+                var char = str[i].charCodeAt();
+                if ('0'.charCodeAt() <= char && char <= '9'.charCodeAt());
+                else if ('A'.charCodeAt() <= char && char <= 'F'.charCodeAt());
+                else if ('a'.charCodeAt() <= char && char <= 'f'.charCodeAt());
+                else{
+                    RequestFailed();
+                    return;
+                }
+            }
+            TeamColor[idx] = str;
+
+            Print();
+        }
+
         var count = 0, teamCount = 0;
         var Name = new Array(1020);
         var Score = new Array(1020);
@@ -132,7 +156,7 @@
                 var tr = document.createElement('tr');
                 var rank, team, name, score;
                 let i = Rank[j];
-                var textColor = (Out[i] ? OutColor : TeamColor[i]);
+                var textColor = (Out[i] ? OutColor : TeamColor[ Team[i] ]);
 
                 rank = document.createElement('td');
                 rank.className = "rank";
@@ -189,6 +213,7 @@
                 team.className = "team";
                 team.innerHTML = TeamName[i];
                 team.style.color = textColor;
+                team.onclick = ChangeColor;
                 tr.appendChild(team);
 
                 avg = document.createElement('td');

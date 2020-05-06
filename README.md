@@ -38,7 +38,6 @@ hibye1217 with some abnormal Projects.
 - Special Funtion
   - Fix Overflow
 - Scoreboard
-  - *Add Member to Team*
   - Change Team's Color
 - New Project/Folder
   - Project : Ghudegy Sentence (GS) at WP

@@ -57,6 +57,16 @@
             return idx;
         }
 
+        var ChangeTeam = function(){
+            var par = this.parentElement.firstChild.innerHTML;
+            var rnk = parseInt(par.substring(0, par.length - 2));
+            var idx = Rank[rnk];
+            Team[idx] += 1;
+            if (Team[idx] > teamCount) Team[idx] = 0;
+
+            Print();
+        }
+
         var count = 0, teamCount = 0;
         var Name = new Array(1020);
         var Score = new Array(1020);
@@ -83,6 +93,11 @@
                         Rank[j+1] = tmp;
                     }
                 }
+            }
+
+            for (let i = 0; i <= teamCount; i++){
+                TeamTotal[i] = 0;
+                TeamMember[i] = 0;
             }
 
             for (let i = 1; i <= count; i++){
@@ -133,6 +148,7 @@
                 team.className = "team";
                 if (!Out[i]) team.innerHTML = TeamName[ Team[i] ];
                 else team.innerHTML = "ELIMINATED";
+                if (!Out[i]) team.onclick = ChangeTeam;
                 team.style.color = textColor;
                 tr.appendChild(team);
 
@@ -289,6 +305,10 @@
             if (idx == -1){
                 RequestFailed();
                 return;
+            }
+
+            for (let i = 1; i <= count; i++){
+                if (Team[i] == idx) Team[i] = 0;
             }
 
             for (let i = idx; i < teamCount; i++){

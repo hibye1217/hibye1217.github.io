@@ -13,7 +13,6 @@ hibye1217 with some abnormal Projects.
 - Private Project (PP)
   - Word Play (WP)
     - Chemical Sentence (CS)
-    - Words Make Word (WMW)
   - 18789
   - Special Function (SF)
   - Scoreborad (SB)

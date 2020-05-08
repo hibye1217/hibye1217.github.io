@@ -31,6 +31,12 @@ hibye1217 with some abnormal Projects.
 8. **Sqrt and Cbrt / SC (FAQ)**
 
 ## TODO
+
+### I must do this ASAP!
+- Main
+  - Change Design of Main Page
+
+### I will do this someday...
 - 18789
   - Make Auto Evolve
   - Make a Graph
@@ -39,3 +45,4 @@ hibye1217 with some abnormal Projects.
 - New Project/Folder
   - Project : Ghudegy Sentence (GS) at WP
   - Project : Words Make Word (WMW) at WP
+  - Project : Omok at EG

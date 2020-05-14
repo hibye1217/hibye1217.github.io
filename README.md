@@ -1,5 +1,5 @@
 # hibye1217.github.io
-hibye1217 with some abnormal Projects.
+Trying to do something FUN for me.
 
 ## Main Page
 <https://hibye1217.github.io/Page/Main.html>
@@ -8,6 +8,7 @@ hibye1217 with some abnormal Projects.
 - Math with Jax (MJ)
   - Friend's Abnormal Questions (FAQ)
     - Sqrt and Cbrt (SC)
+    - Factor of Prime (FP)
   - leonld94' Fibonacci Function (LFF)
   - Special Function - Logic (SFL)
 - Private Project (PP)
@@ -29,15 +30,17 @@ hibye1217 with some abnormal Projects.
 6. **Special Function - Logic / SFL (MJ)**
 7. **Scoreboard / SB (PP)**
 8. **Sqrt and Cbrt / SC (FAQ)**
+9. **Factor of Prime / FP (FAQ)**
 
 ## TODO
 
 ### I must do this ASAP!
 - Main
   - Change Design of Main Page
-  - Access Denied must not Download ReadMe.md;
 
 ### I will do this someday...
+- Main
+  - Access Denied send to README.md
 - 18789
   - Make Auto Evolve
   - Make a Graph

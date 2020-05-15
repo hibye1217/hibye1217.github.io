@@ -41,7 +41,7 @@ body{
 .project{
     width: 50px;
     height: 50px;
-    border: 3px double black;
+    border: 3px double white;
     color: #FFFFFF;
     background-color: #222222;
     cursor: pointer;

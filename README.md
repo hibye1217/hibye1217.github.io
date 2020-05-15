@@ -11,7 +11,7 @@ No Framework, No other languages.
     - Sqrt and Cbrt (SC)
     - Factor of Prime (FP)
   - leonld94' Fibonacci Function (LFF)
-  - Special Function - Logic (SFL)
+  - Special Function : Logic (SFL)
 - Private Project (PP)
   - Word Play (WP)
     - Chemical Sentence (CS)
@@ -37,6 +37,9 @@ No Framework, No other languages.
 ## TODO
 
 ### I must do this ASAP!
+- Main
+  - Collapse/Expand Folder's Color must be different
+  - Make Description at another tag (Not title)
 
 ### I will do this someday...
 - Main

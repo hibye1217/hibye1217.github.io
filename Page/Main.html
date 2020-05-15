@@ -7,7 +7,7 @@
     <title>Hello, world!</title>
     <script type="text/javascript" src="../Script/Main.js"></script>
     <script>
-        var arr, pos, len, cnt = 0, num = 9, R = 100;
+        var arr, pos, hide, len, cnt = 0, num = 9, R = 100;
         var parent;
         init();
         
@@ -32,8 +32,20 @@
                     + 'left: ' + x + 'px;';
         }
 
+        function noShow(now){
+            hide[now] = true;
+            if (arr[now].down != 0) noShow(arr[now].down);
+            if (arr[now].right != 0) noShow(arr[now].right);
+        }
+
+        function show(now){
+            hide[now] = false;
+            if (arr[now].right != 0) show(arr[now].right);
+        }
+
         function drawProject(){
             parent = document.getElementById('projects');
+            parent.innerHTML = "";
             findPos(1, 0);
             drawLine(1, 0);
             drawRect();
@@ -41,14 +53,26 @@
 
         function drawRect(){
             for (let i = 1; i <= len; i++){
+                if (hide[i]) continue;
                 let div = document.createElement('div');
                 div.innerHTML = arr[i].symb;
                 if (arr[i].down == 0) div.className = "project";
                 else div.className = "folder";
                 let x = pos[i].x-28, y = pos[i].y-28;
                 div.setAttribute('style', rectStyle(x,y));
-                if (arr[i].down == 0) div.onclick = function(t){ location.href = arr[i].link }
-                div.title = arr[i].name + " - " + arr[i].desc;
+                if (arr[i].down == 0){
+                    div.onclick = function(t){
+                        location.href = arr[i].link;
+                    }
+                }
+                else{
+                    div.onclick = function(t){
+                        if (hide[arr[i].down]) show(arr[i].down);
+                        else noShow(arr[i].down);
+                        drawProject();
+                    }
+                }
+                div.title = arr[i].name + " | " + arr[i].desc;
                 parent.appendChild(div);
             }
         }
@@ -57,6 +81,7 @@
             if (arr[now].down != 0) drawLine(arr[now].down, now);
             if (arr[now].right != 0) drawLine(arr[now].right, par);
             if (par != 0){
+                if (hide[now] || hide[par]) return;
                 let ax = pos[now].x, ay = pos[now].y;
                 let bx = pos[par].x, by = pos[par].y;
                 let dx = ax-bx, dy = ay-by;

@@ -50,7 +50,7 @@ function init(){
             }
             arr[9] = {
                 symb: "SFL",
-                name: "Special Function - Logic",
+                name: "Special Function : Logic",
                 desc: "Special Function의 로직을 설명함.",
                 down: 0,
                 right: 0,
@@ -122,5 +122,9 @@ function init(){
             }
     len = 15;
     pos = new Array(16);
-    for (let i = 1; i <= len; i++) pos[i] = {x: 0, y: 0};
+    hide = new Array(16);
+    for (let i = 1; i <= len; i++){
+        pos[i] = {x: 0, y: 0};
+        hide[i] = (i != 1);
+    }
 }

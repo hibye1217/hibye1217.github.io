@@ -20,6 +20,8 @@ No Framework, No other languages.
   - Scoreborad (SB)
 - Existed Games (EG)
   - Tic Tac Toe (TTT)
+- Programming Talking (PT)
+  - leonld94's Recursive Multiplication (LRM)
 
 ### Project History
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
@@ -33,6 +35,7 @@ No Framework, No other languages.
 8. **Sqrt and Cbrt / SC (FQ)**
 9. ~~Words Make Word / WMW (WP)~~
 10. **Factor of Prime / FP (FQ)**
+11. *leonld94's Recursive Multiplication / LRM (PT)*
 
 ## TODO
 
@@ -40,6 +43,10 @@ No Framework, No other languages.
 - Main
   - Collapse/Expand Folder's Color must be different
   - Make Description at another tag (Not title)
+
+### Requested
+- New Project
+  - Ultimate Tic Tac Toe (UDT) at EG
 
 ### I will do this someday...
 - Main
@@ -51,8 +58,7 @@ No Framework, No other languages.
   - Fix Overflow
 - History
   - Save Project's History
-- New Project/Folder
-  - Project : Ghudegy Sentence (GS) at WP
-  - Project : Words Make Word (WMW) at WP
-  - Project : Omok at EG
-  - Folder : Programming Talking (PT) at HP
+- New Project
+  - Ghudegy Sentence (GS) at WP
+  - Words Make Word (WMW) at WP
+  - Omok at EG

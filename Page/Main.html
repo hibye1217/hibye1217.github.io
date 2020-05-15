@@ -7,9 +7,10 @@
     <title>Hello, world!</title>
     <script type="text/javascript" src="../Script/Main.js"></script>
     <script>
-        var arr, pos, hide, len, cnt = 0, num = 9, R = 100;
+        var arr, pos, hide, len, cnt = 0, num = 10, R = 120;
         var parent;
         init();
+        findPos(1, 0);
         
         let rectStyle = function(x,y){
             return    'position: absolute;'
@@ -46,7 +47,6 @@
         function drawProject(){
             parent = document.getElementById('projects');
             parent.innerHTML = "";
-            findPos(1, 0);
             drawLine(1, 0);
             drawRect();
         }

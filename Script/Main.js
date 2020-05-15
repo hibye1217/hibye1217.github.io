@@ -1,5 +1,5 @@
 function init(){
-    arr = new Array(16);
+    arr = new Array(32);
     arr[1] = {
         symb: "HP",
         name: "hibye1217's Projects",
@@ -109,7 +109,7 @@ function init(){
             name: "Existed Game",
             desc: "이미 있는 거지만 저퀄리티로 다시 만들었어요!",
             down: 8,
-            right: 0,
+            right: 16,
             link: "NULL"
         }
             arr[8] = {
@@ -120,9 +120,25 @@ function init(){
                 right: 0,
                 link: "./EG/TTT.html"
             }
-    len = 15;
-    pos = new Array(16);
-    hide = new Array(16);
+        arr[16] = {
+            symb: "PT",
+            name: "Programming Talking",
+            desc: "프로그래밍으로 대화하자!",
+            down: 17,
+            right: 0,
+            link: "NULL"
+        }
+            arr[17] = {
+                symb: "LRM",
+                name: "leonld94's Recursive Multiplication",
+                desc: "leonld94님의 구구단 재귀함수 설명해줄게!",
+                down: 0,
+                right: 0,
+                link: "./PT/LRM.html"
+            }
+    len = 17;
+    pos = new Array(32);
+    hide = new Array(32);
     for (let i = 1; i <= len; i++){
         pos[i] = {x: 0, y: 0};
         hide[i] = (i != 1);

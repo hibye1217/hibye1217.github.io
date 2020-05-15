@@ -22,40 +22,37 @@ body{
     height: 10px;
 }
 
-#projects{
-    width: 90%;
-    padding: 5px;
+.folder{
+    width: 50px;
+    height: 50px;
+    border: 3px double black;
     background-color: #DDDDDD;
-    border: 1px solid black;
-    text-align: center;
+    cursor: pointer;
+}
+
+.folder:hover{
+    background-color: #BBBBBB;
+}
+
+.folder:active{
+    background-color: #999999;
 }
 
 .project{
-    width: 100% - 10px;
-    padding: 5px;
-    background-color: #DDDDDD;
-    color: #000000;
-    border: 1px solid black;
-    text-align: center;
+    width: 50px;
+    height: 50px;
+    border: 3px double black;
+    color: #FFFFFF;
+    background-color: #222222;
     cursor: pointer;
 }
 
 .project:hover{
     background-color: #333333;
-    color: #FFFFFF;
 }
 
 .project:active{
-    background-color: #000000;
-}
-
-.project_name{
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.project_desc{
-    font-size: 16px;
+    background-color: #555555;
 }
 
 #body{

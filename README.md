@@ -1,12 +1,13 @@
 # hibye1217.github.io
-Trying to do something FUN for me.
+Trying to make something with pure JavaScript.  
+No Framework, No other languages.
 
 ## Main Page
 <https://hibye1217.github.io/Page/Main.html>
 
-## Projects
+## Hibye1217's Project (HP)
 - Math with Jax (MJ)
-  - Friend's Abnormal Questions (FAQ)
+  - Friend's Questions (FQ)
     - Sqrt and Cbrt (SC)
     - Factor of Prime (FP)
   - leonld94' Fibonacci Function (LFF)
@@ -29,24 +30,26 @@ Trying to do something FUN for me.
 5. **Tic Tac Toe / TTT (EG)**
 6. **Special Function - Logic / SFL (MJ)**
 7. **Scoreboard / SB (PP)**
-8. **Sqrt and Cbrt / SC (FAQ)**
-9. **Factor of Prime / FP (FAQ)**
+8. **Sqrt and Cbrt / SC (FQ)**
+9. ~~Words Make Word / WMW (WP)~~
+10. **Factor of Prime / FP (FQ)**
 
 ## TODO
 
 ### I must do this ASAP!
-- Main
-  - Change Design of Main Page
 
 ### I will do this someday...
 - Main
-  - Access Denied send to README.md
+  - ???? will send to Project History
 - 18789
   - Make Auto Evolve
   - Make a Graph
 - Special Funtion
   - Fix Overflow
+- History
+  - Save Project's History
 - New Project/Folder
   - Project : Ghudegy Sentence (GS) at WP
   - Project : Words Make Word (WMW) at WP
   - Project : Omok at EG
+  - Folder : Programming Talking (PT) at HP

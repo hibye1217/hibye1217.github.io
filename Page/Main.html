@@ -1,103 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html style="height:100%">
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/Main.css">
     <title>Hello, world!</title>
+    <script type="text/javascript" src="../Script/Main.js"></script>
+    <script>
+        var arr, pos, len, cnt = 0, num = 9, R = 100;
+        var parent;
+        init();
+        
+        let rectStyle = function(x,y){
+            return    'position: absolute;'
+                    + 'top: ' + y + 'px;'
+                    + 'left: ' + x + 'px;'
+                    + 'border: 3px double black;'
+                    + 'display: flex;'
+                    + 'justify-content: center;'
+                    + 'align-items: center;';
+        }
+        let lineStyle = function(dis,ang,x,y){
+            return    'background-color: #000000;'
+                    + 'width: ' + dis + 'px;'
+                    + 'height: 1px;'
+                    + '-moz-transform: rotate(' + ang + 'rad);'
+                    + '-webkit-transform: rotate(' + ang + 'rad);'
+                    + '-o-transform: rotate(' + ang + 'rad);'  
+                    + '-ms-transform: rotate(' + ang + 'rad);'  
+                    + 'position: absolute;'
+                    + 'top: ' + y + 'px;'
+                    + 'left: ' + x + 'px;';
+        }
+
+        function drawProject(){
+            parent = document.getElementById('projects');
+            findPos(1, 0);
+            drawLine(1, 0);
+            drawRect();
+        }
+
+        function drawRect(){
+            for (let i = 1; i <= len; i++){
+                let div = document.createElement('div');
+                div.innerHTML = arr[i].symb;
+                if (arr[i].down == 0) div.className = "project";
+                else div.className = "folder";
+                let x = pos[i].x, y = pos[i].y;
+                div.setAttribute('style', rectStyle(x,y));
+                if (arr[i].down == 0) div.onclick = function(t){ location.href = arr[i].link }
+                div.title = arr[i].name + " - " + arr[i].desc;
+                parent.appendChild(div);
+            }
+        }
+
+        function drawLine(now, par){
+            if (arr[now].down != 0) drawLine(arr[now].down, now);
+            if (arr[now].right != 0) drawLine(arr[now].right, par);
+            if (par != 0){
+                let ax = pos[now].x+25, ay = pos[now].y+25;
+                let bx = pos[par].x+25, by = pos[par].y+25;
+                let dx = ax-bx, dy = ay-by;
+                let dis = Math.sqrt(dx*dx + dy*dy);
+                let sx = (ax+bx)/2, sy = (ay+by)/2;
+                let x = sx - dis/2, y = sy;
+                let ang = Math.PI - Math.atan2(-dy, dx);
+                let div = document.createElement('div');
+                div.setAttribute('style', lineStyle(dis,ang,x,y));
+                parent.appendChild(div);
+            }
+        }
+
+        function findPos(now, depth){
+            let lst = cnt+1;
+            if (arr[now].down != 0) findPos(arr[now].down, depth+1);
+            else cnt += 1;
+            let ctn = cnt;
+            if (arr[now].right != 0) findPos(arr[now].right, depth);
+            // [lst, cnt]
+            let count = ctn-lst+1;
+            let avg = (lst+ctn)/2-1;
+            console.log(now, ctn, lst, avg);
+            let angle = 2*Math.PI*avg / num;
+            pos[now] = {x: (Math.sin(angle)*R*depth - 25), y: -(Math.cos(angle)*R*depth - 25)};
+        }
+    </script>
 </head>
-<body>
+<body onload="drawProject()" style="height:100%">
     <header>
         <div id="title" onclick="location.href='./Main.html'">
             <div id="title_text">Select the Project!</div>
         </div>
     </header>
-    <div style="margin:30px 0px;display:flex;justify-content:center;">
-        <div id="projects">
-            <div class="project_name">Project Count : 9</div>
-            <div class="project_desc">hibye1217님의 프로젝트 모음집입니다.</div>
-            <div class="space"></div>
-
-            <div class="project">
-                <div class="project_name">Math with Jax</div>
-                <div class="project_desc">MathJax로 설명하는 수학입니다.</div>
-                <div class="space"></div>
-
-                <div class="project">
-                    <div class="project_name">Friend's Abnormal Questions</div>
-                    <div class="project_desc">친구의 수학 질문에 답해드립니다.</div>
-                    <div class="space"></div>
-
-                    <div class="project" onclick="location.href='./MJ/FAQ/SC.html'">
-                        <div class="project_name">Sqrt and Cbrt</div>
-                        <div class="project_desc">제곱근! 세제곱근!</div>
-                    </div>
-
-                    <div class="project" onclick="location.href='./MJ/FAQ/FP.html'">
-                        <div class="project_name">Factor of Prime</div>
-                        <div class="project_desc">소수! 제곱수!</div>
-                    </div>
-                </div>
-
-                <div class="project" onclick="location.href='./MJ/LFF.html'">
-                    <div class="project_name">leonld94's Fibonacci Function</div>
-                    <div class="project_desc">친구가 만든 피보나치 함수를 설명합니다.</div>
-                </div>
-
-                <div class="project" onclick="location.href='./MJ/SFL.html'">
-                    <div class="project_name">Special Function - Logic</div>
-                    <div class="project_desc">Special Function에 사용된 논리를 설명합니다.</div>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="project_name">Private Project</div>
-                <div class="project_desc">만들고 싶어서 만든 프로젝트입니다.</div>
-                <div class="space"></div>
-
-                <div class="project">
-                    <div class="project_name">Word Play</div>
-                    <div class="project_desc">단어, 문장으로 놀아봅시다!</div>
-                    <div class="space"></div>
-
-                    <div class="project" onclick="location.href='./PP/WP/CS.html'">
-                        <div class="project_name">Chemical Sentence</div>
-                        <div class="project_desc">화학 원소로 문장을 만들어봅시다.</div>
-                    </div>
-                </div>
-
-                <div class="project" onclick="location.href='./PP/18789.html'">
-                    <div class="project_name">18789</div>
-                    <div class="project_desc">무슨 숫자일까요?</div>
-                </div>
-
-                <div class="project" onclick="location.href='./PP/SF.html'">
-                    <div class="project_name">Special Function</div>
-                    <div class="project_desc">N개의 점을 지나는 함수를 만들어봅시다.</div>
-                </div>
-
-                <div class="project" onclick="location.href='./PP/SB.html'">
-                    <div class="project_name">Scoreboard</div>
-                    <div class="project_desc">제가 필요해서 만드는 점수판입니다.</div>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="project_name">Existed Game</div>
-                <div class="project_desc">저퀄리티의 끝을 보여주는 게임들입니다.</div>
-                <div class="space"></div>
-
-                <div class="project" onclick="location.href='./EG/TTT.html'">
-                    <div class="project_name">Tic Tac Toe</div>
-                    <div class="project_desc">틱택토입니다.</div>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="project_name">--- Access Denied ---</div>
-                <div class="project_desc">관계자도 출입 금지</div>
-            </div>
-        </div>
+    <div id="projects" style="display:inline-block;width:0;height:0;position:absolute;left:50%;top:50%;">
+        
     </div>
 </body>
 </html>

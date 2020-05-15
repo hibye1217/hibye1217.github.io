@@ -45,7 +45,7 @@
                 div.innerHTML = arr[i].symb;
                 if (arr[i].down == 0) div.className = "project";
                 else div.className = "folder";
-                let x = pos[i].x, y = pos[i].y;
+                let x = pos[i].x-28, y = pos[i].y-28;
                 div.setAttribute('style', rectStyle(x,y));
                 if (arr[i].down == 0) div.onclick = function(t){ location.href = arr[i].link }
                 div.title = arr[i].name + " - " + arr[i].desc;
@@ -57,8 +57,8 @@
             if (arr[now].down != 0) drawLine(arr[now].down, now);
             if (arr[now].right != 0) drawLine(arr[now].right, par);
             if (par != 0){
-                let ax = pos[now].x+25, ay = pos[now].y+25;
-                let bx = pos[par].x+25, by = pos[par].y+25;
+                let ax = pos[now].x, ay = pos[now].y;
+                let bx = pos[par].x, by = pos[par].y;
                 let dx = ax-bx, dy = ay-by;
                 let dis = Math.sqrt(dx*dx + dy*dy);
                 let sx = (ax+bx)/2, sy = (ay+by)/2;
@@ -79,9 +79,8 @@
             // [lst, cnt]
             let count = ctn-lst+1;
             let avg = (lst+ctn)/2-1;
-            console.log(now, ctn, lst, avg);
             let angle = 2*Math.PI*avg / num;
-            pos[now] = {x: (Math.sin(angle)*R*depth - 25), y: -(Math.cos(angle)*R*depth - 25)};
+            pos[now] = {x: (Math.sin(angle)*R*depth), y: -(Math.cos(angle)*R*depth)};
         }
     </script>
 </head>

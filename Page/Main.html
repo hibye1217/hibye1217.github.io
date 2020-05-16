@@ -8,13 +8,13 @@
     <script type="text/javascript" src="../Script/Main.js"></script>
     <script>
         var arr, pos, hide, len, cnt = 0, num = 10;
-        var R=120, S=56, A=20, B=2, M=4;
+        var R=100, S=48, A=100, B=2, M=4, F=14;
         var deep = 0;
         var parent;
         init();
         findPos(1, 0);
         
-        let margStyle = function(x,y){
+        let margStyle = function(x,y,i){
             return    'position: absolute;'
                     + 'width: ' + (S+B*2+M*2) + 'px;'
                     + 'height: ' + (S+B*2+M*2) + 'px;'
@@ -35,6 +35,7 @@
                     + 'display: flex;'
                     + 'justify-content: center;'
                     + 'align-items: center;'
+                    + 'font-size: ' + F + 'px'
         }
         let lineStyle = function(dis,ang,x,y){
             return    'background-color: #000000;'
@@ -60,52 +61,9 @@
             if (arr[now].right != 0) show(arr[now].right);
         }
 
-        function DECtoHEX(x){
-            let y = "";
-            while ((x = parseInt(x)) != 0){
-                y += x%16;
-                x /= 16;
-            }
-            return y.split("").reverse().join("");
-        }
-
-        function HSVtoRGB(h, s, v){
-            let r, g, b;
-            let i = Math.floor(h * 6);
-            let f = h * 6 - i;
-            let p = v * (1 - s);
-            let q = v * (1 - f * s);
-            let t = v * (1 - (1 - f) * s);
-            switch (i % 6) {
-                case 0: r = v, g = t, b = p; break;
-                case 1: r = q, g = v, b = p; break;
-                case 2: r = p, g = v, b = t; break;
-                case 3: r = p, g = q, b = v; break;
-                case 4: r = t, g = p, b = v; break;
-                case 5: r = v, g = p, b = q; break;
-            }
-            return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + (A/100) + ')'
-        }
-
-        function drawSection(){
-            let count = 0;
-            for (let i = arr[1].down; i != 0; i = arr[i].right){
-                count += 1;
-            }
-            let ctn = 0;
-            for (let i = arr[1].down; i != 0; i = arr[i].right, ctn += 1){
-                let start = arr[i].start, end = arr[i].end;
-                let div = document.createElement('div');
-                div.style.backgroundColor = HSVtoRGB(ctn/count, 1, 1);
-                
-                parent.appendChild(div);
-            }
-        }
-
         function drawProject(){
             parent = document.getElementById('projects');
             parent.innerHTML = "";
-            drawSection();
             drawLine(1, 0);
             drawRect();
         }
@@ -117,7 +75,7 @@
                 if (arr[i].down == 0) tag.className = "project";
                 else tag.className = "folder";
                 let x = pos[i].x - (S/2 + B), y = pos[i].y - (S/2 + B);
-                tag.setAttribute('style', margStyle(x,y));
+                tag.setAttribute('style', margStyle(x,y,i));
                 tag.title = arr[i].name + " | " + arr[i].desc;
                 if (arr[i].down == 0){
                     tag.onclick = function(t){

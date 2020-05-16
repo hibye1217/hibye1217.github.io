@@ -104,7 +104,7 @@
             // [lst, cnt]
             let count = ctn-lst+1;
             let avg = (lst+ctn)/2-1;
-            let angle = 2*Math.PI*avg / num;
+            let angle = 2*Math.PI*(avg+0.5) / num;
             pos[now] = {x: (Math.sin(angle)*R*depth), y: -(Math.cos(angle)*R*depth)};
         }
     </script>

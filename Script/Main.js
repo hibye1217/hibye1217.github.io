@@ -101,14 +101,14 @@ function init(){
                     link: "./PP/WP/CS.html"
                 }
             arr[10] = {
-                symb: "18789",
+                symb: "EVS",
                 name: "18789",
                 desc: "만들어봤어요.",
                 down: 0,
                 right: 6,
                 start: 0,
                 end: 0,
-                link: "./PP/18789.html"
+                link: "./PP/EVS.html"
             }
             arr[6] = {
                 symb: "SF",

@@ -26,7 +26,7 @@ No Framework, No other languages.
 ### Project History
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
-2. **18789 (PP)**
+2. **18789 / EVS (PP)**
 3. **Chemical Sentence / CS (WP)**
 4. **Special Function / SF (PP)**
 5. **Tic Tac Toe / TTT (EG)**
@@ -35,7 +35,7 @@ No Framework, No other languages.
 8. **Sqrt and Cbrt / SC (FQ)**
 9. ~~Words Make Word / WMW (WP)~~
 10. **Factor of Prime / FP (FQ)**
-11. *leonld94's Recursive Multiplication / LRM (PT)*
+11. **leonld94's Recursive Multiplication / LRM (PT)**
 
 ## TODO
 
@@ -61,4 +61,4 @@ No Framework, No other languages.
 - New Project
   - Ghudegy Sentence (GS) at WP
   - Words Make Word (WMW) at WP
-  - Omok at EG
+  - Omok (OMK) at EG

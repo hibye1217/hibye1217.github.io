@@ -6,6 +6,8 @@ function init(){
         desc: "Project Count : 9",
         down: 2,
         right: 0,
+        start: 0,
+        end: 0,
         link: "NULL"
     }
         arr[2] = {
@@ -14,6 +16,8 @@ function init(){
             desc: "MathJax를 사용하여 Math를 설명하였음.",
             down: 13,
             right: 4,
+            start: 0,
+            end: 0,
             link: "NULL"
         }
             arr[13] = {
@@ -22,6 +26,8 @@ function init(){
                 desc: "친구의 수학적 질문에 답변하였음.",
                 down: 12,
                 right: 3,
+                start: 0,
+                end: 0,
                 link: "NULL"
             }
                 arr[12] = {
@@ -30,6 +36,8 @@ function init(){
                     desc: "제곱근, 세제곱근.",
                     down: 0,
                     right: 15,
+                    start: 0,
+                    end: 0,
                     link: "./MJ/FQ/SC.html"
                 }
                 arr[15] = {
@@ -38,6 +46,8 @@ function init(){
                     desc: "소수, 제곱수.",
                     down: 0,
                     right: 0,
+                    start: 0,
+                    end: 0,
                     link: "./MJ/FQ/FP.html"
                 }
             arr[3] = {
@@ -46,6 +56,8 @@ function init(){
                 desc: "leonld94님이 만든 피보나치 함수를 설명함.",
                 down: 0,
                 right: 9,
+                start: 0,
+                end: 0,
                 link: "./MJ/LFF.html"
             }
             arr[9] = {
@@ -54,6 +66,8 @@ function init(){
                 desc: "Special Function의 로직을 설명함.",
                 down: 0,
                 right: 0,
+                start: 0,
+                end: 0,
                 link: "./MJ/SFL.html"
             }
         arr[4] = {
@@ -62,6 +76,8 @@ function init(){
             desc: "만들고 싶어서 만들었어요.",
             down: 14,
             right: 7,
+            start: 0,
+            end: 0,
             link: "NULL"
         }
             arr[14] = {
@@ -70,6 +86,8 @@ function init(){
                 desc: "단어를 가지고 놀아봤어요.",
                 down: 5,
                 right: 10,
+                start: 0,
+                end: 0,
                 link: "NULL"
             }
                 arr[5] = {
@@ -78,6 +96,8 @@ function init(){
                     desc: "화학 원소로 문장을 만들었어요.",
                     down: 0,
                     right: 0,
+                    start: 0,
+                    end: 0,
                     link: "./PP/WP/CS.html"
                 }
             arr[10] = {
@@ -86,6 +106,8 @@ function init(){
                 desc: "만들어봤어요.",
                 down: 0,
                 right: 6,
+                start: 0,
+                end: 0,
                 link: "./PP/18789.html"
             }
             arr[6] = {
@@ -94,6 +116,8 @@ function init(){
                 desc: "N개의 점을 지나는 함수를 만들었어요.",
                 down: 0,
                 right: 11,
+                start: 0,
+                end: 0,
                 link: "./PP/SF.html"
             }
             arr[11] = {
@@ -102,6 +126,8 @@ function init(){
                 desc: "점수판이 필요해서 만들었어요.",
                 down: 0,
                 right: 0,
+                start: 0,
+                end: 0,
                 link: "./PP/SB.html"
             }
         arr[7] = {
@@ -110,6 +136,8 @@ function init(){
             desc: "이미 있는 거지만 저퀄리티로 다시 만들었어요!",
             down: 8,
             right: 16,
+            start: 0,
+            end: 0,
             link: "NULL"
         }
             arr[8] = {
@@ -118,6 +146,8 @@ function init(){
                 desc: "틱택토 만들었어요!",
                 down: 0,
                 right: 0,
+                start: 0,
+                end: 0,
                 link: "./EG/TTT.html"
             }
         arr[16] = {
@@ -126,6 +156,8 @@ function init(){
             desc: "프로그래밍으로 대화하자!",
             down: 17,
             right: 0,
+            start: 0,
+            end: 0,
             link: "NULL"
         }
             arr[17] = {
@@ -134,6 +166,8 @@ function init(){
                 desc: "leonld94님의 구구단 재귀함수 설명해줄게!",
                 down: 0,
                 right: 0,
+                start: 0,
+                end: 0,
                 link: "./PT/LRM.html"
             }
     len = 17;

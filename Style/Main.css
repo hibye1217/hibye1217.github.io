@@ -23,27 +23,23 @@ body{
 }
 
 .folder{
-    width: 50px;
-    height: 50px;
-    border: 3px double black;
-    background-color: #DDDDDD;
+    background-color: #BBBBBB;
+    border-color: #000000;
     cursor: pointer;
 }
 
 .folder:hover{
-    background-color: #BBBBBB;
-}
-
-.folder:active{
     background-color: #999999;
 }
 
+.folder:active{
+    background-color: #777777;
+}
+
 .project{
-    width: 50px;
-    height: 50px;
-    border: 3px double white;
     color: #FFFFFF;
     background-color: #222222;
+    border-color: #FFFFFF;
     cursor: pointer;
 }
 

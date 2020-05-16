@@ -7,18 +7,34 @@
     <title>Hello, world!</title>
     <script type="text/javascript" src="../Script/Main.js"></script>
     <script>
-        var arr, pos, hide, len, cnt = 0, num = 10, R = 120;
+        var arr, pos, hide, len, cnt = 0, num = 10;
+        var R=120, S=56, A=20, B=2, M=4;
+        var deep = 0;
         var parent;
         init();
         findPos(1, 0);
         
-        let rectStyle = function(x,y){
+        let margStyle = function(x,y){
             return    'position: absolute;'
-                    + 'top: ' + y + 'px;'
-                    + 'left: ' + x + 'px;'
+                    + 'width: ' + (S+B*2+M*2) + 'px;'
+                    + 'height: ' + (S+B*2+M*2) + 'px;'
+                    + 'border-radius: ' + (S+B*2+M*2) + 'px;'
+                    + 'top: ' + (y-M) + 'px;'
+                    + 'left: ' + (x-M) + 'px;'
                     + 'display: flex;'
                     + 'justify-content: center;'
-                    + 'align-items: center;';
+                    + 'align-items: center;'
+        }
+        let rectStyle = function(x,y){
+            return    'position: absolute;'
+                    + 'width: ' + S + 'px;'
+                    + 'height: ' + S + 'px;'
+                    + 'border-radius: ' + S + 'px;'
+                    + 'border-width: ' + B + 'px;'
+                    + 'border-style: dashed;'
+                    + 'display: flex;'
+                    + 'justify-content: center;'
+                    + 'align-items: center;'
         }
         let lineStyle = function(dis,ang,x,y){
             return    'background-color: #000000;'
@@ -30,7 +46,7 @@
                     + '-ms-transform: rotate(' + ang + 'rad);'  
                     + 'position: absolute;'
                     + 'top: ' + y + 'px;'
-                    + 'left: ' + x + 'px;';
+                    + 'left: ' + x + 'px;'
         }
 
         function noShow(now){
@@ -44,9 +60,52 @@
             if (arr[now].right != 0) show(arr[now].right);
         }
 
+        function DECtoHEX(x){
+            let y = "";
+            while ((x = parseInt(x)) != 0){
+                y += x%16;
+                x /= 16;
+            }
+            return y.split("").reverse().join("");
+        }
+
+        function HSVtoRGB(h, s, v){
+            let r, g, b;
+            let i = Math.floor(h * 6);
+            let f = h * 6 - i;
+            let p = v * (1 - s);
+            let q = v * (1 - f * s);
+            let t = v * (1 - (1 - f) * s);
+            switch (i % 6) {
+                case 0: r = v, g = t, b = p; break;
+                case 1: r = q, g = v, b = p; break;
+                case 2: r = p, g = v, b = t; break;
+                case 3: r = p, g = q, b = v; break;
+                case 4: r = t, g = p, b = v; break;
+                case 5: r = v, g = p, b = q; break;
+            }
+            return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + (A/100) + ')'
+        }
+
+        function drawSection(){
+            let count = 0;
+            for (let i = arr[1].down; i != 0; i = arr[i].right){
+                count += 1;
+            }
+            let ctn = 0;
+            for (let i = arr[1].down; i != 0; i = arr[i].right, ctn += 1){
+                let start = arr[i].start, end = arr[i].end;
+                let div = document.createElement('div');
+                div.style.backgroundColor = HSVtoRGB(ctn/count, 1, 1);
+                
+                parent.appendChild(div);
+            }
+        }
+
         function drawProject(){
             parent = document.getElementById('projects');
             parent.innerHTML = "";
+            drawSection();
             drawLine(1, 0);
             drawRect();
         }
@@ -54,26 +113,32 @@
         function drawRect(){
             for (let i = 1; i <= len; i++){
                 if (hide[i]) continue;
-                let div = document.createElement('div');
-                div.innerHTML = arr[i].symb;
-                if (arr[i].down == 0) div.className = "project";
-                else div.className = "folder";
-                let x = pos[i].x-28, y = pos[i].y-28;
-                div.setAttribute('style', rectStyle(x,y));
+                let tag = document.createElement('div');
+                if (arr[i].down == 0) tag.className = "project";
+                else tag.className = "folder";
+                let x = pos[i].x - (S/2 + B), y = pos[i].y - (S/2 + B);
+                tag.setAttribute('style', margStyle(x,y));
+                tag.title = arr[i].name + " | " + arr[i].desc;
                 if (arr[i].down == 0){
-                    div.onclick = function(t){
+                    tag.onclick = function(t){
                         location.href = arr[i].link;
                     }
                 }
                 else{
-                    div.onclick = function(t){
+                    tag.onclick = function(t){
                         if (hide[arr[i].down]) show(arr[i].down);
                         else noShow(arr[i].down);
                         drawProject();
                     }
                 }
-                div.title = arr[i].name + " | " + arr[i].desc;
-                parent.appendChild(div);
+
+                let div = document.createElement('div');
+                div.innerHTML = arr[i].symb;
+                x = pos[i].x - (S/2 + B), y = pos[i].y - (S/2 + B);
+                div.setAttribute('style', rectStyle(x,y));
+                tag.appendChild(div);
+
+                parent.appendChild(tag);
             }
         }
 
@@ -96,12 +161,16 @@
         }
 
         function findPos(now, depth){
+            if (depth > deep) deep = depth;
             let lst = cnt+1;
             if (arr[now].down != 0) findPos(arr[now].down, depth+1);
             else cnt += 1;
             let ctn = cnt;
             if (arr[now].right != 0) findPos(arr[now].right, depth);
             // [lst, cnt]
+            arr[now].start = lst;
+            arr[now].end = ctn;
+            console.log(now, arr[now].start, arr[now].end);
             let count = ctn-lst+1;
             let avg = (lst+ctn)/2-1;
             let angle = 2*Math.PI*(avg+0.5) / num;

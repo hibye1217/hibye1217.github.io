@@ -1,121 +1,218 @@
+function Atom(num, sym, kor, eng){
+    this.number = num;
+    this.symbol = sym;
+    this.korean = kor;
+    this.english = eng;
+}
+
+var arr = new Array(150);
+var count;
+fillArray();
+
+function Generate(){
+    var input = document.getElementById('sentence').value;
+    var len = input.length;
+    var result = validate(input);
+    document.getElementById('symbol').innerHTML = "";
+    document.getElementById('english').innerHTML = "";
+    document.getElementById('korean').innerHTML = "";
+    document.getElementById('number').innerHTML = "";
+    if (result == "-1"){
+        alert("Non-English Character Detected.");
+        return;
+    }
+    var found = find(new Array(), result, 0);
+    if (found == false) alert("Nothing Found!");
+}
+
+function find(res, str, ptr){
+    var len = str.length;
+    if (len-ptr == 0){
+        var symbol = document.getElementById('symbol');
+        var english = document.getElementById('english');
+        var korean = document.getElementById('korean');
+        var number = document.getElementById('number');
+        var l = res.length;
+        for (let i = 0; i < l; i++){
+            symbol.innerHTML += arr[ res[i] ].symbol + " ";
+            english.innerHTML += arr[ res[i] ].english + " ";
+            korean.innerHTML += arr[ res[i] ].korean + " ";
+            number.innerHTML += arr[ res[i] ].number + " ";
+        }
+        symbol.innerHTML += "<br>";
+        english.innerHTML += "<br>";
+        korean.innerHTML += "<br>";
+        number.innerHTML += "<br>";
+        return true;
+    }
+    var found = false;
+    for (let i = 1; i <= count; i++){
+        var atom = arr[i].symbol;
+        var alen = atom.length;
+
+        if (len-ptr < alen) continue;
+
+        if (alen == 1){
+            var a1 = atom.charCodeAt(0);
+            var s1 = str.charCodeAt(ptr);
+            a1 += 32;
+
+            if (a1 == s1){
+                res.push(i);
+                console.log(res, i);
+                if (find(res, str, ptr+1) == true) found = true;
+                res.pop();
+            }
+        }
+        if (alen == 2){
+            var a1 = atom.charCodeAt(0), a2 = atom.charCodeAt(1);
+            var s1 = str.charCodeAt(ptr), s2 = str.charCodeAt(ptr+1);
+            a1 += 32;
+
+            if (a1 == s1 && a2 == s2){
+                res.push(i);
+                console.log(res, i);
+                if (find(res, str, ptr+2) == true) found = true;
+                res.pop();
+            }
+        }
+    }
+    return found;
+}
+
+function validate(string){
+    var len = string.length;
+    var result = "";
+    var valid = true;
+    for (let i = 0; i < len; i++){
+        var char = string.charCodeAt(i);
+        if (65 <= char && char <= 90) char += 32;
+        if (97 <= char && char <= 122) result += String.fromCharCode(char);
+        else if (char == 32) continue;
+        else valid = false;
+    }
+    if (valid == false) return "-1";
+    else return result;
+}
+
 function fillArray(){
-    arr[1] = new Atom("1", "H", "수소", "Hydrogen");
-    arr[2] = new Atom("2", "He", "헬륨", "Helium");
-    arr[3] = new Atom("3", "Li", "리튬", "Lithium");
-    arr[4] = new Atom("4", "Be", "베릴륨", "Beryllium");
-    arr[5] = new Atom("5", "B", "붕소", "Boron");
-    arr[6] = new Atom("6", "C", "탄소", "Carbon");
-    arr[7] = new Atom("7", "N", "질소", "Nitrogen");
-    arr[8] = new Atom("8", "O", "산소", "Oxygen");
-    arr[9] = new Atom("9", "F", "플루오린", "Fluorine");
-    arr[10] = new Atom("10", "Ne", "네온", "Neon");
-    arr[11] = new Atom("11", "Na", "나트륨", "Sodium");
-    arr[12] = new Atom("12", "Mg", "마그네슘", "Magnesium");
-    arr[13] = new Atom("13", "Al", "알루미늄", "Aluminium");
-    arr[14] = new Atom("14", "Si", "규소", "Silicon");
-    arr[15] = new Atom("15", "P", "인", "Phosphorus");
-    arr[16] = new Atom("16", "S", "황", "Sulfur");
-    arr[17] = new Atom("17", "Cl", "염소", "Chlorine");
-    arr[18] = new Atom("18", "Ar", "아르곤", "Argon");
-    arr[19] = new Atom("19", "K", "칼륨", "Potassium");
-    arr[20] = new Atom("20", "Ca", "칼슘", "Calcium");
-    arr[21] = new Atom("21", "Sc", "스칸듐", "Scandium");
-    arr[22] = new Atom("22", "Ti", "티타늄", "Titanium");
-    arr[23] = new Atom("23", "V", "바나듐", "Vanadium");
-    arr[24] = new Atom("24", "Cr", "크롬", "Chromium");
-    arr[25] = new Atom("25", "Mn", "망가니즈", "Manganese");
-    arr[26] = new Atom("26", "Fe", "철", "Iron");
-    arr[27] = new Atom("27", "Co", "코발트", "Cobalt");
-    arr[28] = new Atom("28", "Ni", "니켈", "Nickel");
-    arr[29] = new Atom("29", "Cu", "구리", "Copper");
-    arr[30] = new Atom("30", "Zn", "아연", "Zinc");
-    arr[31] = new Atom("31", "Ga", "갈륨", "Gallium");
-    arr[32] = new Atom("32", "Ge", "게르마늄", "Germanium");
-    arr[33] = new Atom("33", "As", "비소", "Arsenic");
-    arr[34] = new Atom("34", "Se", "셀레늄", "Selenium");
-    arr[35] = new Atom("35", "Br", "브로민", "Bromine");
-    arr[36] = new Atom("36", "Kr", "크립톤", "Krypton");
-    arr[37] = new Atom("37", "Rb", "루비듐", "Rubidium");
-    arr[38] = new Atom("38", "Sr", "스트론튬", "Strontium");
-    arr[39] = new Atom("39", "Y", "이트륨", "Yttrium");
-    arr[40] = new Atom("40", "Zr", "지르코늄", "Zirconium");
-    arr[41] = new Atom("41", "Nb", "나이오븀", "Niobium");
-    arr[42] = new Atom("42", "Mo", "몰리브데넘", "Molybdenum");
-    arr[43] = new Atom("43", "Tc", "테크네튬", "Technetium");
-    arr[44] = new Atom("44", "Ru", "루테늄", "Ruthenium");
-    arr[45] = new Atom("45", "Rh", "로듐", "Rhodium");
-    arr[46] = new Atom("46", "Pd", "팔라듐", "Palladium");
-    arr[47] = new Atom("47", "Ag", "은", "Silver");
-    arr[48] = new Atom("48", "Cd", "카드뮴", "Cadmium");
-    arr[49] = new Atom("49", "In", "인듐", "Indium");
-    arr[50] = new Atom("50", "Sn", "주석", "Tin");
-    arr[51] = new Atom("51", "Sb", "안티모니", "Antimony");
-    arr[52] = new Atom("52", "Te", "텔루륨", "Tellurium");
-    arr[53] = new Atom("53", "I", "아이오딘", "Iodine");
-    arr[54] = new Atom("54", "Xe", "제논", "Xenon");
-    arr[55] = new Atom("55", "Cs", "세슘", "Caesium");
-    arr[56] = new Atom("56", "Ba", "바륨", "Barium");
-    arr[57] = new Atom("57", "La", "란타넘", "Lanthanum");
-    arr[58] = new Atom("58", "Ce", "세륨", "Cerium");
-    arr[59] = new Atom("59", "Pr", "프라세오디뮴", "Praseodymium");
-    arr[60] = new Atom("60", "Nd", "네오디뮴", "Neodymium");
-    arr[61] = new Atom("61", "Pm", "프로메튬", "Promethium");
-    arr[62] = new Atom("62", "Sm", "사마륨", "Samarium");
-    arr[63] = new Atom("63", "Eu", "유로퓸", "Europium");
-    arr[64] = new Atom("64", "Gd", "가돌리늄", "Gadolinium");
-    arr[65] = new Atom("65", "Tb", "터븀", "Terbium");
-    arr[66] = new Atom("66", "Dy", "디스프로슘", "Dysprosium");
-    arr[67] = new Atom("67", "Ho", "홀뮴", "Holmium");
-    arr[68] = new Atom("68", "Er", "어븀", "Erbium");
-    arr[69] = new Atom("69", "Tm", "툴륨", "Thulium");
-    arr[70] = new Atom("70", "Yb", "이터븀", "Ytterbium");
-    arr[71] = new Atom("71", "Lu", "루테튬", "Lutetium");
-    arr[72] = new Atom("72", "Hf", "하프늄", "Hafnium");
-    arr[73] = new Atom("73", "Ta", "탄탈럼", "Tantalum");
-    arr[74] = new Atom("74", "W", "텅스텐", "Tungsten");
-    arr[75] = new Atom("75", "Re", "레늄", "Rhenium");
-    arr[76] = new Atom("76", "Os", "오스뮴", "Osmium");
-    arr[77] = new Atom("77", "Ir", "이리듐", "Iridium");
-    arr[78] = new Atom("78", "Pt", "백금", "Platinum");
-    arr[79] = new Atom("79", "Au", "금", "Gold");
-    arr[80] = new Atom("80", "Hg", "수은", "Mercury");
-    arr[81] = new Atom("81", "Tl", "탈륨", "Thallium");
-    arr[82] = new Atom("82", "Pb", "납", "Lead");
-    arr[83] = new Atom("83", "Bi", "비스무트", "Bismuth");
-    arr[84] = new Atom("84", "Po", "폴로늄", "Polonium");
-    arr[85] = new Atom("85", "At", "아스타틴", "Astatine");
-    arr[86] = new Atom("86", "Rn", "라돈", "Radon");
-    arr[87] = new Atom("87", "Fr", "프랑슘", "Francium");
-    arr[88] = new Atom("88", "Ra", "라듐", "Radium");
-    arr[89] = new Atom("89", "Ac", "악티늄", "Actinium");
-    arr[90] = new Atom("90", "Th", "토륨", "Thorium");
-    arr[91] = new Atom("91", "Pa", "프로트악티늄", "Protactinium");
-    arr[92] = new Atom("92", "U", "우라늄", "Uranium");
-    arr[93] = new Atom("93", "Np", "넵투늄", "Neptunium");
-    arr[94] = new Atom("94", "Pu", "플루토늄", "Plutonium");
-    arr[95] = new Atom("95", "Am", "아메리슘", "Americium");
-    arr[96] = new Atom("96", "Cm", "퀴륨", "Curium");
-    arr[97] = new Atom("97", "Bk", "버클륨", "Berkelium");
-    arr[98] = new Atom("98", "Cf", "캘리포늄", "Californium");
-    arr[99] = new Atom("99", "Es", "아인슈타이늄", "Einsteinium");
-    arr[100] = new Atom("100", "Fm", "페르뮴", "Fermium");
-    arr[101] = new Atom("101", "Md", "멘델레븀", "Mendelevium");
-    arr[102] = new Atom("102", "No", "노벨륨", "Nobelium");
-    arr[103] = new Atom("103", "Lr", "로렌슘", "Lawrencium");
-    arr[104] = new Atom("104", "Rf", "러더포듐", "Rutherfordium");
-    arr[105] = new Atom("105", "Db", "더브늄", "Dubnium");
-    arr[106] = new Atom("106", "Sg", "시보귬", "Seaborgium");
-    arr[107] = new Atom("107", "Bh", "보륨", "Bohrium");
-    arr[108] = new Atom("108", "Hs", "하슘", "Hassium");
-    arr[109] = new Atom("109", "Mt", "마이트너륨", "Meitnerium");
-    arr[110] = new Atom("110", "Ds", "다름슈타튬", "Darmstadtium");
-    arr[111] = new Atom("111", "Rg", "뢴트게늄", "Roentgenium");
-    arr[112] = new Atom("112", "Cn", "코페르니슘", "Copernicium");
-    arr[113] = new Atom("113", "Nh", "니호늄", "Nihonium");
-    arr[114] = new Atom("114", "Fl", "플레로븀", "Flerovium");
-    arr[115] = new Atom("115", "Mc", "모스코븀", "Moscovium");
-    arr[116] = new Atom("116", "Lv", "리버모륨", "Livermorium");
-    arr[117] = new Atom("117", "Ts", "테네신", "Tennessine");
-    arr[118] = new Atom("118", "Og", "오가네손", "Oganesson");
+    arr[1] = { number: "1", symbol: "H", korean: "수소", english: "Hydrogen" };
+    arr[2] = { number: "2", symbol: "He", korean: "헬륨", english: "Helium" };
+    arr[3] = { number: "3", symbol: "Li", korean: "리튬", english: "Lithium" };
+    arr[4] = { number: "4", symbol: "Be", korean: "베릴륨", english: "Beryllium" };
+    arr[5] = { number: "5", symbol: "B", korean: "붕소", english: "Boron" };
+    arr[6] = { number: "6", symbol: "C", korean: "탄소", english: "Carbon" };
+    arr[7] = { number: "7", symbol: "N", korean: "질소", english: "Nitrogen" };
+    arr[8] = { number: "8", symbol: "O", korean: "산소", english: "Oxygen" };
+    arr[9] = { number: "9", symbol: "F", korean: "플루오린", english: "Fluorine" };
+    arr[10] = { number: "10", symbol: "Ne", korean: "네온", english: "Neon" };
+    arr[11] = { number: "11", symbol: "Na", korean: "나트륨", english: "Sodium" };
+    arr[12] = { number: "12", symbol: "Mg", korean: "마그네슘", english: "Magnesium" };
+    arr[13] = { number: "13", symbol: "Al", korean: "알루미늄", english: "Aluminium" };
+    arr[14] = { number: "14", symbol: "Si", korean: "규소", english: "Silicon" };
+    arr[15] = { number: "15", symbol: "P", korean: "인", english: "Phosphorus" };
+    arr[16] = { number: "16", symbol: "S", korean: "황", english: "Sulfur" };
+    arr[17] = { number: "17", symbol: "Cl", korean: "염소", english: "Chlorine" };
+    arr[18] = { number: "18", symbol: "Ar", korean: "아르곤", english: "Argon" };
+    arr[19] = { number: "19", symbol: "K", korean: "칼륨", english: "Potassium" };
+    arr[20] = { number: "20", symbol: "Ca", korean: "칼슘", english: "Calcium" };
+    arr[21] = { number: "21", symbol: "Sc", korean: "스칸듐", english: "Scandium" };
+    arr[22] = { number: "22", symbol: "Ti", korean: "티타늄", english: "Titanium" };
+    arr[23] = { number: "23", symbol: "V", korean: "바나듐", english: "Vanadium" };
+    arr[24] = { number: "24", symbol: "Cr", korean: "크롬", english: "Chromium" };
+    arr[25] = { number: "25", symbol: "Mn", korean: "망가니즈", english: "Manganese" };
+    arr[26] = { number: "26", symbol: "Fe", korean: "철", english: "Iron" };
+    arr[27] = { number: "27", symbol: "Co", korean: "코발트", english: "Cobalt" };
+    arr[28] = { number: "28", symbol: "Ni", korean: "니켈", english: "Nickel" };
+    arr[29] = { number: "29", symbol: "Cu", korean: "구리", english: "Copper" };
+    arr[30] = { number: "30", symbol: "Zn", korean: "아연", english: "Zinc" };
+    arr[31] = { number: "31", symbol: "Ga", korean: "갈륨", english: "Gallium" };
+    arr[32] = { number: "32", symbol: "Ge", korean: "게르마늄", english: "Germanium" };
+    arr[33] = { number: "33", symbol: "As", korean: "비소", english: "Arsenic" };
+    arr[34] = { number: "34", symbol: "Se", korean: "셀레늄", english: "Selenium" };
+    arr[35] = { number: "35", symbol: "Br", korean: "브로민", english: "Bromine" };
+    arr[36] = { number: "36", symbol: "Kr", korean: "크립톤", english: "Krypton" };
+    arr[37] = { number: "37", symbol: "Rb", korean: "루비듐", english: "Rubidium" };
+    arr[38] = { number: "38", symbol: "Sr", korean: "스트론튬", english: "Strontium" };
+    arr[39] = { number: "39", symbol: "Y", korean: "이트륨", english: "Yttrium" };
+    arr[40] = { number: "40", symbol: "Zr", korean: "지르코늄", english: "Zirconium" };
+    arr[41] = { number: "41", symbol: "Nb", korean: "나이오븀", english: "Niobium" };
+    arr[42] = { number: "42", symbol: "Mo", korean: "몰리브데넘", english: "Molybdenum" };
+    arr[43] = { number: "43", symbol: "Tc", korean: "테크네튬", english: "Technetium" };
+    arr[44] = { number: "44", symbol: "Ru", korean: "루테늄", english: "Ruthenium" };
+    arr[45] = { number: "45", symbol: "Rh", korean: "로듐", english: "Rhodium" };
+    arr[46] = { number: "46", symbol: "Pd", korean: "팔라듐", english: "Palladium" };
+    arr[47] = { number: "47", symbol: "Ag", korean: "은", english: "Silver" };
+    arr[48] = { number: "48", symbol: "Cd", korean: "카드뮴", english: "Cadmium" };
+    arr[49] = { number: "49", symbol: "In", korean: "인듐", english: "Indium" };
+    arr[50] = { number: "50", symbol: "Sn", korean: "주석", english: "Tin" };
+    arr[51] = { number: "51", symbol: "Sb", korean: "안티모니", english: "Antimony" };
+    arr[52] = { number: "52", symbol: "Te", korean: "텔루륨", english: "Tellurium" };
+    arr[53] = { number: "53", symbol: "I", korean: "아이오딘", english: "Iodine" };
+    arr[54] = { number: "54", symbol: "Xe", korean: "제논", english: "Xenon" };
+    arr[55] = { number: "55", symbol: "Cs", korean: "세슘", english: "Caesium" };
+    arr[56] = { number: "56", symbol: "Ba", korean: "바륨", english: "Barium" };
+    arr[57] = { number: "57", symbol: "La", korean: "란타넘", english: "Lanthanum" };
+    arr[58] = { number: "58", symbol: "Ce", korean: "세륨", english: "Cerium" };
+    arr[59] = { number: "59", symbol: "Pr", korean: "프라세오디뮴", english: "Praseodymium" };
+    arr[60] = { number: "60", symbol: "Nd", korean: "네오디뮴", english: "Neodymium" };
+    arr[61] = { number: "61", symbol: "Pm", korean: "프로메튬", english: "Promethium" };
+    arr[62] = { number: "62", symbol: "Sm", korean: "사마륨", english: "Samarium" };
+    arr[63] = { number: "63", symbol: "Eu", korean: "유로퓸", english: "Europium" };
+    arr[64] = { number: "64", symbol: "Gd", korean: "가돌리늄", english: "Gadolinium" };
+    arr[65] = { number: "65", symbol: "Tb", korean: "터븀", english: "Terbium" };
+    arr[66] = { number: "66", symbol: "Dy", korean: "디스프로슘", english: "Dysprosium" };
+    arr[67] = { number: "67", symbol: "Ho", korean: "홀뮴", english: "Holmium" };
+    arr[68] = { number: "68", symbol: "Er", korean: "어븀", english: "Erbium" };
+    arr[69] = { number: "69", symbol: "Tm", korean: "툴륨", english: "Thulium" };
+    arr[70] = { number: "70", symbol: "Yb", korean: "이터븀", english: "Ytterbium" };
+    arr[71] = { number: "71", symbol: "Lu", korean: "루테튬", english: "Lutetium" };
+    arr[72] = { number: "72", symbol: "Hf", korean: "하프늄", english: "Hafnium" };
+    arr[73] = { number: "73", symbol: "Ta", korean: "탄탈럼", english: "Tantalum" };
+    arr[74] = { number: "74", symbol: "W", korean: "텅스텐", english: "Tungsten" };
+    arr[75] = { number: "75", symbol: "Re", korean: "레늄", english: "Rhenium" };
+    arr[76] = { number: "76", symbol: "Os", korean: "오스뮴", english: "Osmium" };
+    arr[77] = { number: "77", symbol: "Ir", korean: "이리듐", english: "Iridium" };
+    arr[78] = { number: "78", symbol: "Pt", korean: "백금", english: "Platinum" };
+    arr[79] = { number: "79", symbol: "Au", korean: "금", english: "Gold" };
+    arr[80] = { number: "80", symbol: "Hg", korean: "수은", english: "Mercury" };
+    arr[81] = { number: "81", symbol: "Tl", korean: "탈륨", english: "Thallium" };
+    arr[82] = { number: "82", symbol: "Pb", korean: "납", english: "Lead" };
+    arr[83] = { number: "83", symbol: "Bi", korean: "비스무트", english: "Bismuth" };
+    arr[84] = { number: "84", symbol: "Po", korean: "폴로늄", english: "Polonium" };
+    arr[85] = { number: "85", symbol: "At", korean: "아스타틴", english: "Astatine" };
+    arr[86] = { number: "86", symbol: "Rn", korean: "라돈", english: "Radon" };
+    arr[87] = { number: "87", symbol: "Fr", korean: "프랑슘", english: "Francium" };
+    arr[88] = { number: "88", symbol: "Ra", korean: "라듐", english: "Radium" };
+    arr[89] = { number: "89", symbol: "Ac", korean: "악티늄", english: "Actinium" };
+    arr[90] = { number: "90", symbol: "Th", korean: "토륨", english: "Thorium" };
+    arr[91] = { number: "91", symbol: "Pa", korean: "프로트악티늄", english: "Protactinium" };
+    arr[92] = { number: "92", symbol: "U", korean: "우라늄", english: "Uranium" };
+    arr[93] = { number: "93", symbol: "Np", korean: "넵투늄", english: "Neptunium" };
+    arr[94] = { number: "94", symbol: "Pu", korean: "플루토늄", english: "Plutonium" };
+    arr[95] = { number: "95", symbol: "Am", korean: "아메리슘", english: "Americium" };
+    arr[96] = { number: "96", symbol: "Cm", korean: "퀴륨", english: "Curium" };
+    arr[97] = { number: "97", symbol: "Bk", korean: "버클륨", english: "Berkelium" };
+    arr[98] = { number: "98", symbol: "Cf", korean: "캘리포늄", english: "Californium" };
+    arr[99] = { number: "99", symbol: "Es", korean: "아인슈타이늄", english: "Einsteinium" };
+    arr[100] = { number: "100", symbol: "Fm", korean: "페르뮴", english: "Fermium" };
+    arr[101] = { number: "101", symbol: "Md", korean: "멘델레븀", english: "Mendelevium" };
+    arr[102] = { number: "102", symbol: "No", korean: "노벨륨", english: "Nobelium" };
+    arr[103] = { number: "103", symbol: "Lr", korean: "로렌슘", english: "Lawrencium" };
+    arr[104] = { number: "104", symbol: "Rf", korean: "러더포듐", english: "Rutherfordium" };
+    arr[105] = { number: "105", symbol: "Db", korean: "더브늄", english: "Dubnium" };
+    arr[106] = { number: "106", symbol: "Sg", korean: "시보귬", english: "Seaborgium" };
+    arr[107] = { number: "107", symbol: "Bh", korean: "보륨", english: "Bohrium" };
+    arr[108] = { number: "108", symbol: "Hs", korean: "하슘", english: "Hassium" };
+    arr[109] = { number: "109", symbol: "Mt", korean: "마이트너륨", english: "Meitnerium" };
+    arr[110] = { number: "110", symbol: "Ds", korean: "다름슈타튬", english: "Darmstadtium" };
+    arr[111] = { number: "111", symbol: "Rg", korean: "뢴트게늄", english: "Roentgenium" };
+    arr[112] = { number: "112", symbol: "Cn", korean: "코페르니슘", english: "Copernicium" };
+    arr[113] = { number: "113", symbol: "Nh", korean: "니호늄", english: "Nihonium" };
+    arr[114] = { number: "114", symbol: "Fl", korean: "플레로븀", english: "Flerovium" };
+    arr[115] = { number: "115", symbol: "Mc", korean: "모스코븀", english: "Moscovium" };
+    arr[116] = { number: "116", symbol: "Lv", korean: "리버모륨", english: "Livermorium" };
+    arr[117] = { number: "117", symbol: "Ts", korean: "테네신", english: "Tennessine" };
+    arr[118] = { number: "118", symbol: "Og", korean: "오가네손", english: "Oganesson" };
     count = 118;
 }

@@ -25,17 +25,17 @@ No Framework, No other languages.
 
 ### Project History
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
-1. ***leonld94's Fibonacci Function / LFF (MJ)***
-2. ***18789 / EVS (PP)***
+1. **leonld94's Fibonacci Function / LFF (MJ)**
+2. **18789 / EVS (PP)**
 3. ***Chemical Sentence / CS (WP)***
 4. ***Special Function / SF (PP)***
 5. ***Tic Tac Toe / TTT (EG)***
-6. ***Special Function - Logic / SFL (MJ)***
+6. **Special Function - Logic / SFL (MJ)**
 7. ***Scoreboard / SB (PP)***
-8. ***Sqrt and Cbrt / SC (FQ)***
+8. **Sqrt and Cbrt / SC (FQ)**
 9. ~~Words Make Word / WMW (WP)~~
-10. ***Factor of Prime / FP (FQ)***
-11. ***leonld94's Recursive Multiplication / LRM (PT)***
+10. **Factor of Prime / FP (FQ)**
+11. **leonld94's Recursive Multiplication / LRM (PT)**
 
 ## TODO
 

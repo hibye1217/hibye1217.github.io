@@ -27,8 +27,8 @@ No Framework, No other languages.
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
 2. **18789 / EVS (PP)**
-3. ***Chemical Sentence / CS (WP)***
-4. ***Special Function / SF (PP)***
+3. **Chemical Sentence / CS (WP)**
+4. **Special Function / SF (PP)**
 5. ***Tic Tac Toe / TTT (EG)***
 6. **Special Function - Logic / SFL (MJ)**
 7. ***Scoreboard / SB (PP)***

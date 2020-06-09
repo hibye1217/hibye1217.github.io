@@ -178,3 +178,7 @@ function init(){
         hide[i] = (i != 1);
     }
 }
+
+function RequestFailed(){
+    alert("Request Failed.");
+}

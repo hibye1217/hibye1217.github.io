@@ -1,33 +1,25 @@
-function Atom(num, sym, kor, eng){
-    this.number = num;
-    this.symbol = sym;
-    this.korean = kor;
-    this.english = eng;
-}
-
 var arr = new Array(150);
 var count;
 fillArray();
 
 function Generate(){
     var input = document.getElementById('sentence').value;
-    var len = input.length;
     var result = validate(input);
     document.getElementById('symbol').innerHTML = "";
     document.getElementById('english').innerHTML = "";
     document.getElementById('korean').innerHTML = "";
     document.getElementById('number').innerHTML = "";
     if (result == "-1"){
-        alert("Non-English Character Detected.");
+        RequestFailed();
         return;
     }
     var found = find(new Array(), result, 0);
-    if (found == false) alert("Nothing Found!");
+    if (found == false) RequestFailed();
 }
 
 function find(res, str, ptr){
     var len = str.length;
-    if (len-ptr == 0){
+    if (ptr == len){
         var symbol = document.getElementById('symbol');
         var english = document.getElementById('english');
         var korean = document.getElementById('korean');
@@ -59,7 +51,7 @@ function find(res, str, ptr){
 
             if (a1 == s1){
                 res.push(i);
-                console.log(res, i);
+                //console.log(res, i);
                 if (find(res, str, ptr+1) == true) found = true;
                 res.pop();
             }
@@ -71,7 +63,7 @@ function find(res, str, ptr){
 
             if (a1 == s1 && a2 == s2){
                 res.push(i);
-                console.log(res, i);
+                //console.log(res, i);
                 if (find(res, str, ptr+2) == true) found = true;
                 res.pop();
             }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/Main.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>MJ - PF</title>
+</head>
+<body>
+    <header>
+        <div id="title" onclick="location.href='../Main.html'">
+            <div id="title_text">Pascal's Fibonacci</div>
+        </div>
+    </header>
+    <section id="body">
+        <div id="body-flex">
+            <div id="header">
+                <h2>증명할 것 : </h2>
+                파스칼의 삼각형에서 오른쪽 위로 올라가는 대각선을 긋고,<br>
+                대각선이 지나는 수들을 더하면 피보나치 수가 나온다?
+            </div>
+            <div id="explain">
+                <h2>과정 : </h2>
+                <h3>1. 파스칼의 삼각형 그려보기.</h3>
+                <p>
+                    <div style="margin:0px; display:flex; justify-content:center; text-align:center">
+                        <div style="margin:0px; text-align:left;">
+                            \( 1 \)<br>
+                            \( 1 \) \( 1 \)<br>
+                            \( 1 \) \( 2 \) <span style="color: #FF0000">\( 1 \)</span><br>
+                            \( 1 \) <span style="color: #FF0000">\( 3 \)</span> \( 3 \) \( 1 \)<br>
+                            <span style="color: #FF0000">\( 1 \)</span> \( 4 \) \( 6 \) \( 4 \) \( 1 \)<br>
+                        </div>
+                    </div>
+                    파스칼의 삼각형은 이렇게 생겼습니다.<br>
+                    여기서 오른쪽 위로 올라가는 대각선을 그으면, 피보나치 수가 나오게 됩니다.<br>
+                    예를 들어, <span style="color: #FF0000">위 경우</span>는 5번째 칸에서 시작하는 오른쪽 위로 올라가는 대각선을 그은 것으로,<br>
+                    총합은 \( 5 \)입니다. (\( 5 \)번째 피보나치 수 = \( 5 \))
+                </p>
+                <h3>2. 귀류법 사용하기.</h3>
+                <p>
+                    네. 귀류법으로 이것을 증명할 것입니다.<br>
+                    (좌표가 나오는데, \( (x, y) \) 형식이고, \( x \)의 증가는 오른쪽, \( y \)의 증가는 아래쪽입니다.)<br>
+                    <br>
+                    우선 몇 가지 정의를 하죠.<br>
+                    \( l_{x} \) : 맨 왼쪽 줄을 기준으로 위에서부터 \( x \)번째 칸을 지나는 대각선<br>
+                    \( S_{x} \) : \( l_{x} \)가 지나는 수들의 합 (이 값이 피보나치 수와 같아야 함.)<br>
+                    \( F_{x} \) : \( x \)번째 피보나치 수<br>
+                    \( sum(l_{x}) \) : \( l_{x} \)가 지나는 수들의 합 (\( S_{x} \)보다 사용 가능 범위가 넓음)<br>
+                    <br>
+                    이제, 베이스를 잡아줍시다.
+                    \( l_{1} \) : 맨 위에 있는 \( (1, 1) \)만을 지나고, 총합은 \( 1 \)이 됩니다. (OK)<br>
+                    \( l_{2} \) : \( l_{1} \) 바로 밑에 있는 \( (1, 2) \)만을 지나고, 총합은 \( 1 \)이 됩니다. (OK)<br>
+                    <br>
+                    마지막으로, 귀납을 사용하여 피보나치 수가 나옴을 증명합시다.<br>
+                    만약 \( S_{k-2} \)와 \( S_{k-1} \) 둘 다 피보나치 수가 나온다면, \( S_{k} \)도 피보나치 수임을 증명하면 됩니다.<br>
+                    파스칼의 삼각형에서 각 칸의 값은 그 칸의 (위 칸 + 왼쪽 위 칸)이 됩니다.<br>
+                    여기서 \( l_{k} \)가 어떠한 칸을 지난다면, \( l_{k-1} \)은 반드시 그 위 칸을 지나게 됩니다.<br>
+                    또한 \( l_{k-1} \)이 어떠한 칸을 지난다면, \( l_{k-2} \)은 반드시 그 왼쪽 칸을 지나게 됩니다.<br>
+                    <br>
+                    \( S_{k} \)는 \( l_{k} \)가 지나는 점의 합이고,<br>
+                    \( l_{k} \)가 지나는 점의 합은 \( l_{k-1} \)와 \( l_{k-2} \)가 지나는 점의 합이므로<br>
+                    \( S_{k} = sum(l_{k}) = sum(l_{k-1} + l_{k-2}) = sum(l_{k-1}) + sum(l_{k-2}) = S_{k-1} + S_{k-2} \)가 성립합니다.<br>
+                    <br>
+                    \( S_{k} = S_{k-1} + S_{k-2} \)에서 가정상 \( S_{k-1} = F_{k-1} \), \( S_{k-2} = F_{k-2} \)이므로,<br>
+                    \( S_{k} = S_{k-1} + S_{k-2} = F_{k-1} + F_{k-2} = F_{k} \)가 됩니다. (OK)<br>
+                    <br>
+                    증명이 완료되었으므로, 대각선이 지나는 수들을 더하면 피보나치 수가 나오게 된다는 것을 알 수 있습니다.
+                </p>
+                <br>
+                \( \mathbf{Q.E.D.} \)<br>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

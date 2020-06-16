@@ -60,3 +60,17 @@ body{
 p{
     margin: 0px;
 }
+
+.remark{
+    color: #000000;
+    cursor: pointer;
+}
+
+.remark:hover{
+    color: #333333;
+    text-decoration: underline;
+}
+
+.remark:active{
+    color: #555555;
+}

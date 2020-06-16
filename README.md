@@ -3,7 +3,8 @@ Trying to make something with pure JavaScript.
 No Framework, No other languages.
 
 ## Main Page
-[MainPage](https://hibye1217.github.io/Page/Main.html)
+[Main Page](https://hibye1217.github.io/Page/Main.html)
+[RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## Hibye1217's Project (HP)
 - Math with Jax (MJ)

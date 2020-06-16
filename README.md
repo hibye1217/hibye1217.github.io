@@ -3,7 +3,7 @@ Trying to make something with pure JavaScript.
 No Framework, No other languages.
 
 ## Main Page
-<https://hibye1217.github.io/Page/Main.html>
+[MainPage](https://hibye1217.github.io/Page/Main.html)
 
 ## Hibye1217's Project (HP)
 - Math with Jax (MJ)
@@ -24,14 +24,14 @@ No Framework, No other languages.
   - leonld94's Recursive Multiplication (LRM)
 
 ### Project History
-**Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
+**Completed** / ~~Canceled~~ / *Currently Working* / ***Updating*** / Comming Soon...
 1. **leonld94's Fibonacci Function / LFF (MJ)**
 2. **18789 / EVS (PP)**
 3. **Chemical Sentence / CS (WP)**
 4. **Special Function / SF (PP)**
-5. ***Tic Tac Toe / TTT (EG)***
-6. **Special Function - Logic / SFL (MJ)**
-7. ***Scoreboard / SB (PP)***
+5. **Tic Tac Toe / TTT (EG)**
+6. **Special Function's Logic / SFL (MJ)**
+7. **Scoreboard / SB (PP)**
 8. **Sqrt and Cbrt / SC (FQ)**
 9. ~~Words Make Word / WMW (WP)~~
 10. **Factor of Prime / FP (FQ)**
@@ -40,11 +40,9 @@ No Framework, No other languages.
 ## TODO
 
 ### I must do this ASAP!
-- Projects
-  - Optimize Code
 - Main
   - Collapse/Expand Folder's Color must be different
-  - Make Description at another tag (Not title)
+  - Make Description at another tag
 
 ### Requested
 - New Project
@@ -61,6 +59,8 @@ No Framework, No other languages.
 - History
   - Save Project's History
 - New Project
+  - Pascal's Fibonacci (PF) at MJ
   - Ghudegy Sentence (GS) at WP
   - Words Make Word (WMW) at WP
   - Omok (OMK) at EG
+- Upload to Youtube (English)

@@ -62,7 +62,7 @@ function init(){
             }
             arr[9] = {
                 symb: "SFL",
-                name: "Special Function : Logic",
+                name: "Special Function's Logic",
                 desc: "Special Function의 로직을 설명함.",
                 down: 0,
                 right: 0,
@@ -177,8 +177,4 @@ function init(){
         pos[i] = {x: 0, y: 0};
         hide[i] = (i != 1);
     }
-}
-
-function RequestFailed(){
-    alert("Request Failed.");
 }

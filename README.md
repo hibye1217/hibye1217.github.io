@@ -12,7 +12,8 @@ No Framework, No other languages.
     - Sqrt and Cbrt (SC)
     - Factor of Prime (FP)
   - leonld94' Fibonacci Function (LFF)
-  - Special Function : Logic (SFL)
+  - Special Function's Logic (SFL)
+  - Pascal's Fibonacci (PF)
 - Private Project (PP)
   - Word Play (WP)
     - Chemical Sentence (CS)
@@ -37,7 +38,7 @@ No Framework, No other languages.
 9. ~~Words Make Word / WMW (WP)~~
 10. **Factor of Prime / FP (FQ)**
 11. **leonld94's Recursive Multiplication / LRM (PT)**
-12. *Pascal's Fibonacci / PF (MJ)*
+12. **Pascal's Fibonacci / PF (MJ)**
 
 ## TODO
 
@@ -52,7 +53,7 @@ No Framework, No other languages.
 
 ### I will do this someday...
 - Main
-  - ???? will send to Project History
+  - HP will send to Project History
 - 18789
   - Make Auto Evolve
   - Make a Graph
@@ -61,7 +62,6 @@ No Framework, No other languages.
 - History
   - Save Project's History
 - New Project
-  - Pascal's Fibonacci (PF) at MJ
   - Ghudegy Sentence (GS) at WP
   - Words Make Word (WMW) at WP
   - Omok (OMK) at EG

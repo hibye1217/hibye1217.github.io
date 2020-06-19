@@ -3,7 +3,7 @@ function init(){
     arr[1] = {
         symb: "HP",
         name: "hibye1217's Projects",
-        desc: "Project Count : 9",
+        desc: "Project Count : 11",
         down: 2,
         right: 0,
         start: 0,

@@ -1,9 +1,10 @@
 # hibye1217.github.io
 Trying to make something with pure JavaScript.  
-No Framework, No other languages.
+No Framework (Exception : MathJax), No other languages.
 
 ## Main Page
-[Main Page](https://hibye1217.github.io/Page/Main.html)  
+[Main Page (Korean)](https://hibye1217.github.io/Kor/Page/Main.html)  
+[Main Page (English)](https://hibye1217.github.io/Eng/Page/Main.html)
 [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## Hibye1217's Project (HP)
@@ -17,7 +18,7 @@ No Framework, No other languages.
 - Private Project (PP)
   - Word Play (WP)
     - Chemical Sentence (CS)
-  - 18789
+  - 18789 (EVS)
   - Special Function (SF)
   - Scoreborad (SB)
 - Existed Games (EG)
@@ -26,21 +27,26 @@ No Framework, No other languages.
   - leonld94's Recursive Multiplication (LRM)
 
 ### Project History
-**Completed** / ~~Canceled~~ / *Currently Working* / ***Updating*** / Comming Soon...
-1. **leonld94's Fibonacci Function / LFF (MJ)**
-2. **18789 / EVS (PP)**
-3. **Chemical Sentence / CS (WP)**
-4. **Special Function / SF (PP)**
-5. **Tic Tac Toe / TTT (EG)**
-6. **Special Function's Logic / SFL (MJ)**
-7. **Scoreboard / SB (PP)**
-8. **Sqrt and Cbrt / SC (FQ)**
+**Completed** / ~~Canceled~~ / *Currently Working* / ***Make English Version***
+1. ***leonld94's Fibonacci Function / LFF (MJ)***
+2. ***18789 / EVS (PP)***
+3. ***Chemical Sentence / CS (WP)***
+4. ***Special Function / SF (PP)***
+5. ***Tic Tac Toe / TTT (EG)***
+6. ***Special Function's Logic / SFL (MJ)***
+7. ***Scoreboard / SB (PP)***
+8. ***Sqrt and Cbrt / SC (FQ)***
 9. ~~Words Make Word / WMW (WP)~~
-10. **Factor of Prime / FP (FQ)**
-11. **leonld94's Recursive Multiplication / LRM (PT)**
-12. **Pascal's Fibonacci / PF (MJ)**
+10. ***Factor of Prime / FP (FQ)***
+11. ***leonld94's Recursive Multiplication / LRM (PT)***
+12. ***Pascal's Fibonacci / PF (MJ)***
 
 ## TODO
+
+### Currently Doing
+- Language
+  - Make English Version
+    - Upload to Youtube (English)
 
 ### I must do this ASAP!
 - Main
@@ -52,8 +58,6 @@ No Framework, No other languages.
   - Ultimate Tic Tac Toe (UDT) at EG
 
 ### I will do this someday...
-- Main
-  - HP will send to Project History
 - 18789
   - Make Auto Evolve
   - Make a Graph
@@ -65,4 +69,3 @@ No Framework, No other languages.
   - Ghudegy Sentence (GS) at WP
   - Words Make Word (WMW) at WP
   - Omok (OMK) at EG
-- Upload to Youtube (English)

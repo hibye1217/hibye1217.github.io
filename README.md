@@ -4,7 +4,7 @@ No Framework (Exception : MathJax), No other languages.
 
 ## Main Page
 [Main Page (Korean)](https://hibye1217.github.io/Kor/Page/Main.html)  
-[Main Page (English)](https://hibye1217.github.io/Eng/Page/Main.html)  
+Main Page (English) (Making) 
 [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## Hibye1217's Project (HP)
@@ -45,6 +45,8 @@ No Framework (Exception : MathJax), No other languages.
 ## TODO
 
 ### Currently Doing
+- Main
+  - Change Design
 
 ### I must do this ASAP!
 - Main

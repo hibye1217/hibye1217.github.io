@@ -2,34 +2,33 @@
 Trying to make something with pure JavaScript.  
 No Framework (Exception : MathJax), No other languages.
 
-## Main Page
-[Main Page (Korean)](https://hibye1217.github.io/Kor/Page/Main.html)  
-Main Page (English) (Making) 
-[RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
-## Hibye1217's Project (HP)
+## Hibye1217's Project (HP) - KOR
 - Math with Jax (MJ)
   - Friend's Questions (FQ)
-    - Sqrt and Cbrt (SC)
-    - Factor of Prime (FP)
-  - leonld94' Fibonacci Function (LFF)
-  - Special Function's Logic (SFL)
-  - Pascal's Fibonacci (PF)
+    - [Sqrt and Cbrt (SC)](https://hibye1217.github.io/Kor/MJ/FQ/SC.html)
+    - [Factor of Prime (FP)](https://hibye1217.github.io/Kor/MJ/FQ/FP.html)
+  - [leonld94' Fibonacci Function (LFF)](https://hibye1217.github.io/Kor/MJ/LFF.html)
+  - [Special Function's Logic (SFL)](https://hibye1217.github.io/Kor/MJ/SFL.html)
+  - [Pascal's Fibonacci (PF)](https://hibye1217.github.io/Kor/MJ/PF.html)
 - Private Project (PP)
   - Word Play (WP)
-    - Chemical Sentence (CS)
-  - 18789 (EVS)
-  - Special Function (SF)
-  - Scoreborad (SB)
+    - [Chemical Sentence (CS)](https://hibye1217.github.io/Kor/PP/WP/CS.html)
+  - [18789 (GNA)](https://hibye1217.github.io/Kor/PP/GNA.html)
+  - [Special Function (SF)](https://hibye1217.github.io/Kor/PP/SF.html)
+  - [Scoreborad (SB)](https://hibye1217.github.io/Kor/PP/SB.html)
 - Existed Games (EG)
-  - Tic Tac Toe (TTT)
+  - [Tic Tac Toe (TTT)](https://hibye1217.github.io/Kor/EG/TTT.html)
 - Programming Talking (PT)
-  - leonld94's Recursive Multiplication (LRM)
+  - [leonld94's Recursive Multiplication (LRM)](https://hibye1217.github.io/Kor/PT/LRM.html)
+- [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+## Hibye1217's Project (HP) - ENG
+- [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ### Project History
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
-2. **18789 / EVS (PP)**
+2. **18789 / GNA (PP)**
 3. **Chemical Sentence / CS (WP)**
 4. **Special Function / SF (PP)**
 5. **Tic Tac Toe / TTT (EG)**
@@ -40,13 +39,11 @@ Main Page (English) (Making)
 10. **Factor of Prime / FP (FQ)**
 11. **leonld94's Recursive Multiplication / LRM (PT)**
 12. **Pascal's Fibonacci / PF (MJ)**
-13. ~~Sudoku / SDK (EG)~~
+13. *Sudoku / SDK*
 
 ## TODO
 
 ### Currently Doing
-- Main
-  - Change Design
 
 ### I must do this ASAP!
 - Main

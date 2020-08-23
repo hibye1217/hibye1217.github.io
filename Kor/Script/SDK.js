@@ -40,11 +40,11 @@ function init(){
     let board = document.getElementById('board');
 
     for (let i = 0; i < index.h3; i++){
-        let tr = document.createElement('div');
+        let tr = document.createElement('tr');
         tr.className = "tr ";
 
         for (let j = 0; j < index.w3; j++){
-            let td = document.createElement('div');
+            let td = document.createElement('td');
             td.className += "td ";
             if (index.h1 <= i && i < index.h2 && index.w1 <= j && j < index.w2){
                 td.className += "map ";

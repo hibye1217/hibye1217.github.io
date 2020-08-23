@@ -18,7 +18,6 @@ No Framework (Exception : MathJax), No other languages.
   - [Scoreborad (SB)](https://hibye1217.github.io/Kor/Page/PP/SB.html)
 - Existed Games (EG)
   - [Tic Tac Toe (TTT)](https://hibye1217.github.io/Kor/Page/EG/TTT.html)
-  - Sudoku (SDK)
 - Programming Talking (PT)
   - [leonld94's Recursive Multiplication (LRM)](https://hibye1217.github.io/Kor/Page/PT/LRM.html)
 - [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
@@ -40,7 +39,7 @@ No Framework (Exception : MathJax), No other languages.
 10. **Factor of Prime / FP (FQ)**
 11. **leonld94's Recursive Multiplication / LRM (PT)**
 12. **Pascal's Fibonacci / PF (MJ)**
-13. *Sudoku / SDK (EG)*
+13. ~~Sudoku / SDK (EG)~~
 
 ## TODO
 

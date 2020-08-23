@@ -7,7 +7,7 @@ No Framework (Exception : MathJax), No other languages.
   - Friend's Questions (FQ)
     - [Sqrt and Cbrt (SC)](https://hibye1217.github.io/Kor/Page/MJ/FQ/SC.html)
     - [Factor of Prime (FP)](https://hibye1217.github.io/Kor/Page/MJ/FQ/FP.html)
-  - [leonld94' Fibonacci Function (LFF)](https://hibye1217.github.io/Kor/Page/MJ/LFF.html)
+  - [leonld94's Fibonacci Function (LFF)](https://hibye1217.github.io/Kor/Page/MJ/LFF.html)
   - [Special Function's Logic (SFL)](https://hibye1217.github.io/Kor/Page/MJ/SFL.html)
   - [Pascal's Fibonacci (PF)](https://hibye1217.github.io/Kor/Page/MJ/PF.html)
 - Private Project (PP)
@@ -18,6 +18,7 @@ No Framework (Exception : MathJax), No other languages.
   - [Scoreborad (SB)](https://hibye1217.github.io/Kor/Page/PP/SB.html)
 - Existed Games (EG)
   - [Tic Tac Toe (TTT)](https://hibye1217.github.io/Kor/Page/EG/TTT.html)
+  - Sudoku (SDK)
 - Programming Talking (PT)
   - [leonld94's Recursive Multiplication (LRM)](https://hibye1217.github.io/Kor/Page/PT/LRM.html)
 - [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
@@ -39,7 +40,7 @@ No Framework (Exception : MathJax), No other languages.
 10. **Factor of Prime / FP (FQ)**
 11. **leonld94's Recursive Multiplication / LRM (PT)**
 12. **Pascal's Fibonacci / PF (MJ)**
-13. *Sudoku / SDK*
+13. *Sudoku / SDK (EG)*
 
 ## TODO
 

@@ -2,6 +2,11 @@
 Trying to make something with pure JavaScript.  
 No Framework (Exception : MathJax), No other languages.
 
+## Warning
+This is for my use, so there are no description & guideline.
+Also, it will be pretty uncomfortable.
+So... I recommend NOT to use this. (But you can still use tho.)
+
 ## Hibye1217's Project (HP) - KOR
 - Math with Jax (MJ)
   - Friend's Questions (FQ)

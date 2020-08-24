@@ -1,3 +1,8 @@
+*{
+    box-sizing: content-box;
+    padding: 0px;
+}
+
 #board{
     border-collapse: collapse;
 }
@@ -40,4 +45,13 @@
 
 .borderRight{
     border-right: 2px solid black;
+}
+
+.number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 36px;
 }

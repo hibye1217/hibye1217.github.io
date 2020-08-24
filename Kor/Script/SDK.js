@@ -1,6 +1,7 @@
 const dy = [-1, 0, 1, 0], dx = [0, 1, 0, -1];
 
-let tagMap0, tagMap1, tagMap2;
+let tagMap;
+let numMap;
 let borderMap, borderCount;
 let index, size;
 let edit;
@@ -43,16 +44,16 @@ function main(){
 
 function init(){
     edit = true;
-    tagMap0 = new Array(index.h3);
-    tagMap1 = new Array(index.h3);
+    tagMap = new Array(index.h3);
+    numMap = new Array(index.h3);
     borderMap = new Array(index.h3);
     borderCount = 0;
 
     let board = document.getElementById('board');
 
     for (let i = 0; i < index.h3; i++){
-        tagMap0[i] = new Array(index.w3);
-        tagMap1[i] = new Array(index.w3);
+        tagMap[i] = new Array(index.w3);
+        numMap[i] = new Array(index.w3);
         borderMap[i] = new Array(index.w3);
 
         let tr = document.createElement('tr');
@@ -73,9 +74,16 @@ function init(){
             let div1 = document.createElement('div');
             div1.className = "backTag ";
 
-            tagMap0[i][j] = td;
-            tagMap1[i][j] = div1;
+            let numDiv = document.createElement('div');
+            numDiv.className = "number ";
 
+            let nFlexDiv = document.createElement('div');
+            nFlexDiv.className = "nFlex";
+
+            tagMap[i][j] = td;
+
+            numDiv.appendChild(nFlexDiv);
+            div1.appendChild(numDiv);
             td.appendChild(div1);
             tr.appendChild(td);
         }
@@ -83,14 +91,20 @@ function init(){
     }
 
     let buttons = document.getElementById('buttonContainer'), button;
+
     button = document.createElement('button');
     button.onclick = function(){ makeBorder(); };
     button.innerText = "Make Border";
     buttons.appendChild(button);
+
+    button = document.createElement('button');
+    button.onclick = function(){ setNumber(); };
+    button.innerText = "Set Number";
+    buttons.appendChild(button);
 }
 
 function makeBorder(){
-    let str = prompt("Input Coordinate (y,x y,x y,x ...)");
+    let str = prompt("Coordinate (y,x y,x y,x ...)");
     MakeBorder(str);
 }
 
@@ -119,11 +133,27 @@ function MakeBorder(str){
             let yy = y + dy[k], xx = x + dx[k];
             if (index.h1 > yy || yy >= index.h2 || index.w1 > xx || xx >= index.w2 || 
                 borderMap[yy][xx] != borderCount){
-                    if (k == 0) tagMap0[y][x].className += "borderUp ";
-                    if (k == 1) tagMap0[y][x].className += "borderRight ";
-                    if (k == 2) tagMap0[y][x].className += "borderDown ";
-                    if (k == 3) tagMap0[y][x].className += "borderLeft ";
+                    if (k == 0) tagMap[y][x].className += "borderUp ";
+                    if (k == 1) tagMap[y][x].className += "borderRight ";
+                    if (k == 2) tagMap[y][x].className += "borderDown ";
+                    if (k == 3) tagMap[y][x].className += "borderLeft ";
             }
         }
     }
+}
+
+function setNumber(){
+    let str = prompt("Coordinate & Number (y,x n)");
+    SetNumber(str);
+}
+
+function SetNumber(str){
+    let idx1 = str.indexOf(',');
+    let idx2 = str.indexOf(' ');
+    let y = parseInt(str.substring(0, idx1)); y -= 1; y += size.h1;
+    let x = parseInt(str.substring(idx1+1, idx2)); x -= 1; x += size.w1;
+    let n = parseInt(str.substring(idx2+1, str.length));
+    console.log(y, x, n);
+    numMap[y][x] = n;
+    tagMap[y][x].children[0].children[0].children[0].innerText = n;
 }

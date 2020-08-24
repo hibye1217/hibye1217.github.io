@@ -49,8 +49,6 @@ No Framework (Exception : MathJax), No other languages.
 - Sudoku
 
 ### I must do this!
-- Bug
-  - Head link sends to wrong link
 
 ### Requested
 - New Project

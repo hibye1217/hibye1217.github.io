@@ -1,8 +1,3 @@
-.td{
-    width: 60px;
-    height: 60px;
-}
-
 #board{
     border-collapse: collapse;
 }
@@ -14,4 +9,10 @@
 
 .hint{
     background-color: #DDDDDD;
+}
+
+.map, .hint{
+    width: 60px;
+    height: 60px;
+    position: relative;
 }

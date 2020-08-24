@@ -1,4 +1,9 @@
+const dy = [-1, 0, 1, 0], dx = [0, 1, 0, -1];
+
+let tagMap0, tagMap1, tagMap2;
+let borderMap, borderCount;
 let index, size;
+let edit;
 
 function main(){
     index = new Object();
@@ -37,9 +42,19 @@ function main(){
 }
 
 function init(){
+    edit = true;
+    tagMap0 = new Array(index.h3);
+    tagMap1 = new Array(index.h3);
+    borderMap = new Array(index.h3);
+    borderCount = 0;
+
     let board = document.getElementById('board');
 
     for (let i = 0; i < index.h3; i++){
+        tagMap0[i] = new Array(index.w3);
+        tagMap1[i] = new Array(index.w3);
+        borderMap[i] = new Array(index.w3);
+
         let tr = document.createElement('tr');
         tr.className = "tr ";
 
@@ -54,8 +69,61 @@ function init(){
                 td.className += "hint ";
                 console.log(i, j, 'h');
             }
+
+            let div1 = document.createElement('div');
+            div1.className = "backTag ";
+
+            tagMap0[i][j] = td;
+            tagMap1[i][j] = div1;
+
+            td.appendChild(div1);
             tr.appendChild(td);
         }
         board.appendChild(tr);
+    }
+
+    let buttons = document.getElementById('buttonContainer'), button;
+    button = document.createElement('button');
+    button.onclick = function(){ makeBorder(); };
+    button.innerText = "Make Border";
+    buttons.appendChild(button);
+}
+
+function makeBorder(){
+    let str = prompt("Input Coordinate (y,x y,x y,x ...)");
+    MakeBorder(str);
+}
+
+function MakeBorder(str){
+    borderCount += 1;
+    let points = str.split(' ');
+    console.log(points);
+    for (let i = 0; i < points.length; i++){
+        let point = points[i];
+        console.log(point);
+        let idx = point.indexOf(',');
+        let y = parseInt(point.substring(0, idx)); y -= 1; y += size.h1;
+        let x = parseInt(point.substring(idx+1, point.length)); x -= 1; x += size.w1;
+        console.log(idx);
+        console.log(y, x, "i");
+
+        borderMap[y][x] = borderCount;
+    }
+    for (let i = 0; i < points.length; i++){
+        let point = points[i];
+        let idx = point.indexOf(',');
+        let y = parseInt(point.substring(0, idx)); y -= 1; y += size.h1;
+        let x = parseInt(point.substring(idx+1, point.length)); x -= 1; x += size.w1;
+
+        for (let k = 0; k < 4; k++){
+            let yy = y + dy[k], xx = x + dx[k];
+            if (index.h1 > yy || yy >= index.h2 || index.w1 > xx || xx >= index.w2 || 
+                borderMap[yy][xx] != borderCount){
+                    if (k == 0) tagMap0[y][x].className += "borderUp ";
+                    if (k == 1) tagMap0[y][x].className += "borderRight ";
+                    if (k == 2) tagMap0[y][x].className += "borderDown ";
+                    if (k == 3) tagMap0[y][x].className += "borderLeft ";
+            }
+        }
     }
 }

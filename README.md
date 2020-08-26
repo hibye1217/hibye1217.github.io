@@ -32,6 +32,7 @@ So... I recommend NOT to use this. (But you can still use tho.)
 - [RickRoll (RR)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ### Project History
+(RR is not my project.)  
 **Completed** / ~~Canceled~~ / *Currently Working* / ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
 2. **18789 / GNA (PP)**
@@ -45,13 +46,11 @@ So... I recommend NOT to use this. (But you can still use tho.)
 10. **Factor of Prime / FP (FQ)**
 11. **leonld94's Recursive Multiplication / LRM (PT)**
 12. **Pascal's Fibonacci / PF (MJ)**
-13. *Sudoku / SDK (EG)*
-(RR is not my project.)
+13. ~~Sudoku / SDK (EG)~~
 
 ## TODO
 
 ### Currently Doing
-- Sudoku
 
 ### I must do this!
 

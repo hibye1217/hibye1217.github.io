@@ -70,6 +70,7 @@ var TeamColor = new Array(1020);
 var TeamRank = new Array(1020);
 TeamName[0] = "No Team"; TeamColor[0] = "#000000";
 var OutColor = "#BBBBBB";
+var titleName = "New Scoreboard (click to change)", titleColor = "#000000";
 
 function Validate(){
     for (let i = 1; i <= count; i++) Rank[i] = i;
@@ -114,6 +115,10 @@ function Validate(){
 
 function Print(){
     Validate();
+
+    const title = document.getElementById('scoreboardName');
+    title.innerText = titleName;
+    title.style.color = titleColor;
 
     var scoreboard = document.getElementById('scoreboard');
     while (scoreboard.childElementCount != 0) scoreboard.removeChild(scoreboard.childNodes[0]);
@@ -334,6 +339,9 @@ function Save(){
     var string = "";
     string += "function Manual(){\n";
 
+    string += "  titleName = '" + titleName + "';\n";
+    string += "  titleColor = '" + titleColor + "';\n";
+
     string += "  teamCount = " + teamCount + ";\n";
     for (let i = 1; i <= teamCount; i++){
         string += "  TeamName[" + i + "] = \"" + TeamName[i] + "\";\n";
@@ -356,5 +364,21 @@ function Save(){
 
     string += "Manual();";
 
-    console.log(string);
+    let dataStr = "data:text/plain;charset=utf-8," + encodeURIComponent(string);
+    let download = document.createElement('a');
+
+    download.setAttribute('href', dataStr);
+    download.setAttribute('download', titleName + ".txt");
+
+    document.body.appendChild(download);
+    download.click();
+    download.remove();
+}
+
+function ChangeTitle(){
+    let str = prompt("Input: New Name");
+    let col = prompt("Input: Name's Color [#??????, Hex Code]");
+    titleName = str; titleColor = col;
+
+    Print();
 }

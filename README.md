@@ -69,3 +69,7 @@ So... I recommend NOT to use this. (But you can still use tho.)
   - Ghudegy Sentence (GS) at WP
   - Words Make Word (WMW) at WP
   - Omok (OMK) at EG
+
+  ## Commit Count
+  Current site uses Commit #114.
+  Use this to see which version this site is.

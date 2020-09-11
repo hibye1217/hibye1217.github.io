@@ -46,6 +46,7 @@ So... I recommend NOT to use this. (But you can still use tho.)
 11. **leonld94's Recursive Multiplication / LRM (PT)**
 12. **Pascal's Fibonacci / PF (MJ)**
 13. ~~Sudoku / SDK (EG)~~
+14. *Rating Scoreboard / RSB (PP)*
 
 ## TODO
 

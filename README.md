@@ -2,7 +2,7 @@
 Try to make something with JavaScript.  
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).
 
-Commit Counter : Commit #117
+Commit Counter : Commit #118
 
 ## Main Page
 [Do not click this. This is RickRoll.](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
@@ -17,7 +17,7 @@ Commit Counter : Commit #117
 6. *Special Function's Logic / SFL (MJ)*
 7. *Scoreboard / SB (PP)*
 8. *Sqrt and Cbrt / SC (MJ, FQ)*
-9. ~~Words Make Word / WMW (PP, WP)*
+9. ~~Words Make Word / WMW (PP, WP)~~
 10. *Factor of Prime / FP (MJ, FQ)*
 11. *leonld94' Recursive Multiplication / LRM (PT)*
 12. *Pascal's Fibonacci / PF (MJ)*

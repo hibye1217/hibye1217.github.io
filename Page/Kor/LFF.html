@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/Main.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>leonld94's Fibonacci Function</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../Main.html">leonld94' Fibonacci Function</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>함수</h2>
+            <p>
+                \[ F(n) = \sum_{ k=0 }^{ \lfloor (n-1)/2 \rfloor } \frac{ (n-k-1)! }{ k!(n-2k-1)! } \]
+                \( F(n) = n \)번째 피보나치 수 입니다.<br>
+                그런데, 왜 피보나치 수가 나올까요?
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>1. 간단한 식으로 만들어보기</h2>
+            <p>
+                \( a = n-k-1 \)이라고 해봅시다.<br>
+                그러면 \( F(n) \)을 이렇게 쓸 수 있습니다.<br>
+                \[ F(n) = \sum_{ k=0 }^{ \lfloor (n-1)/2 \rfloor } \frac{ a! }{ k!(a-k)! } \]
+                이 때, \( \frac{ a! }{ k!(a-k)! } = _{a}C_{k} \)로 쓸 수 있으므로 식을 다음과 같이 수정할 수 있습니다.<br>
+                \[ F(n) = \sum_{ k=0 }^{ \lfloor (n-1)/2 \rfloor } { _{a}C_{k} } \]
+            </p>
+            <h2>2. \( a \)와 \( k \) 분석해보기</h2>
+            <p>
+                각각의 \( n \) 값에 대하여 가능한 모든 \( (k, a) \) 쌍을 써봅시다.<br>
+                <br>
+                \( n = 1 \)이면, 가능한 조합은 \( (0, 0) \)입니다.<br>
+                \( n = 2 \)이면, 가능한 조합은 \( (0, 1) \)입니다.<br>
+                \( n = 3 \)이면, 가능한 조합은 \( (0, 2), (1, 1) \)입니다.<br>
+                \( n = 4 \)이면, 가능한 조합은 \( (0, 3), (1, 2) \)입니다.<br>
+                \( n = 5 \)이면, 가능한 조합은 \( (0, 4), (1, 3), (2, 2) \)입니다.<br>
+                \( n = 6 \)이면, 가능한 조합은 \( (0, 5), (1, 4), (2, 3) \)입니다.<br>
+                <br>
+                여기서 두 가지 사실을 관측할 수 있습니다.<br>
+                1. \( k \)가 커지면 \( a \)가 작아집니다.<br>
+                2. \( n \)이 홀수일 경우 조합의 개수가 하나 더 많아집니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 파스칼의 삼각형</h2>
+            <p>
+                파스칼의 삼각형은 이렇게 생겼습니다.
+                <div style="margin:0px;display:flex;justify-content:center;">
+                    <div style="margin:0px;text-align:left;">
+                        \( 1 \)<br>
+                        \( 1 \) \( 1 \)<br>
+                        \( 1 \) <span style="color:#FF0000">\( 2 \)</span> <span style="color:#00FF00">\( 1 \)</span><br>
+                        <span style="color:#FF0000">\( 1 \)</span> <span style="color:#00FF00">\( 3 \)</span> \( 3 \) \( 1 \)<br>
+                        <span style="color:#00FF00">\( 1 \)</span> \( 4 \) \( 6 \) \( 4 \) \( 1 \)<br>
+                    </div>
+                </div>
+                <br>
+                파스칼의 삼각형은 2가지 성질이 있습니다.<br>
+                1. 파스칼의 삼각형에서 \( (n, r) \) 위치의 수는 \( { _{n}C_{r} } \)입니다.<br>
+                2. 파스칼의 삼각형에서 대각선을 긋고, 그 대각선이 지나는 수들을 모두 더하면 피보나치 수가 나옵니다.<br>
+                <span style="color:#FF0000">빨간색</span>을 지나는 선의 경우, 4번째 피보나치 수인 3이 나옵니다.<br>
+                <span style="color:#00FF00">연두색</span>을 지나는 선의 경우, 5번째 피보나치 수인 5가 나옵니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>4. 잠시 정리해보기</h2>
+            <p>
+                아까 \( a \)와 \( k \)를 분석해볼 때 나온 \( (k, a) \) 쌍에 의하면,<br>
+                \( (k, a) \) 쌍을 실제로 그려보면 대각선을 만든다는 것을 알 수 있습니다.<br>
+                즉, 위 함수는 \( { _{a}C_{k} } \)를 사용하여 파스칼의 삼각형에 대각선을 긋고, 합을 구하는 함수가 됩니다.<br>
+                그럼 사실상 거의 완료되었습니다. 하나만 빼면요.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>5. 범위 확인하기</h2>
+            <p>
+                아직 이 대각선이 모든 수를 지나는지 모르므로, 이를 확인할 것입니다.<br>
+                \( n \)이 홀수가 되면, 조합의 수가 하나 더 늘어납니다.<br>
+                그렇다면, \( n \)에 2씩 더하면, 조합의 수는 항상 1개씩 더 늘어나겠죠.<br>
+                <br>
+                \( n = 1 \)인 경우, 함수는 \( (0, 0) \) 1개를 지나고, 실제 조합도 \( (0, 0) \) 1개입니다.<br>
+                \( n = 2 \)인 경우, 함수는 \( (0, 1) \) 1개를 지나고, 실제 조합도 \( (0, 1) \) 1개입니다.<br>
+                <br>
+                \( n \)에 대하여 함수와 조합이 동일하다면, \( n+2 \)에 대하여도 함수와 조합이 동일할까요?<br>
+                잘 생각해보면, \( n+2 \)일 때의 조합은<br>
+                \( n \)일 때의 조합에 \( a \) 부분에 +2를 한 조합들과, \( a \)와 \( k \) 부분에 각각 +1씩 한 조합의 합집합입니다.<br>
+                그러므로 대각선의 움직임이 범위의 움직임과 동일한지 보면 됩니다.<br>
+                1번의 경우, 자명합니다. (대각선을 두 칸 밑으로 내리니까요.)<br>
+                2번의 경우 역시 자명합니다. (대각선을 한 칸 밑, 한 칸 오른쪽으로 옮기니까요.)<br>
+                <br>
+                즉, 이 대각선은 정확히 모든 수를 지나게 됩니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <p>
+                식도 맞고 범위도 맞으니, 이 식은 피보나치 수를 계산함을 알 수 있습니다.<br>
+                \( \mathbf{ Q.E.D. } \)
+            </p>
+        </div>
+    </section>
+</body>
+</html>

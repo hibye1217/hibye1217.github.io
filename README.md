@@ -1,15 +1,16 @@
 ## What is this?
 Try to make something with JavaScript.  
-No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).
+No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
+Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #118
+Commit Counter : Commit #119
 
 ## Main Page
 [Do not click this. This is RickRoll.](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## Projects
 **Completed** ~~Canceled~~ *Working* ***Updating***
-1. *leonld94's Fibonacci Function (MJ)*
+1. **leonld94's Fibonacci Function / LFF (MJ)**
 2. *18789 / GNA (PP)*
 3. *Chemical Sentence / CS (PP, WP)*
 4. *Special Function / SF (PP)*

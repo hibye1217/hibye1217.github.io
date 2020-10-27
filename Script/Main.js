@@ -1,9 +1,9 @@
 let projectArray = new Array();
 
 projectArray.push({
-    name: "Testing",
-    nick: "TST",
-    tag: [ "tag1", "tag2" ]
+    name: "leonld94's Fibonacci Function",
+    nick: "LFF",
+    tag: [ "MathJax" ]
 })
 
 function appendProjects(){
@@ -24,12 +24,12 @@ function appendProjects(){
 
         td = document.createElement('td');
         td.className = "mainEng";
-        td.innerHTML = "<a href='./Main.html'>Click</a>";
+        td.innerHTML = "<a href='./Eng/" + project.nick + ".html'>Link</a>";
         tr.appendChild(td);
 
         td = document.createElement('td');
         td.className = "mainKor";
-        td.innerHTML = "<a href='./Main.html'>Click</a>";
+        td.innerHTML = "<a href='./Kor/" + project.nick + ".html'>Link</a>";
         tr.appendChild(td);
 
         table.appendChild(tr);

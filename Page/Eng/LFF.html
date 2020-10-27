@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/Main.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>leonld94's Fibonacci Function</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../Main.html">leonld94' Fibonacci Function</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>함수</h2>
+            <p>
+                \[ F(n) = \sum_{ k=0 }^{ \lfloor (n-1)/2 \rfloor } \frac{ (n-k-1)! }{ k!(n-2k-1)! } \]
+                \( F(n) \) returns \( n \)th Fibonacci Number<br>
+                But... Why?
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>1. Simplify the function</h2>
+            <p>
+                let's replace \( n-k-1 \) to \( a \).<br>
+                Then, our function \( F(n) \) will look like this.<br>
+                \[ F(n) = \sum_{ k=0 }^{ \lfloor (n-1)/2 \rfloor } \frac{ a! }{ k!(a-k)! } \]
+                And since \( \frac{ a! }{ k!(a-k)! } = _{a}C_{k} \), we can change \( \frac{ a! }{ k!(a-k)! } \) to \( { _{a}C_{k} } \). <br>
+                \[ F(n) = \sum_{ k=0 }^{ \lfloor (n-1)/2 \rfloor } { _{a}C_{k} } \]
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>2. Analyze \( a \) and \( k \)</h2>
+            <p>
+                Let's write all possible \( (a, k) \) pair for some \( n \).<br>
+                When \( n = 1 \), \( (0, 0) \) is possible.<br>
+                When \( n = 2 \), \( (0, 1) \) is possible.<br>
+                When \( n = 3 \), \( (0, 2), (1, 1) \) is possible.<br>
+                When \( n = 4 \), \( (0, 3), (1, 2) \) is possible.<br>
+                When \( n = 5 \), \( (0, 4), (1, 3), (2, 2) \) is possible.<br>
+                When \( n = 6 \), \( (0, 5), (1, 4), (2, 3) \) is possible.<br>
+                We can see 2 things here.<br>
+                1. If \( k \) got bigger, then \( a \) got smaller.<br>
+                2. If \( n \) is odd, then the number of possible combinations goes up by 1.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. Pascal's Triangle</h2>
+            <p>
+                Pascal's Triangle looks like this.
+                <div style="margin:0px;display:flex;justify-content:center;">
+                    <div style="margin:0px;text-align:left;">
+                        \( 1 \)<br>
+                        \( 1 \) \( 1 \)<br>
+                        \( 1 \) <span style="color:#FF0000">\( 2 \)</span> <span style="color:#00FF00">\( 1 \)</span><br>
+                        <span style="color:#FF0000">\( 1 \)</span> <span style="color:#00FF00">\( 3 \)</span> \( 3 \) \( 1 \)<br>
+                        <span style="color:#00FF00">\( 1 \)</span> \( 4 \) \( 6 \) \( 4 \) \( 1 \)<br>
+                    </div>
+                </div>
+                Pascal's Triangle has 2 properties.<br>
+                1. The position \( (n, r) \) has the value of \( { _{n}C_{r} } \)<br>
+                2. When you draw a diagonal line, and add the numbers on that line, you get a Fibonacci Number.<br>
+                For example, the <span style="color:#FF0000">Red</span>numbers sums up to 3 (4th Fibonacci Number).<br>
+                And for <span style="color:#00FF00">Green</span> numbers, it sums up to 5 (5th Fibonacci Number).<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>4. So...</h2>
+            <p>
+                When we analyzed \( a \) and \( k \), we got some \( (k, a) \) pairs.<br>
+                When we draw that pair into the coordinate system, we have a diagonal line.<br>
+                So that means, this function uses \( { _{a}C_{k} } \) to draw diagonal line at Pascal's Triangle, and sums it up to get Fibonacci Number.<br>
+                So, It's all done. Except one thing...
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>5. 범위 확인하기</h2>
+            <p>
+                Since we don't know about range of this function, so let's check it.<br>
+                When \( n \) is odd, the number of pairs goes up by 1.<br>
+                So, if we adds 2 instead of 1, the number of pairs always goes up by 1.<br>
+                <br>
+                When \( n = 1 \), The function passes \( (0, 0) \), and the diagonal line passes \( (0, 0) \).<br>
+                When \( n = 2 \), The function passes \( (0, 1) \), and the diagonal line passes \( (0, 1) \).<br>
+                <br>
+                If \( n \) satisfies the condition, then \( n+2 \) need to satisfy the condition as well.<br>
+                If you think about it, the pairs of \( n+2 \) is<br>
+                pairs of \( n \) then adds 2 to the \( a \), or adds 1 to both \( a \) and \( k \).<br>
+                So, if the line's movement is same with range's change, we can say that this range satisfies the condition.<br>
+                For first one, it's same. (Just move diagonal line down 2.)<br>
+                So as the second one. (Just move diagonal line down 1, right 1.)<br>
+                <br>
+                So that means, the diagonal line's range is same with the function's range.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <p>
+                Since the formula and range are both correct,<br>
+                now we can say that this function calculates Fibonacci Number.<br>
+                \( \mathbf{ Q.E.D. } \)
+            </p>
+        </div>
+    </section>
+</body>
+</html>

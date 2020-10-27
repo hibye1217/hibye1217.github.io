@@ -3,10 +3,10 @@ Try to make something with JavaScript.
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
 Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #119
+Commit Counter : Commit #120
 
 ## Main Page
-[Do not click this. This is RickRoll.](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[Main Page](https://hibye1217.github.io/Page/Main.html)
 
 ## Projects
 **Completed** ~~Canceled~~ *Working* ***Updating***
@@ -41,3 +41,6 @@ Commit Counter : Commit #119
 
 ### Not Important
 - None?
+
+## Some other stuff
+[RickRoll.](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

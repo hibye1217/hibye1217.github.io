@@ -3,7 +3,7 @@ Try to make something with JavaScript.
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
 Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #120
+Commit Counter : Commit #121
 
 ## Main Page
 [Main Page](https://hibye1217.github.io/Page/Main.html)
@@ -11,7 +11,7 @@ Commit Counter : Commit #120
 ## Projects
 **Completed** ~~Canceled~~ *Working* ***Updating***
 1. **leonld94's Fibonacci Function / LFF (MJ)**
-2. *18789 / GNA (PP)*
+2. **18789 / GNA (PP)**
 3. *Chemical Sentence / CS (PP, WP)*
 4. *Special Function / SF (PP)*
 5. *Tic Tac Toe / TTT (EG)*
@@ -28,10 +28,8 @@ Commit Counter : Commit #120
 ## TODO
 
 ### Working
-- Re-design ALL.
-  - Main Page
+- Re-designing...
   - All Projects
-  - And so on.
 
 ### Important
 - None?
@@ -40,7 +38,8 @@ Commit Counter : Commit #120
 - Ultimate Tic Tac Toe / UDT (EG)
 
 ### Not Important
-- None?
+- 18789
+  - Auto Evolve
 
 ## Some other stuff
-[RickRoll.](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

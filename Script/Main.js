@@ -4,6 +4,12 @@ projectArray.push({
     name: "leonld94's Fibonacci Function",
     nick: "LFF",
     tag: [ "MathJax" ]
+});
+
+projectArray.push({
+    name: "18789",
+    nick: "GNA",
+    tag: [ "Private" ]
 })
 
 function appendProjects(){

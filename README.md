@@ -3,7 +3,7 @@ Try to make something with JavaScript.
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
 Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #122
+Commit Counter : Commit #123
 
 ## Main Page
 [Main Page](https://hibye1217.github.io/Page/Main.html)
@@ -26,14 +26,14 @@ Commit Counter : Commit #122
 14. ~~Rating Scoreboard / RSB (PP)~~
 
 ## TODO
-**Working**
+**Working** *Next*
 
 - **Re-designing All Project**
-  - **Chemical Sentence**
+  - *Chemical Sentence*
   - Special Function
   - Tic Tac Toe
   - Special Function's Logic
-  - Scoreboard
+  - **Scoreboard**
   - Sqrt and Cbrt
   - Factor of Prime
   - leonld94' Recursive Multiplication

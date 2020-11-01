@@ -46,6 +46,6 @@ a:hover{ color: #555555; }
 a:active{ color: #999999; }
 a#headLink{ color: #FFFFFF; text-decoration: none; }
 
-.mainName{ width: 60%; }
-.mainTag{ width: 20%; }
+.mainName{ width: 50%; }
+.mainTag{ width: 30%; }
 .mainEng, .mainKor{ width: 10% }

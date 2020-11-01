@@ -9,8 +9,8 @@ projectArray.push({
 projectArray.push({
     name: "18789",
     nick: "GNA",
-    tag: [ "Private" ]
-})
+    tag: [ "Personal" ]
+});
 
 function appendProjects(){
     const table = document.getElementById('projectContainer');
@@ -40,4 +40,7 @@ function appendProjects(){
 
         table.appendChild(tr);
     }
+
+    const tag = document.getElementById('proCounter');
+    tag.innerHTML = "Currently, there are " + projectArray.length + " projects.";
 }

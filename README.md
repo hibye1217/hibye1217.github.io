@@ -29,11 +29,11 @@ Commit Counter : Commit #123
 **Working** *Next*
 
 - **Re-designing All Project**
-  - *Chemical Sentence*
-  - Special Function
+  - **Scoreboard**
+  - *Special Function*
+  - Chemical Sentence
   - Tic Tac Toe
   - Special Function's Logic
-  - **Scoreboard**
   - Sqrt and Cbrt
   - Factor of Prime
   - leonld94' Recursive Multiplication

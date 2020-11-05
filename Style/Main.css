@@ -30,6 +30,9 @@ body{
 }
 
 table{
+    width: 90%;
+    position: relative;
+    left: 5%;
     border-collapse: collapse;
 }
 

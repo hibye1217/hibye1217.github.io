@@ -12,6 +12,12 @@ projectArray.push({
     tag: [ "Personal" ]
 });
 
+projectArray.push({
+    name: "Scoreboard",
+    nick: "SB",
+    tag: [ "Personal" ]
+});
+
 function appendProjects(){
     const table = document.getElementById('projectContainer');
     console.log(projectArray);

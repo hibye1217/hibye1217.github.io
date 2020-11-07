@@ -3,7 +3,7 @@ Just some person trying to make something with JavaScript.
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
 Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #125
+Commit Counter : Commit #126
 
 ## Main Page
 [Main Page](https://hibye1217.github.io/Page/Main.html)

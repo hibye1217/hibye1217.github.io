@@ -1,9 +1,9 @@
 ## What is this?
-Try to make something with JavaScript.  
+Just some person trying to make something with JavaScript.  
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
 Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #123
+Commit Counter : Commit #125
 
 ## Main Page
 [Main Page](https://hibye1217.github.io/Page/Main.html)
@@ -29,9 +29,8 @@ Commit Counter : Commit #123
 **Working** *Next*
 
 - **Re-designing All Project**
-  - **Scoreboard**
-  - *Special Function*
-  - Chemical Sentence
+  - **Special Function**
+  - *Chemical Sentence*
   - Tic Tac Toe
   - Special Function's Logic
   - Sqrt and Cbrt
@@ -43,6 +42,9 @@ Commit Counter : Commit #123
 - Add Feature
   - 18789
     - Auto Evolve
+  - Scoreboard
+    - Colors
+    - Teams?
 
 ## Some other stuff
 [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

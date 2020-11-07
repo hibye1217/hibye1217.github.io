@@ -51,7 +51,7 @@ function Init(){
     roundName = new Array(roundCount+1);
 
     for (let i = 1; i <= roundCount; i++){
-        roundName[i] = i + "라운드";
+        roundName[i] = "R" + i;
     }
 
     playerList.push({
@@ -215,7 +215,7 @@ function SetRound(round){
 
     let delta = round - roundCount;
     while (delta > 0){
-        roundName.push((round - delta + 1) + "라운드");
+        roundName.push("R" + (round - delta + 1));
         delta -= 1;
     }
     while (delta < 0){

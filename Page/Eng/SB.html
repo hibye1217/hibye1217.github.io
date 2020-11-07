@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/Main.css">
+    <link rel="stylesheet" href="../../Style/SB.css">
+    <script type="text/javascript" src="../../Script/SB.js"></script>
+    <title>Scoreboard</title>
+</head>
+<body onload="Init()">
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../Main.html">Scoreboard</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>Scoreboard</h2>
+            <br>
+            <table id="scoreboard" style="width:90%;">
+                <thead>
+                    <tr>
+                        <th id="Name" rowspan="2">Participants</th>
+                        <th id="Score" rowspan="2">Total Score</th>
+                        <th id="Round">Scores</th>
+                    </tr>
+                    <tr id="subthead">
+                        
+                    </tr>
+                </thead>
+                <tbody id="subtbody">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>Command Prompt</h2>
+            <br>
+            <input id="Command" type="text" style="width:80%">
+            <button onclick="Start()">Run</button>
+        </div>
+    </section>
+</body>
+</html>

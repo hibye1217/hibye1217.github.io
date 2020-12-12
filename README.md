@@ -3,7 +3,7 @@ Just some person trying to make something with JavaScript.
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
 Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #129
+Commit Counter : Commit #130
 
 ## Main Page
 [Main Page](https://hibye1217.github.io/Page/Main.html)
@@ -48,6 +48,9 @@ Waiting (7)
   - Scoreboard
     - Colors
     - Teams?
+  - MathJax Converter
+    - Multi-Render
+    - Ignore \\[ \\]
 
 ## Some other stuff
 [RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

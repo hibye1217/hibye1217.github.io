@@ -18,6 +18,12 @@ projectArray.push({
     tag: [ "Personal" ]
 });
 
+projectArray.push({
+    name: "MathJax Converter",
+    nick: "MC",
+    tag: [ "Personal", "MathJax" ]
+});
+
 function appendProjects(){
     const table = document.getElementById('projectContainer');
     console.log(projectArray);

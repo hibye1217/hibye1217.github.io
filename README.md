@@ -3,7 +3,7 @@ Just some person trying to make something with JavaScript.
 No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
 Also, sorry for my bad english. I'm korean.
 
-Commit Counter : Commit #130
+Commit Counter : Commit #131
 
 ## Main Page
 [Main Page](https://hibye1217.github.io/Page/Main.html)
@@ -11,7 +11,7 @@ Commit Counter : Commit #130
 ## Projects
 **Completed (4)** ***Updating (0)***  
 *Working (1)* ~~Canceled (3)~~  
-Waiting (7)
+Waiting (8)
 1. **leonld94's Fibonacci Function / LFF (MJ)**
 2. **18789 / GNA (PP)**
 3. Chemical Sentence / CS (PP, WP)
@@ -27,6 +27,7 @@ Waiting (7)
 13. ~~Sudoku / SDK (EG)~~
 14. ~~Rating Scoreboard / RSB (PP)~~
 15. **MathJax Converter / MC (PP)**
+16. Domain Sentence / DS (PP, WP)
 
 ## TODO
 **Working** *Next*
@@ -34,6 +35,7 @@ Waiting (7)
 - **Re-designing All Project**
   - **Special Function**
   - *Chemical Sentence*
+  - Domain Sentence
   - Pascal's Fibonacci
   - Tic Tac Toe
   - Special Function's Logic

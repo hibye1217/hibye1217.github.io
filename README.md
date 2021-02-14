@@ -1,24 +1,19 @@
-## What is this?
-Just some person trying to make something with JavaScript.  
-No Frameworks (Except MathJax), No other Languages (Except HTML, CSS).  
-Also, sorry for my bad english. I'm korean.
+## 여기 뭐하는 곳이죠
+그러게요 여기 뭐하는 곳이죠
 
-Commit Counter : Commit #132
+## 현재 버전
+Commit #132
 
-## Main Page
-[Main Page](https://hibye1217.github.io/Page/Main.html)
+## 현재 있는 것들
+**완성 (0)**
+***업데이트 중 (0)*** *제작 중(0)* 제작 예정
+~~취소 (0)~~
+1. leonld94's Fibonacci Function (LFF)
 
-## Projects
-**Completed (0)** ***Updating (0)***  
-*Working (0)* ~~Canceled (0)~~  
-Waiting (0)
+## 해야 하는 것들 (TODO)
+1. 메인 페이지 만들기
+2. Commit #131까지 존재했던 프로젝트 12개 복구하기
+    - 너무 글만 있으면 안 됨
 
-## TODO
-**Working** *Next*
-
-- **Remake All**
-  - Yes. I deleted all AGAIN.
-- Commit History
-
-## Some other stuff
-[RickRoll](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+## 기타 추천하는 곳
+[RR](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

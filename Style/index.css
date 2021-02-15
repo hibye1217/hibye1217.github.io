@@ -8,7 +8,6 @@ body{
 }
 
 #header, .body{ margin: 0px 0px 20px 0px; }
-
 #header{
     background-color: #000000;
     color: #FFFFFF;
@@ -18,7 +17,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 .body{
     display: flex;
     justify-content: center;
@@ -27,18 +25,20 @@ body{
 
 .flex{ width: 100%; }
 
+#searchBar{
+    width: 70%;
+}
+
 table{
     width: 90%;
     position: relative;
     left: 5%;
     border-collapse: collapse;
 }
-
 th, td{
     border: 1px solid #000000;
     height: 30px;
 }
-
 th{ background-color: #DDDDDD; }
 td{ background-color: #EEEEEE; }
 
@@ -48,4 +48,4 @@ a:active{ color: #999999; }
 a#headLink{ color: #FFFFFF; text-decoration: none; }
 
 .projectName{ width: 60%; }
-.projectTag{ width: 40%; }
+.projectCategory{ width: 40%; }

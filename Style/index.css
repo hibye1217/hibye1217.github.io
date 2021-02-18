@@ -7,7 +7,7 @@ body{
     margin: 0px;
 }
 
-#header, .body{ margin: 0px 0px 20px 0px; }
+header, section{ margin: 0px 0px 20px 0px; }
 #header{
     background-color: #000000;
     color: #FFFFFF;
@@ -49,3 +49,5 @@ a#headLink{ color: #FFFFFF; text-decoration: none; }
 
 .projectName{ width: 60%; }
 .projectCategory{ width: 40%; }
+
+h2, h3, h4{ margin: 0px 0px 10px 0px; }

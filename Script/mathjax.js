@@ -1,0 +1,3 @@
+function LoadMathJax(){
+    MathJax.typeset();
+}

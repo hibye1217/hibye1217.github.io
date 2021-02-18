@@ -2,9 +2,299 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Leonld94's Fibonacci Function</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Style/index.css">
+    <script type="text/javascript" src="../Script/explain.js"></script>
+    <script type="text/javascript" src="../Script/mathjax.js"></script>
+    <script type="text/javascript" src="../Script/LFF.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>LFF</title>
 </head>
 <body>
-    
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../index.html">Leonld94's Fibonacci Function</a>
+        </h1>
+    </header>
+    <section>
+        <button onclick="MovePage('LL')">&lt;&lt;</button>
+        <button onclick="MovePage('L')">&lt;</button>
+        <button onclick="MovePage('M')">?</button>
+        <button onclick="MovePage('R')">&gt;</button>
+        <button onclick="MovePage('RR')">&gt;&gt;</button>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>0. 인트로</h2>
+            <p>
+                제 친구가 만들었던 피보나치 함수를 구경하고, 분석해보는 곳입니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>1. 피보나치 함수란?</h2>
+            <p>
+                피보나치 함수를 모르는 분들을 위해<br>
+                우선 피보나치 함수부터 설명해보죠.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>1. 피보나치 함수란?</h2>
+            <p>
+                피보나치 함수는 다음과 같이 정의됩니다.<br>
+                \[ F(n) = \begin{cases} 1 & \text{if } n \lt 3 \\
+                F(n-1) + F(n-2) & \text{if } n \ge 3 \end{cases} \]
+                이 때, \( n \)은 자연수입니다.<br>
+                <br>
+                \( F(1) \)부터 적어보면,<br>
+                \( 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \ldots \)<br>
+                이 됩니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>2. 함수 구경하기</h2>
+            <p>
+                이제, 제 친구가 만들었던 피보나치 함수를 구경해보죠.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>2. 함수 구경하기</h2>
+            <p>
+                \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } \frac{ (n-k-1)! }{ k!(n-2k-1)! } \]
+                <br>
+                함수의 결과가 궁금하다면, 여기서 계산해보실 수도 있습니다.<br>
+                \( n = \) <input type="number" min="1" id="inputN" onchange="Calculate()"><br>
+                <span id="outputFN">\( F(n) = \textcolor{red}{ \text{Error} } \)</span>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } \frac{ (n-k-1)! }{ k!(n-2k-1)! } \]
+                <br>
+                저 함수가 피보나치 수가 나오는 거 같긴 한데...<br>
+                정말 피보나치 수가 나오는 걸까요?<br>
+                만약 그렇다면, 왜 나오는 걸까요?<br>
+                지금부터, 저 함수를 분석해보겠습니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>1. 반복되는 부분 찾기</h3>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } \frac{ (n-k-1)! }{ k!(n-2k-1)! } \]
+                <br>
+                식을 보면, \( n-k-1 \)이 분자와 분모에 둘 다 있는 것 같습니다.<br>
+                반복되어 나오는 \( n-k-1 \)을 \( a \)로 묶어봅시다.<br>
+                이 때, \( n-2k-1 = (n-k-1) - k = a-k \)가 됩니다.
+                \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } \frac{ \textcolor{red}{a}! }{ k!( \textcolor{red}{a-k} )! } \]
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>2. 익숙한 부분 찾아내기</h3>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } \frac{ a! }{ k!(a-k)! } \]
+                <br>
+                이제 뭔가 익숙한 식이 보이는 것 같습니다.<br>
+                바로 조합 공식이죠.<br>
+                <br>
+                \( n \)개 중 \( r \)개를 (순서 없이) 선택하는 경우의 수 \( { _{n}C_{r} } \) 은
+                \[ { _{n}C_{r} } = \frac{ n! }{ r!(n-r)! } \]
+                입니다.<br>
+                <br>
+                피보나치 함수 분석하는데 조합이 왜 나오나 싶을 수도 있지만,<br>
+                일단 조합으로 바꿔넣어보자고요.
+                \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } \textcolor{red}{ { _{a}C_{k} } } \]
+                <br>
+                이제 \( a \)로 묶어놨던 \( n-k-1 \)을 다시 풀어보죠.
+                \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } { _{ \textcolor{red}{n-k-1} }C_{k} } \]
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>3. 조합과 관련된 거 생각해보기.</h3>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } { _{n-k-1}C_{k} } \]
+                <br>
+                일단 식에 조합이 나왔으니까, 조합과 관련된 걸 생각해보죠.<br>
+                조합과 관련된 건 많지만, 이번에 써볼 건 파스칼의 삼각형입니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>3. 조합과 관련된 거 생각해보기.</h3>
+            <h4>1. 파스칼의 삼각형 분석해보기.</h4>
+            <p>
+                파스칼의 삼각형은 다음과 같이 생겼습니다.<br>
+                \( 1 \)<br>
+                \( 1 \) \( 1 \)<br>
+                \( 1 \) \( 2 \) \( 1 \)<br>
+                \( 1 \) \( 3 \) \( 3 \) \( 1 \)<br>
+                \( 1 \) \( 4 \) \( 6 \) \( 4 \) \( 1 \)<br>
+                \( \vdots \)<br>
+                <br>
+                맨 바깥쪽은 1이고, 안쪽에 있는 수는 위의 두 수의 합이 됩니다.<br>
+                <br>
+                조합과 관련된 거라면서 파스칼의 삼각형을 들고 온 이유는,<br>
+                파스칼의 삼각형의 \( n \)번째 줄의 \( r \)번째 수는<br>
+                \( { _{n-1}C_{r-1} } \)과 대응하기 때문입니다.<br>
+                <br>
+                이는 조합과 관련된 식
+                \[ { _{n}C_{r} } = { _{n-1}C_{r-1} } + { _{n-1}C_{r} } \]
+                에서 유추해낼 수 있습니다.<br>
+                이 글에서는 증명은 생략하도록 하겠습니다.<br>
+                <br>
+                물론, \( n-1 \)과 \( r-1 \)으로 다루는 건 귀찮은 일이므로<br>
+                이 글에서는 편의상 줄과 칸이 \( 0 \)번부터 시작한다고 가정합시다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>3. 조합과 관련된 거 생각해보기.</h3>
+            <h4>2. 조합과 피보나치의 연결점 찾아보기.</h4>
+            <p>
+                파스칼의 삼각형까지 들고 와서 피보나치 함수를 분석하는 데는 이유가 있죠.<br>
+                바로 파스칼의 삼각형과 피보나치 함수의 연결점이 있기 때문입니다.<br>
+                <br>
+                파스칼의 삼각형에서 우측 상단으로 올라가는 대각선을 그은 뒤,<br>
+                대각선이 지나는 수들의 합을 구하면 피보나치 수가 나오기 때문입니다.<br>
+                이 글에서는 증명은 생략하겠습니다.<br>
+                <br>
+                밑에서 실험해보실 수 있습니다.<br>
+                \( n = \) <input type="number" min="1" id="inputN2" onchange="Calculate2()"><br>
+                <span id="outputFN2">\( F(n) = \textcolor{red}{ \text{Error} } \)</span><br>
+                <br>
+                파스칼의 삼각형<br>
+                <span id="outputPASCAL2"></span>
+                <span id="outputSUM2">\( \text{sum} = \textcolor{red}{ \text{Error} } \)</span>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>4. 요약해보기</h3>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } { _{n-k-1}C_{k} } \]
+                <br>
+                정리해보면, 파스칼의 삼각형에 대각선을 그은 뒤 합을 구하면 피보나치 수가 나오고,<br>
+                파스칼의 삼각형의 각 수는 \( { _{n}C_{r} } \)로 볼 수 있으니까<br>
+                위 식은 파스칼의 삼각형에 대각선을 놓고, 그 선 위의 수들을 더해서 피보나치 수를 만드는 것임을 알 수 있습니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>5. 선 그려보기</h3>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } { _{n-k-1}C_{k} } \]
+                <br>
+                그런데, 정말 저 식이 우리가 원하는 대로 대각선을 그려줄까요?<br>
+                다른 방향으로 선을 그리는 건 아닐까요?<br>
+                선을 그리다가 중간에 멈추는 건 아닐까요?<br>
+                아니면, 너무 길게 그리는 건 아닐까요?<br>
+                <br>
+                마지막으로, 위 의문점들을 해결해보겠습니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>5. 선 그려보기</h3>
+            <h4>1. 선의 방향 알아보기</h4>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } { _{n-k-1}C_{k} } \]
+                <br>
+                우선, 식이 그리는 선의 방향이 알맞는 방향인지부터 확인해보죠.<br>
+                <br>
+                \( { _{n-k-1}C_{k} } \)는 파스칼의 삼각형의 \( n-k-1 \)번 줄의 \( k \)번째 수와 대응되고,<br>
+                \( n-k-1 = -k + n-1 \)로 볼 수 있으므로<br>
+                \( k \)가 증가하면, \( n-k-1 \)은 감소하게 됩니다.<br>
+                좌표평면에 그려보면, 오른쪽 아래로 내려가는 선이 그려집니다.<br>
+                하지만 우리가 원하는 대각선은 오른쪽 위로 올라가는 선이므로,<br>
+                식이 선을 잘못 그리고 있는 걸까요?<br>
+                <br>
+                다행히도, 아닙니다.<br>
+                좌표평면은 \( y \)가 더 큰 좌표가 위에 있지만,<br>
+                파스칼의 삼각형은 번호가 더 큰 줄이 밑에 있기 때문입니다.<br>
+                세로축의 방향이 반대이므로, 그에 맞게 선도 뒤집어주면<br>
+                파스칼의 삼각형에서 오른쪽 위로 올라가는 선을 제대로 그리고 있음을 알 수 있습니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>3. 함수 분석하기</h2>
+            <h3>5. 선 그려보기</h3>
+            <h4>2. 선의 길이 알아보기</h4>
+            <p>
+                현재 식 : \[ F(n) = \sum_{k=0}^{ \lfloor \frac{n-1}{2} \rfloor } { _{n-k-1}C_{k} } \]
+                <br>
+                이제, 식이 그리는 식의 시작점과 끝점을 알아보죠.<br>
+                <br>
+                파스칼의 삼각형에서 선을 그린다면, \( 0 \le x \le n-x-1 \)을 만족하는 모든 \( x \)에 대하여<br>
+                \( (x, n-x) \)에 해당하는 점을 지나게 됩니다.<br>
+                (줄 번호가 \( 0 \)번부터 시작하기 때문에 저 범위를 가지게 됩니다.)
+                <br>
+                위 식의 범위는 \( 0 \le x \le \lfloor \frac{n-1}{2} \rfloor \) 인 모든 \( x \)를 지나고 있으므로,<br>
+                두 범위가 동일한 범위인지만 확인하면 됩니다.<br>
+                <br>
+                우선, 시작점이 동일함은 자명합니다. 둘 다 \( 0 \)이니까요.<br>
+                <br>
+                끝점은 어떨까요?<br>
+                \( x \le n-x \)는 \( 2x le n \)으로 나타낼 수 있고, 이는 \( x \le \frac{n-1}{2} \)로 나타낼 수 있습니다.<br>
+                한편, \( \lfloor \frac{n-1}{2} \rfloor \le \frac{n-1}{2} \)임은 자명하므로<br>
+                \( x \le \lfloor \frac{n-1}{2} \rfloor \le \frac{n-1}{2} \)가 됩니다.<br>
+                <br>
+                하지만, \( x \)는 음이 아닌 정수여야 하므로<br>
+                \( \lfloor \frac{n-1}{2} \rfloor \)보다 큰 수는 항상 \( \frac{n-1}{2} \)보다 커야 합니다.<br>
+                (자세한 과정은 생략하겠습니다.)<br>
+                즉, 이 식은 선의 길이 역시 정확하게 그리고 있음을 알 수 있습니다.<br>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>4. 마무리</h2>
+            <p>
+                이렇게, 제 친구가 만들었던 함수를 구경하고, 분석해봤습니다.<br>
+                궁금한 점이나 부족한 점 등이 있으면 Issue에 올려주세요.<br>
+                <br>
+                식 제공자: leonld94.<br>
+                저자: bye17.<br>
+            </p>
+        </div>
+    </section>
+    <section>
+        <button onclick="MovePage('LL')">&lt;&lt;</button>
+        <button onclick="MovePage('L')">&lt;</button>
+        <button onclick="MovePage('M')">?</button>
+        <button onclick="MovePage('R')">&gt;</button>
+        <button onclick="MovePage('RR')">&gt;&gt;</button>
+    </section>
+    <script> SetPage(); </script>
 </body>
 </html>

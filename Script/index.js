@@ -3,7 +3,7 @@ projectArray = new Array();
 projectArray.push({
     name: "leonld94's Fibonacci Function",
     abbr: "LFF",
-    tags: [ "Explain", "Math", "Interactive" ]
+    cate: [ "Explain", "Math", "Interactive" ]
 });
 
 showArray = new Array();
@@ -31,9 +31,9 @@ function LoadProject(){
 
         let categoryTag = document.createElement('td');
         categoryTag.className = "projectCategory"
-        project.tags.forEach(tag => {
+        project.cate.forEach(category => {
             // console.log(tag);
-            categoryTag.innerHTML += tag + ", ";
+            categoryTag.innerHTML += category + ", ";
         });
         categoryTag.innerHTML = categoryTag.innerHTML.substring(0, categoryTag.innerHTML.length - 2);
         tr.appendChild(categoryTag);

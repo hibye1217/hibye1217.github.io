@@ -6,19 +6,9 @@ Commit #137
 
 ## 현재 있는 것들
 
-### 프로젝트
-그냥 제가 만들었던 여러가지 모아두고 있습니다.
+### 설명 (Explain)
+
 - leonld94's Fibonacci Function (LFF)
-
-### 알고리즘
-Problem Solving을 위한 알고리즘 설명 글들입니다.
-
-### 문제 풀이
-지금까지 여러 사이트에서 푼 문제들의 풀이를 적어놓았습니다.
-- Baekjoon Online Judge
-- CodeUp
-- CodeForces
-- AtCoder
 
 ## 해야 하는 것들 (TODO)
 - 지우기 전에 있었던 것들 복구하기

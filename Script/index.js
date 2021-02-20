@@ -1,36 +1,43 @@
-projectArray = new Array();
+articleList = new Array();
 
-projectArray.push({
+// Explain
+articleList.push({
     name: "leonld94's Fibonacci Function",
     abbr: "LFF",
-    cate: [ "Explain", "Math", "Interactive" ]
+    type: "Explain",
+    cate: [ "Math", "Interactive" ]
 });
 
 showArray = new Array();
-projectArray.forEach(project => {
+articleList.forEach(project => {
     showArray.push(project);
 });
 
 function LoadProject(){
     let count = showArray.length;
-    const projectCounter = document.getElementById('projectCounter');
-    projectCounter.innerHTML = "현재 " + count + "개의 글이 있습니다.";
+    const countTag = document.getElementById('counter');
+    countTag.innerHTML = "현재 " + count + "개의 글이 있습니다.";
 
-    const projectContainer = document.getElementById('projectContainer');
-    projectContainer.innerHTML = "";
+    const conatiner = document.getElementById('container');
+    conatiner.innerHTML = "";
     showArray.forEach(project => {
         let tr = document.createElement('tr');
 
         let nameTag = document.createElement('td');
         let linkTag = document.createElement('a');
-        nameTag.className = "projectName";
+        nameTag.className = "name";
         linkTag.innerHTML = project.name + " (" + project.abbr + ")";
         linkTag.href = "./Page/" + project.abbr + ".html";
         nameTag.appendChild(linkTag);
         tr.appendChild(nameTag);
 
+        let typeTag = document.createElement('td');
+        typeTag.className = "type";
+        typeTag.innerHTML = project.type;
+        tr.append(typeTag);
+
         let categoryTag = document.createElement('td');
-        categoryTag.className = "projectCategory"
+        categoryTag.className = "category";
         project.cate.forEach(category => {
             // console.log(tag);
             categoryTag.innerHTML += category + ", ";
@@ -38,15 +45,15 @@ function LoadProject(){
         categoryTag.innerHTML = categoryTag.innerHTML.substring(0, categoryTag.innerHTML.length - 2);
         tr.appendChild(categoryTag);
 
-        projectContainer.appendChild(tr);
+        conatiner.appendChild(tr);
     });
 }
 
-function Search(){
+function SearchProject(){
     const str = document.getElementById('searchBar').value.toLowerCase();
     // console.log(str);
     showArray = new Array();
-    projectArray.forEach(project => {
+    articleList.forEach(project => {
         let projectName = project.name.toLowerCase();
         if ( projectName.indexOf(str) != -1 ){
             showArray.push(project);

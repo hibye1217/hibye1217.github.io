@@ -48,7 +48,7 @@ a:active{ color: #999999; }
 a#headLink{ color: #FFFFFF; text-decoration: none; }
 
 .name{ width: 50%; }
-.type{ width: 20%; }
+.type, .source{ width: 20%; }
 .category{ width: 30%; }
 
 h2, h3, h4{ margin: 0px 0px 10px 0px; }

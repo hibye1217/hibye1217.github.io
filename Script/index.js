@@ -1,63 +1,10 @@
-articleList = new Array();
+function AddArticles(){
+    // Explain
+    PushArticle("leonld94's Fibonacci Function", "LFF", "Explain", [ "Math", "Interactive" ]);
 
-// Explain
-articleList.push({
-    name: "leonld94's Fibonacci Function",
-    abbr: "LFF",
-    type: "Explain",
-    cate: [ "Math", "Interactive" ]
-});
-
-showArray = new Array();
-articleList.forEach(project => {
-    showArray.push(project);
-});
-
-function LoadProject(){
-    let count = showArray.length;
-    const countTag = document.getElementById('counter');
-    countTag.innerHTML = "현재 " + count + "개의 글이 있습니다.";
-
-    const conatiner = document.getElementById('container');
-    conatiner.innerHTML = "";
-    showArray.forEach(project => {
-        let tr = document.createElement('tr');
-
-        let nameTag = document.createElement('td');
-        let linkTag = document.createElement('a');
-        nameTag.className = "name";
-        linkTag.innerHTML = project.name + " (" + project.abbr + ")";
-        linkTag.href = "./Page/" + project.abbr + ".html";
-        nameTag.appendChild(linkTag);
-        tr.appendChild(nameTag);
-
-        let typeTag = document.createElement('td');
-        typeTag.className = "type";
-        typeTag.innerHTML = project.type;
-        tr.append(typeTag);
-
-        let categoryTag = document.createElement('td');
-        categoryTag.className = "category";
-        project.cate.forEach(category => {
-            // console.log(tag);
-            categoryTag.innerHTML += category + ", ";
-        });
-        categoryTag.innerHTML = categoryTag.innerHTML.substring(0, categoryTag.innerHTML.length - 2);
-        tr.appendChild(categoryTag);
-
-        conatiner.appendChild(tr);
-    });
-}
-
-function SearchProject(){
-    const str = document.getElementById('searchBar').value.toLowerCase();
-    // console.log(str);
-    showArray = new Array();
-    articleList.forEach(project => {
-        let projectName = project.name.toLowerCase();
-        if ( projectName.indexOf(str) != -1 ){
-            showArray.push(project);
-        }
-    });
-    LoadProject();
+    // Solving
+    PushArticle("Solving Baekjoon Problems", "BOJ", "Solving", [ "Baekjoon" ]);
+    PushArticle("Solving CodeUp Problems", "CDU", "Solving", [ "CodeUp" ]);
+    PushArticle("Solving CodeForces Problems", "CDF", "Solving", [ "CodeForces" ]);
+    PushArticle("Solving AtCoder Problems", "ACD", "Solving", [ "AtCoder" ]);
 }

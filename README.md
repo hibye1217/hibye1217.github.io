@@ -2,16 +2,29 @@
 그러게요 여기 뭐하는 곳이죠
 
 ## 현재 버전
-Commit #139
+Commit #140
 
 ## 현재 있는 것들
 
-### 설명 (Explain)
+### 프로젝트 (Project)
+이름만 프로젝트인 그냥 잡다한 것들입니다.
+
+#### 설명 (Explain)
 무언가 주제를 잡고 설명하는 글입니다.
 - leonld94's Fibonacci Function (LFF)
 
 ### 풀이 (Solving)
 알고리즘 문제를 풀이하는 글입니다.
+- BaekJoon (BOJ)
+- CodeUp (CDU)
+- CodeForces (CDF)
+- AtCoder (ACD)
+
+### 알고리즘 (Algorithm)
+문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.
+
+### C언어 (C Language)
+C언어의 기초 문법들을 배워볼 수 있는 글입니다.
 
 ## 해야 하는 것들 (TODO)
 - 지우기 전에 있었던 것들 복구하기

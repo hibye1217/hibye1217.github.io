@@ -15,10 +15,10 @@ function ShowAllArticle(folder){
     articleList.forEach(project => {
         showArray.push(project);
     });
-    LoadProject(folder);
+    LoadArticle(folder);
 }
 
-function LoadProject(folder){
+function LoadArticle(folder){
     let count = showArray.length;
     const countTag = document.getElementById('counter');
     countTag.innerHTML = "현재 " + count + "개의 글이 있습니다.";
@@ -54,7 +54,7 @@ function LoadProject(folder){
     });
 }
 
-function SearchProject(folder){
+function SearchArticle(folder){
     const str = document.getElementById('searchBar').value.toLowerCase();
     // console.log(str);
     showArray = new Array();
@@ -64,5 +64,5 @@ function SearchProject(folder){
             showArray.push(project);
         }
     });
-    LoadProject(folder);
+    LoadArticle(folder);
 }

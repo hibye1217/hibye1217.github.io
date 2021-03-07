@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>BOJ1697 - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../CDU.html">BaekJoon 1697</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>숨바꼭질</h2>
+            <p>
+                <a href="https://www.acmicpc.net/problem/1697">풀러 가기</a>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <p>
+                시간 복잡도는 \( O(N) \)입니다.<br>
+                공간 복잡도는 \( O(N) \)입니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <p>
+                위치 \( N \)에서 위치 \( K \)로 갈 때는 몇 초가 걸리는 지 생각해봅시다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <p>
+                문제를 그래프로 변환해서 보면,<br>
+                \( N \)에서 \( K \)까지의 거리를 구하는 문제가 됩니다.<br>
+                가중치가 모두 1이므로, BFS를 사용하면 됩니다.<br>
+                <br>
+                동생이 숨은 위치보다 더 멀리 간 뒤 돌아오는 게 최적해일 수도 있으므로,<br>
+                갈 수 있는 위치의 범위를 적절히 잡아주셔야 합니다.<br>
+                저는 넉넉하게 200,000 정도로 잡았습니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++17)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;FastIO&nbsp;ios_base::sync_with_stdio(0);&nbsp;cin.tie(0);&nbsp;cout.tie(0);<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                typedef&nbsp;long&nbsp;long&nbsp;ll;<br>
+                <br>
+                const&nbsp;int&nbsp;N&nbsp;=&nbsp;200'000;<br>
+                int&nbsp;BFS(int&nbsp;st,&nbsp;int&nbsp;ed){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;queue&lt;&nbsp;pair&lt;int,&nbsp;int&gt;&nbsp;&gt;&nbsp;q;&nbsp;//&nbsp;first&nbsp;=&nbsp;now,&nbsp;second&nbsp;=&nbsp;time<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;visit[200020]&nbsp;=&nbsp;{false};<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;q.push({st,&nbsp;0});<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;visit[st]&nbsp;=&nbsp;true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(!q.empty()){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;now&nbsp;=&nbsp;q.front().first,&nbsp;time&nbsp;=&nbsp;q.front().second;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.pop();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(now&nbsp;==&nbsp;ed){&nbsp;return&nbsp;time;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;nxt&nbsp;:&nbsp;{now+1,&nbsp;now-1,&nbsp;now*2}){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(0&nbsp;&gt;&nbsp;nxt&nbsp;||&nbsp;nxt&nbsp;&gt;&nbsp;N){&nbsp;continue;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(visit[nxt]){&nbsp;continue;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visit[nxt]&nbsp;=&nbsp;true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.push({&nbsp;nxt,&nbsp;time+1&nbsp;});<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FastIO;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n,&nbsp;k;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;n&nbsp;&gt;&gt;&nbsp;k;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;BFS(n,&nbsp;k);<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

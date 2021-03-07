@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>CDU6048 - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../CDU.html">CodeUp 6048</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>정수 2개 입력받아 비교하기 1</h2>
+            <p>
+                <a href="https://codeup.kr/problem.php?id=6048">풀러 가기</a>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <p>
+                문제를 읽어보자.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 2</h2>
+            <p>
+                \( a \)가 \( b \)보다 작은지 판별하려면<br>
+                어떤 비교연산자를 써야 하는지 생각해보자.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <p>
+                \( a \)가 \( b \)보다 작은지 확인하기 위해서는<br>
+                <span class="code">a&nbsp;&lt;&nbsp;b</span>를 사용하면 된다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (Python)</h2>
+            <div class="codeblock">
+                a,&nbsp;b&nbsp;=&nbsp;tuple(&nbsp;map(&nbsp;int,&nbsp;input().split()&nbsp;)&nbsp;)<br>
+                print(a&nbsp;&lt;&nbsp;b)
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

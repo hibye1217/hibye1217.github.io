@@ -11,7 +11,7 @@ function SetPage(){
         // console.log(sectionList);
         HidePage(section);
     });
-    ShowPage(sectionList[currentPage])
+    ShowPage(sectionList[currentPage]);
 }
 
 function MovePage(dir){

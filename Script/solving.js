@@ -2,12 +2,11 @@ let articleList = new Array();
 
 let showArray = new Array();
 
-function PushArticle(name, link, abbr, type, cate){
+function PushArticle(name, link, num, cate){
     articleList.push({
         name: name,
         link: link,
-        abbr: abbr,
-        type: type,
+        num: num,
         cate: cate
     });
 }
@@ -32,15 +31,10 @@ function LoadArticle(){
         let nameTag = document.createElement('td');
         let linkTag = document.createElement('a');
         nameTag.className = "name";
-        linkTag.innerHTML = project.name + " [" + project.abbr + "]";
+        linkTag.innerHTML = project.name + " [" + project.num + "]";
         linkTag.href = project.link;
         nameTag.appendChild(linkTag);
         tr.appendChild(nameTag);
-
-        let typeTag = document.createElement('td');
-        typeTag.className = "type";
-        typeTag.innerHTML = project.type;
-        tr.append(typeTag);
 
         let categoryTag = document.createElement('td');
         categoryTag.className = "category";

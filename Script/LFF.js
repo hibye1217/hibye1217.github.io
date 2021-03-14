@@ -9,19 +9,13 @@ function Factorial(x){
 function Calculate(){
     const inputN = document.getElementById('inputN');
     const outputFN = document.getElementById('outputFN');
+    outputFN.innerHTML = "\\( F(n) = \\textcolor{red}{ \\text{Error} } \\)";
+    LoadMathJax();
+    
     let n = inputN.value;
-    if (isNaN(n) || n.length == 0 || n.indexOf('.') != -1 || n.indexOf('e') != -1){
-        outputFN.innerHTML = "\\( F(n) = \\textcolor{red}{ \\text{Error} } \\)";
-        LoadMathJax();
-        return;
-    }
+    if (!isInt(n)){ return; }
     n = parseInt(n);
-    if (n <= 0){
-        outputFN.innerHTML = "\\( F(n) = \\textcolor{red}{ \\text{Error} } \\)";
-        LoadMathJax();
-        return;
-    }
-
+    if (n <= 0){ return; }
     let result = 0;
     for (let k = 0; k <= Math.floor((n-1) / 2); k++){
         let up = Factorial(n-k-1);
@@ -37,22 +31,15 @@ function Calculate2(){
     const outputFN = document.getElementById('outputFN2');
     const outputPASCAL = document.getElementById('outputPASCAL2');
     const outputSUM = document.getElementById('outputSUM2');
+    outputFN.innerHTML = "\\( F(n) = \\textcolor{red}{ \\text{Error} } \\)";
+    outputPASCAL.innerHTML = "";
+    outputSUM = "\\( \\text{sum} = \\textcolor{red}{ \\text{Error} } \\)";
+    LoadMathJax();
+
     let n = inputN.value;
-    if (isNaN(n) || n.length == 0 || n.indexOf('.') != -1 || n.indexOf('e') != -1){
-        outputFN.innerHTML = "\\( F(n) = \\textcolor{red}{ \\text{Error} } \\)";
-        outputPASCAL.innerHTML = "";
-        outputSUM = "\\( \\text{sum} = \\textcolor{red}{ \\text{Error} } \\)";
-        LoadMathJax();
-        return;
-    }
+    if (!isInt(n)){ return; }
     n = parseInt(n);
-    if (n <= 0){
-        outputFN.innerHTML = "\\( F(n) = \\textcolor{red}{ \\text{Error} } \\)";
-        outputPASCAL.innerHTML = "";
-        outputSUM = "\\( \\text{sum} = \\textcolor{red}{ \\text{Error} } \\)";
-        LoadMathJax();
-        return;
-    }
+    if (n <= 0){ return; }
 
     let result = 0;
     for (let k = 0; k <= Math.floor((n-1) / 2); k++){

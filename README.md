@@ -2,7 +2,7 @@
 그러게요 여기 뭐하는 곳이죠
 
 ## 현재 버전
-Commit #143
+Commit #144
 
 ## 현재 있는 것들
 
@@ -12,6 +12,10 @@ Commit #143
 #### 설명 (Explain)
 무언가 주제를 잡고 설명하는 글입니다.
 - leonld94's Fibonacci Function (LFF)
+
+#### 놀이 (Play)
+그냥 심심할 때 가지고 놓기 좋은 것들입니다.
+- Special Function (SPF)
 
 ### 풀이 (Solving)
 알고리즘 문제를 풀이하는 글입니다.

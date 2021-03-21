@@ -8,4 +8,8 @@ function AddArticles(){
     // Solving
     PushArticle("Solving CodeUp Problem", "./Page/CDU.html", "CDU", "Solving", [ "Explain", "CodeUp" ]);
     PushArticle("Solving BaekJoon Problem", "./Page/BOJ.html", "BOJ", "Solving", [ "Explain", "BaekJoon" ]);
+    PushArticle("Solving CodeForces Problem", "./Page/CDF.html", "CDF", "Solving", [ "Explain", "CodeForces" ]);
+
+    // Algorithm
+    // PushArticle("Learning Algorithms", "", "ALG", "Algorithm", [ "Explain" ]);
 }

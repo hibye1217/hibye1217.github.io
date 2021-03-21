@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>CDF1452C - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../CDF.html">CodeForces 1452C</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>Two Brackets</h2>
+            <p>
+                <a href="https://codeforces.com/contest/1452/problem/C">풀러 가기</a>
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <p>
+                길이가 4 이상인 RBS는 항상 더 짧은 RBS들의 합으로 나타낼 수 있습니다.<br>
+                즉, 길이가 2인 RBS만 지워나가면 됩니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 2</h2>
+            <p>
+                원래 문자열이 RBS라면, "()"과 "[]"를 따로 떼서 RBS를 만들 수 있습니다.<br>
+                즉, 두 괄호를 따로 생각할 수 있습니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <p>
+                입력에는 두 괄호가 섞여서 들어오지만, 항상 "()" 또는 "[]"만 지운다고 보면<br>
+                짝이 맞는 괄호의 개수를 찾는 문제가 됩니다.<br>
+                <br>
+                "()" 괄호에서 만들 수 있는 짝의 개수와<br>
+                "[]" 괄호에서 만들 수 있는 짝의 개수의 합이 답이 됩니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;FastIO&nbsp;ios_base::sync_with_stdio(0);&nbsp;cin.tie(0);&nbsp;cout.tie(0);<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                typedef&nbsp;long&nbsp;long&nbsp;ll;<br>
+                <br>
+                void&nbsp;solve(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;s;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;s;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;ans&nbsp;=&nbsp;0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;bracket1&nbsp;=&nbsp;0,&nbsp;bracket2&nbsp;=&nbsp;0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;s.size();&nbsp;i++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(s[i]&nbsp;==&nbsp;'('){&nbsp;bracket1&nbsp;+=&nbsp;1;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(s[i]&nbsp;==&nbsp;'['){&nbsp;bracket2&nbsp;+=&nbsp;1;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(s[i]&nbsp;==&nbsp;')'){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bracket1&nbsp;-=&nbsp;1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(bracket1&nbsp;&gt;=&nbsp;0){&nbsp;ans&nbsp;+=&nbsp;1;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{&nbsp;bracket1&nbsp;=&nbsp;0;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(s[i]&nbsp;==&nbsp;']'){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bracket2&nbsp;-=&nbsp;1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(bracket2&nbsp;&gt;=&nbsp;0){&nbsp;ans&nbsp;+=&nbsp;1;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{&nbsp;bracket2&nbsp;=&nbsp;0;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;ans&nbsp;&lt;&lt;&nbsp;endl;<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FastIO;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;t;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;t;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(t--){&nbsp;solve();&nbsp;}<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

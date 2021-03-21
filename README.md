@@ -2,7 +2,7 @@
 그러게요 여기 뭐하는 곳이죠
 
 ## 현재 버전
-Commit #144
+Commit #145
 
 ## 현재 있는 것들
 
@@ -24,6 +24,7 @@ Commit #144
 - CodeUp (CDU)
     - \[6048\] 정수 2개 입력받아 비교하기 1
 - CodeForces (CDF)
+    - \[1452C\] Two Brackets
 - AtCoder (ACD)
 
 ### 알고리즘 (Algorithm)

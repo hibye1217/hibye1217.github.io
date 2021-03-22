@@ -6,12 +6,11 @@ Commit #147
 
 ## 현재 있는 것들
 
+### 글 (Article)
+무언가를 설명?해주는 글입니다.
+
 ### 프로젝트 (Project)
 이름만 프로젝트인 그냥 잡다한 것들입니다.
-
-#### 설명 (Explain)
-무언가 주제를 잡고 설명하는 글입니다.
-- leonld94's Fibonacci Function (LFF)
 
 #### 놀이 (Play)
 그냥 심심할 때 가지고 놓기 좋은 것들입니다.
@@ -25,7 +24,8 @@ Commit #147
     - \[6048\] 정수 2개 입력받아 비교하기 1
 - CodeForces (CDF)
     - \[1452C\] Two Brackets
-- AtCoder (ACD)
+- AtCoder (ATC)
+    - \[ABC191B\] Remove It
 
 ### 알고리즘 (Algorithm)
 문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.

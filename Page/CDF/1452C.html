@@ -27,6 +27,36 @@
     </section>
     <section class="body">
         <div class="flex">
+            <h2>번역</h2>
+            <div class="p">
+                두 종류의 괄호 '(', ')', '[', ']'로 이루어진 문자열 \( s \)가 주어집니다.<br>
+                <br>
+                어떤 문자열 \( s \)는 다음 조건 중 하나 이상을 만족할 때, <b>맞는 괄호짝 문자열</b> (RBS)이라고 부릅니다.<br>
+                <ol>
+                    <li>비어있는 문자열</li>
+                    <li>'(' + RBS + ')'</li>
+                    <li>'[' + RBS + ']'</li>
+                    <li>RBS + RBS</li>
+                </ol>
+                <br>
+                1회의 행동마다, RBS인 문자열 \( s \)의 부분 문자열을 고른 뒤, 그 문자열을 \( s \)에서 삭제하고,<br>
+                남은 부분을 원래 순서를 유지하면서 다시 연결할 수 있습니다.<br>
+                <br>
+                최대 몇 번의 행동을 할 수 있을까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간복잡도)</h2>
+            <p>
+                시간 복잡도는 \( O(N) \)입니다.<br>
+                공간 복잡도는 \( O(N) \)입니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
             <h2>힌트 1</h2>
             <p>
                 길이가 4 이상인 RBS는 항상 더 짧은 RBS들의 합으로 나타낼 수 있습니다.<br>

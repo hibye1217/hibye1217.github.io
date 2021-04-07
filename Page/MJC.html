@@ -6,35 +6,35 @@
     <link rel="stylesheet" href="../Style/index.css">
     <script type="text/javascript" src="../Script/module/mathjax.js"></script>
     <script type="text/javascript" src="../Script/module/index.js"></script>
-    <script type="text/javascript" src="../Script/SPF.js"></script>
+    <script type="text/javascript" src="../Script/MJC.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <title>SPF - bye17</title>
+    <title>MJC - hi12</title>
 </head>
 <body>
     <header id="title">
         <h1 id="header">
-            <a id="headLink" href="../index.html">Special Function</a>
+            <a id="headLink" href="../index.html">Mathjax Converter</a>
         </h1>
     </header>
     <section class="body">
         <div class="flex">
-            <h2>식</h2>
-            <p id="output">\[ f(x) = \textcolor{Red}{ \text{Error} } \]</p>
+            <h2>결과</h2>
+            <p id="output"></p>
         </div>
     </section>
     <section class="body">
         <div class="flex">
             <h2>입력창</h2>
-            <textarea name="" id="input" cols="30" rows="10" onchange="Calculate()"></textarea>
+            <input type="text" id="input" style="width:80%" onkeyup="Calculate()">
         </div>
     </section>
     <section class="body">
         <div class="flex">
             <h2>입력 형식</h2>
             <p>
-                첫째 줄에 지나는 점 개수 \( N \)을 쓴 뒤,<br>
-                \( N \)개의 줄에 걸쳐서 \( x \)와 \( y \)를 공백으로 구분해서 적으면 됩니다.
+                MathJax (LaTeX) 구문에 맞게 아무거나 적으세요.<br>
+                시작과 끝에 $\$ $\$ 같은 거 안 넣으셔도 됩니다.
             </p>
         </div>
     </section>

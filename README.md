@@ -2,7 +2,7 @@
 그러게요 여기 뭐하는 곳이죠
 
 ## 현재 버전
-Commit #153
+Commit #154
 
 ## 현재 있는 것들
 
@@ -26,6 +26,7 @@ Commit #153
     - \[6048\] 정수 2개 입력받아 비교하기 1
 - CodeForces (CDF)
     - \[1452C\] Two Brackets
+    - \[1397A\] Juggling Letters
 - AtCoder (ATC)
     - \[ABC191B\] Remove It
 

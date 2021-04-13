@@ -2,7 +2,7 @@
 그러게요 여기 뭐하는 곳이죠
 
 ## 현재 버전
-Commit #154
+Commit #156
 
 ## 현재 있는 것들
 
@@ -29,6 +29,7 @@ Commit #154
     - \[1397A\] Juggling Letters
 - AtCoder (ATC)
     - \[ABC191B\] Remove It
+    - \[ABC187D\] Choose Me
 
 ### 알고리즘 (Algorithm)
 문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.

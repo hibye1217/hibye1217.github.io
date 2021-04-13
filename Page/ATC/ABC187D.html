@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>ABC187D - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../ATC.html">AtCoder ABC187D</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>Choose Me</h2>
+            <div class="p">
+                <a href="https://atcoder.jp/contests/abc187/tasks/abc187_d">풀러 가기</a>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>번역</h2>
+            <div class="p">
+                AtCoder 도시에서 시장을 선출하기 위한 선거가 열립니다.<br>
+                후보자는 Aoki와 Takahashi입니다.<br>
+                <br>
+                도시에는 \( N \)개의 마을이 있습니다.<br>
+                \( i \)번째 마을에는 \( A_{i} \)명의 Aoki 투표자들과 \( B_{i} \)명의 Takahashi 투표자들이 있습니다.<br>
+                이 둘을 제외한 다른 투표자는 없습니다.<br>
+                <br>
+                Takahashi는 마을에서 연설을 할 수 있습니다.<br>
+                만약 어떤 마을에서 연설을 한다면, 그 마을에 있는 모든 투표자 (Aoki 투표자와 Takahashi 투표자 모두)들은 Takahashi를 투표합니다.<br>
+                연설을 하지 않는다면, Aoki 투표자들은 Aoki에 투표하고, Takahashi 투표자는 투표를 하지 않습니다.<br>
+                <br>
+                Takahashi는 Aoki보다 더 많은 표를 받기 위해서 최소 몇 개의 마을에서 연설을 해야 할까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <div class="p">
+                시간 복잡도는 \( O(N \log N) \)입니다.<br>
+                공간 복잡도는 \( O(N) \)입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <div class="p">
+                처음에는 Aoki와 Takahashi의 표가 어떻게 될까요?<br>
+                연설을 할 때마다, 어떻게 바뀔까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 2</h2>
+            <div class="p">
+                Takahashi가 Aoki보다 더 많은 표를 얻기만 하면 됩니다.<br>
+                즉 Takahashi와 Aoki의 표차를 빠르게 줄여야겠죠.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <div class="p">
+                Takahashi의 목표는 Aoki보다 더 많은 표를 받는 것입니다.<br>
+                즉, Aoki가 \( A \)표를 받았고, Takahashi가 \( B \)표를 받았다고 할 때,<br>
+                \( B - A > 0 \)을 만족하면 됩니다.<br>
+                <br>
+                Takahashi가 \( i \)번째 마을에서 연설을 하면, Takahashi는 \( A_{i} + B_{i} \)명의 표를 추가로 얻게 됩니다.<br>
+                반면에 Aoki는 \( A_{i} \)명의 표를 잃게 됩니다.<br>
+                이제 두 명의 표차를 계산해보면, \( (B + A_{i} + B_{i}) - (A - A_{i}) = B + \textcolor{blue}{ 2A_{i} + B_{i} } - A \)가 됩니다.<br>
+                즉, 연설을 할 때마다 두 명의 표차는 \( 2A_{i} + B_{i} \)만큼 줄어듭니다.<br>
+                각 연설은 독립적이므로 (한 연설이 다른 연설에 영향을 끼치지 않으므로), \( 2A_{i} + B_{i} \)가 큰 마을부터 연설을 시작해나가면 됩니다.<br>
+                <br>
+                아무 연설도 하지 않았을 때는 Aoki는 각 마을에서 \( A_{i} \)표씩 받고, Takahashi는 0표를 받습니다.<br>
+                이제, \( 2A_{i} + B_{i} \)가 큰 마을부터 내림차순으로 정렬하고, 연설을 하나하나 해나가다가 Takahashi가 더 많은 표를 얻을 때의 연설 횟수를 출력하면 됩니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;FastIO&nbsp;ios_base::sync_with_stdio(0);&nbsp;cin.tie(0);&nbsp;cout.tie(0);<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                <br>
+                using&nbsp;ll&nbsp;=&nbsp;long&nbsp;long;<br>
+                using&nbsp;pll&nbsp;=&nbsp;pair&lt;ll,&nbsp;ll&gt;;<br>
+                pll&nbsp;vote[200020];&nbsp;//&nbsp;마을별&nbsp;투표자<br>
+                #define&nbsp;a&nbsp;first<br>
+                #define&nbsp;b&nbsp;second<br>
+                <br>
+                void&nbsp;solve(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;n;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ll&nbsp;aoki&nbsp;=&nbsp;0,&nbsp;takahashi&nbsp;=&nbsp;0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;vote[i].a&nbsp;&gt;&gt;&nbsp;vote[i].b;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aoki&nbsp;+=&nbsp;vote[i].a;&nbsp;//&nbsp;aoki가&nbsp;모든&nbsp;마을에서&nbsp;Ai명의&nbsp;표를&nbsp;받음<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;sort(vote+1,&nbsp;vote+n+1,&nbsp;[](pll&nbsp;v1,&nbsp;pll&nbsp;v2){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ll&nbsp;d1&nbsp;=&nbsp;2*v1.a&nbsp;+&nbsp;v1.b;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ll&nbsp;d2&nbsp;=&nbsp;2*v2.a&nbsp;+&nbsp;v2.b;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;d1&nbsp;&gt;&nbsp;d2;&nbsp;//&nbsp;2Ai&nbsp;+&nbsp;Bi를&nbsp;기준으로&nbsp;내림차순&nbsp;정렬<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aoki&nbsp;-=&nbsp;vote[i].a;&nbsp;//&nbsp;연설&nbsp;후&nbsp;aoki는&nbsp;Ai표를&nbsp;잃음<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;takahashi&nbsp;+=&nbsp;vote[i].a&nbsp;+&nbsp;vote[i].b;&nbsp;//&nbsp;연설&nbsp;후&nbsp;takahashi는&nbsp;Ai&nbsp;+&nbsp;Bi표를&nbsp;얻음<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(takahashi&nbsp;&gt;&nbsp;aoki){&nbsp;//&nbsp;takahashi의&nbsp;표가&nbsp;더&nbsp;많아졌을&nbsp;때<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;i;&nbsp;//&nbsp;출력&nbsp;후&nbsp;종료.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FastIO;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;solve();<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

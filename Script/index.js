@@ -6,8 +6,8 @@ function AddArticles(){
     PushArticle("Special Function", "./Page/SPF.html", "SPF", "Project", [ "Math", "Play" ]);
 
     // Solving
-    PushArticle("Solving CodeUp Problem", "./Page/CDU.html", "CDU", "Solving", [ "Explain", "CodeUp" ]);
     PushArticle("Solving BaekJoon Problem", "./Page/BOJ.html", "BOJ", "Solving", [ "Explain", "BaekJoon" ]);
+    PushArticle("Solving CodeUp Problem", "./Page/CDU.html", "CDU", "Solving", [ "Explain", "CodeUp" ]);
     PushArticle("Solving CodeForces Problem", "./Page/CDF.html", "CDF", "Solving", [ "Explain", "CodeForces" ]);
     PushArticle("Solving AtCoder Problem", "./Page/ATC.html", "ATC", "Solving", [ "Explain", "AtCoder" ]);
 

@@ -2,7 +2,7 @@
 그러게요 여기 뭐하는 곳이죠
 
 ## 현재 버전
-Commit #159
+Commit #161
 
 ## 현재 있는 것들
 
@@ -28,13 +28,15 @@ Commit #159
     - \[1931\] 회의실 배정
 - CodeUp (CDU)
     - \[1489\] 2차원 배열 달팽이 채우기 4-6
+    - \[4536\] 대표값
     - \[6048\] 정수 2개 입력받아 비교하기 1
 - CodeForces (CDF)
-    - \[1452C\] Two Brackets
+    - \[1A\] Theatre Square
     - \[1397A\] Juggling Letters
+    - \[1452C\] Two Brackets
 - AtCoder (ATC)
-    - \[ABC191B\] Remove It
     - \[ABC187D\] Choose Me
+    - \[ABC191B\] Remove It
 
 ### 알고리즘 (Algorithm)
 문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.

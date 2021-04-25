@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>CDF1A - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../CDF.html">CodeForces 1A</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>Theatre Square</h2>
+            <div class="p">
+                <a href="https://codeforces.com/contest/1/problem/A">풀러 가기</a>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>번역</h2>
+            <div class="p">
+                Berland의 중심 도시에 있는 Theatre Square는 크기가 \( N \times M \)인 직사각형 모양을 가지고 있습니다.<br>
+                도시의 X주년 축제 중, Theatre Square를 정사각형 모양의 화강암 판석으로 채우기로 했습니다.<br>
+                각 판석의 크기는 \( A \times A \)입니다.<br>
+                <br>
+                Theatre Square를 채우기 위해 필요한 최소 개수의 판석은 몇 개일까요?<br>
+                Theatre Square의 바깥 부분을 채워도 되지만, Theatre Square는 전부 채워져야 합니다.<br>
+                판석을 부술 수 없으며, 판석의 모든 변들은 Theatre Square의 변과 평행해야 합니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <div class="p">
+                시간 복잡도는 \( O(1) \)입니다.<br>
+                공간 복잡도는 \( O(1) \)입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <div class="p">
+                1차원적인 문제를 생각해보죠.<br>
+                길이가 \( N \)인 선은 길이가 \( A \)인 선 몇 개로 채울 수 있을까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <div class="p">
+                길이가 \( N \)인 선은 길이가 \( A \)인 선 \( \left\lceil \frac{N}{A} \right\rceil \)개로 채울 수 있습니다.<br>
+                즉, Theatre Square의 세로를 채우기 위해서는 \( \left\lceil \frac{N}{A} \right\rceil \)개가 필요하고,<br>
+                가로를 채우기 위해서는 \( \left\lceil \frac{M}{A} \right\rceil \)개가 필요합니다.<br>
+                세로와 가로를 둘 다 채우기 위해서는 \( \left\lceil \frac{N}{A} \right\rceil \times \left\lceil \frac{M}{A} \right\rceil \)개가 필요하겠죠.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;FastIO&nbsp;ios_base::sync_with_stdio(0);&nbsp;cin.tie(0);&nbsp;cout.tie(0);<br>
+                #define&nbsp;endl&nbsp;'\n'<br>
+                using&nbsp;ll&nbsp;=&nbsp;long&nbsp;long;<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                <br>
+                void&nbsp;solve(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ll&nbsp;n,&nbsp;m,&nbsp;a;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;n&nbsp;&gt;&gt;&nbsp;m&nbsp;&gt;&gt;&nbsp;a;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;((n+a-1)&nbsp;/&nbsp;a)&nbsp;*&nbsp;((m+a-1)&nbsp;/&nbsp;a);&nbsp;//&nbsp;ceil(N/A)&nbsp;*&nbsp;ceil(M/A)<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;FastIO;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;solve();<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

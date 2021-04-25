@@ -1,9 +1,6 @@
 ## 여기 뭐하는 곳이죠
 그러게요 여기 뭐하는 곳이죠
 
-## 현재 버전
-Commit #161
-
 ## 현재 있는 것들
 
 ### 글 (Article)
@@ -31,12 +28,13 @@ Commit #161
     - \[4536\] 대표값
     - \[6048\] 정수 2개 입력받아 비교하기 1
 - CodeForces (CDF)
-    - \[1A\] Theatre Square
-    - \[1397A\] Juggling Letters
-    - \[1452C\] Two Brackets
+    - \[1 A\] Theatre Square
+    - \[1397 A\] Juggling Letters
+    - \[1452 C\] Two Brackets
 - AtCoder (ATC)
-    - \[ABC187D\] Choose Me
-    - \[ABC191B\] Remove It
+    - \[ABC 187 D\] Choose Me
+    - \[KEYENCE 2021 A\] Two Sequences 2
+    - \[ABC 191 B\] Remove It
 
 ### 알고리즘 (Algorithm)
 문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.

@@ -4,6 +4,7 @@ function AddArticles(){
 
     // Project
     PushArticle("Special Function", "./Page/SPF.html", "SPF", "Project", [ "Math", "Play" ]);
+    PushArticle("MathJax Converter", "./Page/MJC.html", "MJC", "Project", [ "MathJax", "Play" ]);
 
     // Solving
     PushArticle("Solving BaekJoon Problem", "./Page/BOJ.html", "BOJ", "Solving", [ "Explain", "BaekJoon" ]);

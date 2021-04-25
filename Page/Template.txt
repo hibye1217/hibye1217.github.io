@@ -37,7 +37,8 @@
         <div class="flex">
             <h2>힌트 0 (시간/공간 복잡도)</h2>
             <div class="p">
-                
+                시간 복잡도는 \( O() \)입니다.<br>
+                공간 복잡도는 \( O() \)입니다.
             </div>
         </div>
     </section>

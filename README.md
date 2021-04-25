@@ -8,7 +8,7 @@
 
 #### 증명 (Prove)
 무언가를 증명해보는 글입니다.
-- Leonld94's Fibonacci Function (LFF)
+- leonld94's Fibonacci Function (LFF)
 
 ### 프로젝트 (Project)
 이름만 프로젝트인 그냥 잡다한 것들입니다.
@@ -16,6 +16,7 @@
 #### 놀이 (Play)
 그냥 심심할 때 가지고 놓기 좋은 것들입니다.
 - Special Function (SPF)
+- MathJax Converter (MJC)
 
 ### 풀이 (Solving)
 알고리즘 문제를 풀이하는 글입니다.
@@ -44,9 +45,19 @@ C언어의 기초 문법들을 배워볼 수 있는 글입니다.
 
 ## 해야 하는 것들 (TODO)
 - 지우기 전에 있었던 것들 복구하기
-- 체스 (CHS)
-- 친구가 만든 게임 (이름 미정. 일단 난 Cross Board라고 불러야지)
-- 기타 하고 싶은데 귀찮아서 미루고 있는 여러가지
+    - Chemical Sentence (CMS)
+    - Tic Tac Toe (TTT)
+    - Special Function's Logic (SFL)
+    - Scoreboard (SCB)
+    - leonld94's Recursive Function (LRF)
+    - Pascal's Fibonacci (PFI)
+- 귀찮아서 미루고 있는 여러가지
+    - Words Make Word (WMW)
+    - Ultimate Tic-Tac-Toe (UDT)
+    - Ghudegy Sentence (GDS)
+    - Domain Sentence (DMS)
+    - Chess (CHS)
+    - Cross Board (CRB)
 
 ## 기타 추천하는 곳
 [RR](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

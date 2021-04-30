@@ -34,8 +34,10 @@
     - \[1452 C\] Two Brackets
 - AtCoder (ATC)
     - \[ABC 187 D\] Choose Me
-    - \[KEYENCE 2021 A\] Two Sequences 2
+    + \[KEYENCE 2021 A\] Two Sequences 2
     - \[ABC 191 B\] Remove It
+- AlgoSpot (AGS)
+    + \[JUMPGAME\] 외발 뛰기
 
 ### 알고리즘 (Algorithm)
 문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.

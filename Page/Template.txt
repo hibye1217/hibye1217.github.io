@@ -14,12 +14,12 @@
 <body>
     <header id="title">
         <h1 id="header">
-            <a id="headLink" href="../사이트.html">문제번호</a>
+            <a id="headLink" href="../사이트.html">문제제목</a>
         </h1>
     </header>
     <section class="body">
         <div class="flex">
-            <h2>문제제목</h2>
+            <h2>문제번호</h2>
             <div class="p">
                 <a href="문제링크">풀러 가기</a>
             </div>

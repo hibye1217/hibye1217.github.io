@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>AtCoder ABC 196 A - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../ATC.html">Difference Max</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>ABC 196 A</h2>
+            <div class="p">
+                <a href="https://atcoder.jp/contests/abc196/tasks/abc196_a">풀러 가기</a>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>번역</h2>
+            <div class="p">
+                정수 \( a, b, c, d \)가 주어집니다.<br>
+                이제, \( a \lt x \lt b \)이고 \( c \lt y \lt d \)인 정수 \( x, y \)를 고릅니다.<br>
+                가장 큰 \( x - y \)를 찾으세요.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <div class="p">
+                시간 복잡도는 \( O(1) \)입니다.<br>
+                공간 복잡도는 \( O(1) \)입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <div class="p">
+                \( x - y \)가 커지려면 \( x \)와 \( y \)는 무슨 값으로 잡는 것이 좋을까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <div class="p">
+                \( x - y \)를 최대화하려면,<br>
+                \( x \)를 가능한 크게 잡고, \( y \)를 가능한 작게 잡아야 합니다.<br>
+                <br>
+                \( x \)의 최댓값은 \( b \)이고, \( y \)의 최솟값은 \( c \)이므로<br>
+                \( b - c \)를 출력해주면 됩니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;endl&nbsp;'\n'<br>
+                using&nbsp;ll&nbsp;=&nbsp;long&nbsp;long;<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                <br>
+                void&nbsp;solve(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;a,&nbsp;b,&nbsp;c,&nbsp;d;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;a&nbsp;&gt;&gt;&nbsp;b&nbsp;&gt;&gt;&nbsp;c&nbsp;&gt;&gt;&nbsp;d;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;b&nbsp;-&nbsp;c;<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ios_base::sync_with_stdio(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;solve();<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

@@ -34,10 +34,15 @@
     - \[1452 C\] Two Brackets
 - AtCoder (ATC)
     - \[ABC 187 D\] Choose Me
-    + \[KEYENCE 2021 A\] Two Sequences 2
+    - \[KEYENCE 2021 A\] Two Sequences 2
     - \[ABC 191 B\] Remove It
+    + \[ABC 196 A\] Difference Max
 - AlgoSpot (AGS)
-    + \[JUMPGAME\] 외발 뛰기
+    - \[JUMPGAME\] 외발 뛰기
+
+<!--
+[ABC 196 A] Difference Max
+-->
 
 ### 알고리즘 (Algorithm)
 문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.
@@ -46,14 +51,12 @@
 C언어의 기초 문법들을 배워볼 수 있는 글입니다.
 
 ## 해야 하는 것들 (TODO)
-- 지우기 전에 있었던 것들 복구하기
-    - Chemical Sentence (CMS)
-    - Tic Tac Toe (TTT)
-    - Special Function's Logic (SFL)
-    - Scoreboard (SCB)
-    - leonld94's Recursive Function (LRF)
-    - Pascal's Fibonacci (PFI)
 - 귀찮아서 미루고 있는 여러가지
+    - 지우기 전에 있었던 것들 복구하기
+        - Chemical Sentence (CMS)
+        - Scoreboard (SCB)
+        - leonld94's Recursive Function (LRF)
+        - Pascal's Fibonacci (PFI)
     - Words Make Word (WMW)
     - Ultimate Tic-Tac-Toe (UDT)
     - Ghudegy Sentence (GDS)

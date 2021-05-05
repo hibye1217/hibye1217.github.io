@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Style/index.css">
+    <script type="text/javascript" src="../Script/module/index.js"></script>
+    <script type="text/javascript" src="../Script/CMS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>CMS - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../index.html">Special Function</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>결과</h2>
+            <p id="output"><span style="color:#FF0000">입력 오류</span></p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>입력창</h2>
+            <input type="text" id="input" style="width:80%" onchange="Calculate()">
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>입력 형식</h2>
+            <p>
+                알파벳 대소문자로만 이루어진 문자열을 입력해주시면 됩니다.<br>
+                띄어쓰기나 숫자가 들어가면 안 됩니다.
+            </p>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>주의 사항</h2>
+            <p>
+                위 코드의 시간 복잡도는 최악의 경우 \( O(F_{i}) \)입니다. (\(F_{i}\) = \( i \)번째 피보나치 수)<br>
+                길이가 35 이상인 문자열의 경우, 시간이 오래 걸릴 수도 있습니다.
+            </p>
+        </div>
+    </section>
+</body>
+</html>

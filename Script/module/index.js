@@ -2,6 +2,20 @@ function isInt(x){
     return !( isNaN(x) || x.length == 0 || x.indexOf('.') != -1 || x.indexOf('e') != -1 )
 }
 
+function isAlphabetic(s){
+    let len = s.length;
+    for (let i = 0; i < len; i++){
+        if ('a' <= s[i] && s[i] <= 'z' || 
+            'A' <= s[i] && s[i] <= 'Z'){ continue; }
+        return false;
+    }
+    return true;
+}
+
+function atoi(c){
+    return c.charCodeAt(0);
+}
+
 function getParamsFromLink(){
     let link = location.href;
     let str = link.substring( link.indexOf('?')+1 );

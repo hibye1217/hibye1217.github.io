@@ -53,7 +53,6 @@ C언어의 기초 문법들을 배워볼 수 있는 글입니다.
 ## 해야 하는 것들 (TODO)
 - 귀찮아서 미루고 있는 여러가지
     - 지우기 전에 있었던 것들 복구하기
-        - Chemical Sentence (CMS)
         - Scoreboard (SCB)
         - leonld94's Recursive Function (LRF)
         - Pascal's Fibonacci (PFI)
@@ -63,6 +62,7 @@ C언어의 기초 문법들을 배워볼 수 있는 글입니다.
     - Domain Sentence (DMS)
     - Chess (CHS)
     - Cross Board (CRB)
+    - MathJax Writer (MJW)
 
 ## 기타 추천하는 곳
 [RR](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

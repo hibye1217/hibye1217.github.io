@@ -4,6 +4,7 @@ function AddArticles(){
 
     // Project
     PushArticle("Special Function", "./Page/SPF.html", "SPF", "Project", [ "Math", "Play" ]);
+    PushArticle("Chemical Sentence", "./Page/CMS.html", "CMS", "Project", [ "Play", "Sentence" ]);
     PushArticle("MathJax Converter", "./Page/MJC.html", "MJC", "Project", [ "MathJax", "Play" ]);
 
     // Solving

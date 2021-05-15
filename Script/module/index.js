@@ -18,14 +18,12 @@ function atoi(c){
 
 function getParamsFromLink(){
     let link = location.href;
+    if (link.indexOf('?') == -1){ return new Object(); }
     let str = link.substring( link.indexOf('?')+1 );
     let url = new URLSearchParams(str);
-    let params = [];
+    let params = new Object();
     for (const [key, val] of url){
-        params.push({
-            key: key,
-            val: val
-        });
+        params[key] = val;
     }
     return params;
 }

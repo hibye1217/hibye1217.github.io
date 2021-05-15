@@ -17,6 +17,7 @@
 그냥 심심할 때 가지고 놓기 좋은 것들입니다.
 - Special Function (SPF)
 - MathJax Converter (MJC)
+- Chemical Sentence (CMS)
 
 ### 풀이 (Solving)
 알고리즘 문제를 풀이하는 글입니다.
@@ -24,6 +25,7 @@
     - \[1351\] 무한 수열
     - \[1697\] 숨바꼭질
     - \[1931\] 회의실 배정
+    + \[15654\] N과 M (5)
 - CodeUp (CDU)
     - \[1489\] 2차원 배열 달팽이 채우기 4-6
     - \[4536\] 대표값
@@ -36,12 +38,12 @@
     - \[ABC 187 D\] Choose Me
     - \[KEYENCE 2021 A\] Two Sequences 2
     - \[ABC 191 B\] Remove It
-    + \[ABC 196 A\] Difference Max
+    - \[ABC 196 A\] Difference Max
 - AlgoSpot (AGS)
     - \[JUMPGAME\] 외발 뛰기
 
 <!--
-[ABC 196 A] Difference Max
+
 -->
 
 ### 알고리즘 (Algorithm)
@@ -57,12 +59,12 @@ C언어의 기초 문법들을 배워볼 수 있는 글입니다.
         - leonld94's Recursive Function (LRF)
         - Pascal's Fibonacci (PFI)
     - Words Make Word (WMW)
-    - Ultimate Tic-Tac-Toe (UDT)
     - Ghudegy Sentence (GDS)
     - Domain Sentence (DMS)
     - Chess (CHS)
     - Cross Board (CRB)
     - MathJax Writer (MJW)
+    - Sudoku (SDK)
 
 ## 기타 추천하는 곳
 [RR](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>BOJ15654 - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../BOJ.html">N과 M (5)</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>BaekJoon 15654</h2>
+            <div class="p">
+                <a href="https://www.acmicpc.net/problem/15654">풀러 가기</a>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <div class="p">
+                시간 복잡도는 \( O(2^N) \)입니다.<br>
+                공간 복잡도는 \( O(N) \)입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <div class="p">
+                \( N \)이 많이 작습니다.<br>
+                그냥 모든 경우를 둘러봐도 된다는 소리죠.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <div class="p">
+                우선 입력으로 받은 수열을 정렬한 뒤,<br>
+                만들 수 있는 길이 \( M \)의 모든 수열을 백트래킹으로 찾아주시면 됩니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;endl&nbsp;'\n'<br>
+                using&nbsp;ll&nbsp;=&nbsp;long&nbsp;long;<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                <br>
+                int&nbsp;n,&nbsp;m;<br>
+                int&nbsp;arr[10];&nbsp;//&nbsp;수열<br>
+                bool&nbsp;chk[10];&nbsp;//&nbsp;선택&nbsp;여부<br>
+                vector&lt;int&gt;&nbsp;v;<br>
+                <br>
+                void&nbsp;btk(int&nbsp;cnt){&nbsp;//&nbsp;현재&nbsp;위치,&nbsp;선택한&nbsp;개수<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(cnt&nbsp;==&nbsp;m){&nbsp;//&nbsp;정확히&nbsp;M개를&nbsp;선택했다면&nbsp;출력&nbsp;후&nbsp;종료<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;x&nbsp;:&nbsp;v){&nbsp;cout&nbsp;&lt;&lt;&nbsp;x&nbsp;&lt;&lt;&nbsp;'&nbsp;';&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;endl;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!chk[i]){&nbsp;//&nbsp;선택하지&nbsp;않은&nbsp;수&nbsp;중&nbsp;아무거나&nbsp;하나&nbsp;선택<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chk[i]&nbsp;=&nbsp;1;&nbsp;v.push_back(arr[i]);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btk(cnt+1);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chk[i]&nbsp;=&nbsp;0;&nbsp;v.pop_back();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+                <br>
+                void&nbsp;solve(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;n&nbsp;&gt;&gt;&nbsp;m;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){&nbsp;cin&nbsp;&gt;&gt;&nbsp;arr[i];&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;sort(arr+1,&nbsp;arr+n+1);&nbsp;//&nbsp;수열&nbsp;정렬<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;btk(0);<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ios_base::sync_with_stdio(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;solve();<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

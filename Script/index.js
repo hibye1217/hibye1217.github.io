@@ -15,5 +15,5 @@ function AddArticles(){
     PushArticle("Solving AlgoSpot Problem", "./Page/AGS.html", "AGS", "Solving", [ "Explain", "AlgoSpot" ]);
 
     // Algorithm
-    // PushArticle("Learning Algorithms", "", "ALG", "Algorithm", [ "Explain" ]);
+    // PushArticle("Learning Algorithms", "./Page/ALG.html", "ALG", "Algorithm", [ "Explain" ]);
 }

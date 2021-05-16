@@ -25,7 +25,7 @@
     - \[1351\] 무한 수열
     - \[1697\] 숨바꼭질
     - \[1931\] 회의실 배정
-    + \[15654\] N과 M (5)
+    - \[15654\] N과 M (5)
 - CodeUp (CDU)
     - \[1489\] 2차원 배열 달팽이 채우기 4-6
     - \[4536\] 대표값
@@ -35,6 +35,7 @@
     - \[1397 A\] Juggling Letters
     - \[1452 C\] Two Brackets
 - AtCoder (ATC)
+    - \[ABC 187 C\] 1-SAT
     - \[ABC 187 D\] Choose Me
     - \[KEYENCE 2021 A\] Two Sequences 2
     - \[ABC 191 B\] Remove It
@@ -43,7 +44,8 @@
     - \[JUMPGAME\] 외발 뛰기
 
 <!--
-
+[BaekJoon | 15654] N과 M (5)
+[AtCoder | ABC 187 C] 1-SAT
 -->
 
 ### 알고리즘 (Algorithm)

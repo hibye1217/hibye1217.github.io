@@ -21,31 +21,35 @@
 
 ### 풀이 (Solving)
 알고리즘 문제를 풀이하는 글입니다.
-- BaekJoon (BOJ)
-    - \[1351\] 무한 수열
-    - \[1697\] 숨바꼭질
-    - \[1931\] 회의실 배정
-    - \[15654\] N과 M (5)
-- CodeUp (CDU)
-    - \[1489\] 2차원 배열 달팽이 채우기 4-6
-    - \[4536\] 대표값
-    - \[6048\] 정수 2개 입력받아 비교하기 1
-- CodeForces (CDF)
-    - \[1 A\] Theatre Square
-    - \[1397 A\] Juggling Letters
-    - \[1452 C\] Two Brackets
+- AlgoSpot (AGS)
+    - \[BOJ\] Baekjoon Online Judge
+    - \[JUMPGAME\] 외발 뛰기
 - AtCoder (ATC)
     - \[ABC 187 C\] 1-SAT
     - \[ABC 187 D\] Choose Me
     - \[KEYENCE 2021 A\] Two Sequences 2
     - \[ABC 191 B\] Remove It
     - \[ABC 196 A\] Difference Max
-- AlgoSpot (AGS)
-    - \[JUMPGAME\] 외발 뛰기
+- BaekJoon (BOJ)
+    - \[1351\] 무한 수열
+    - \[1697\] 숨바꼭질
+    - \[1931\] 회의실 배정
+    - \[15654\] N과 M (5)
+- CodeForces (CDF)
+    - \[1 A\] Theatre Square
+    - \[1397 A\] Juggling Letters
+    - \[1452 C\] Two Brackets
+- CodeUp (CDU)
+    - \[1489\] 2차원 배열 달팽이 채우기 4-6
+    - \[4536\] 대표값
+    - \[4880\] 서울에서 경산까지 (tiny)
+    - \[6048\] 정수 2개 입력받아 비교하기 1
 
 <!--
 [BaekJoon | 15654] N과 M (5)
 [AtCoder | ABC 187 C] 1-SAT
+[AlgoSpot | BOJ] Baekjoon Online Judge
+[CodeUp | 4880] 서울에서 경산까지 (tiny)
 -->
 
 ### 알고리즘 (Algorithm)

@@ -41,15 +41,16 @@
     - \[1452 C\] Two Brackets
 - CodeUp (CDU)
     - \[1489\] 2차원 배열 달팽이 채우기 4-6
+    - \[2046\] 숨겨왔던 나의 소중한 파일을 찾아서
     - \[4536\] 대표값
     - \[4880\] 서울에서 경산까지 (tiny)
     - \[6048\] 정수 2개 입력받아 비교하기 1
 
 <!--
-[BaekJoon | 15654] N과 M (5)
 [AtCoder | ABC 187 C] 1-SAT
 [AlgoSpot | BOJ] Baekjoon Online Judge
 [CodeUp | 4880] 서울에서 경산까지 (tiny)
+[CodeUp | 2046] 숨겨왔던 나의 소중한 파일을 찾아서
 -->
 
 ### 알고리즘 (Algorithm)

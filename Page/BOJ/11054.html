@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>BaekJoon 11054 - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../BOJ.html">가장 긴 바이토닉 부분 수열</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>BaekJoon 11054</h2>
+            <div class="p">
+                <a href="https://www.acmicpc.net/problem/11054">풀러 가기</a>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <div class="p">
+                시간 복잡도는 \( O(N^{2}) \)입니다.<br>
+                공간 복잡도는 \( O(N) \)입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <div class="p">
+                바이토닉 부분 수열의 정의를 생각해보면,<br>
+                가장 긴 증가하는 부분 수열 + 가장 긴 감소하는 부분 수열 임을 알 수 있습니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 2</h2>
+            <div class="p">
+                \( k \)번째에서 끝나는 가장 긴 증가하는 부분 수열과<br>
+                \( k \)번째에서 시작하는 가장 긴 감소하는 부분 수열을 알고 있다면<br>
+                문제는 쉽게 풀릴 수 있습니다.<br>
+                <br>
+                그렇다면, 위 2개는 어떻게 구할까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 3</h2>
+            <div class="p">
+                \( k \)번째에서 시작하는 가장 긴 감소하는 부분 수열은<br>
+                수열을 뒤집었을 때 \( k \)번째에서 끝나는 가장 긴 증가하는 부분 수열과 같습니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <div class="p">
+                \( LIS_{k} = k \)번째에서 끝나는 가장 긴 증가하는 부분 수열의 길이 로 정의하고,<br>
+                \( LDS_{k} = k \)번째에서 시작하는 가장 긴 감소하는 부분 수열의 길이 로 정의한 뒤,<br>
+                \( k \)번째에서 시작하는 가장 긴 감소하는 부분 수열은<br>
+                수열을 뒤집었을 때 \( k \)번째에서 끝나는 가장 긴 증가하는 부분 수열과 같다는 점을 사용하면,<br>
+                <br>
+                맨 앞에서부터 \( LIS_{k} \)를 찾고, 맨 뒤에서부터 \( LDS_{k} \)를 찾은 뒤<br>
+                \( \max_{1 \le k \le N} ( LIS_{k} + LDS_{k} - 1 ) \)을 출력하면 됩니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;endl&nbsp;'\n'<br>
+                using&nbsp;ll&nbsp;=&nbsp;long&nbsp;long;<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                <br>
+                int&nbsp;a[1020];<br>
+                int&nbsp;lis[1020],&nbsp;lds[1020];<br>
+                <br>
+                void&nbsp;solve(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n;&nbsp;cin&nbsp;&gt;&gt;&nbsp;n;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){&nbsp;cin&nbsp;&gt;&gt;&nbsp;a[i];&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;i;&nbsp;j++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a[j]&nbsp;&lt;&nbsp;a[i]){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lis[i]&nbsp;=&nbsp;max(lis[i],&nbsp;lis[j]+1);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;n;&nbsp;i&nbsp;&gt;=&nbsp;1;&nbsp;i--){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;j&nbsp;=&nbsp;n+1;&nbsp;j&nbsp;&gt;&nbsp;i;&nbsp;j--){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a[i]&nbsp;&gt;&nbsp;a[j]){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lds[i]&nbsp;=&nbsp;max(lds[i],&nbsp;lds[j]+1);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;ans&nbsp;=&nbsp;0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,&nbsp;lis[i]+lds[i]-1);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;ans;<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ios_base::sync_with_stdio(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;solve();<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

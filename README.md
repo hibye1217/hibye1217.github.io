@@ -34,6 +34,7 @@
     - \[1351\] 무한 수열
     - \[1697\] 숨바꼭질
     - \[1931\] 회의실 배정
+    - \[11054\] 가장 긴 바이토닉 부분 수열
     - \[15654\] N과 M (5)
 - CodeForces (CDF)
     - \[1 A\] Theatre Square
@@ -51,6 +52,7 @@
 [AlgoSpot | BOJ] Baekjoon Online Judge
 [CodeUp | 4880] 서울에서 경산까지 (tiny)
 [CodeUp | 2046] 숨겨왔던 나의 소중한 파일을 찾아서
+[BaekJoon | 11054] 가장 긴 바이토닉 부분 수열
 -->
 
 ### 알고리즘 (Algorithm)

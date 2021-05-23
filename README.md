@@ -27,6 +27,7 @@
 - AtCoder (ATC)
     - \[ABC 187 C\] 1-SAT
     - \[ABC 187 D\] Choose Me
+    - \[ABC 187 E\] Through Path
     - \[KEYENCE 2021 A\] Two Sequences 2
     - \[ABC 191 B\] Remove It
     - \[ABC 196 A\] Difference Max
@@ -41,6 +42,7 @@
     - \[1397 A\] Juggling Letters
     - \[1452 C\] Two Brackets
 - CodeUp (CDU)
+    - \[1038\] 정수 2개 입력받아 합 출력하기 1
     - \[1489\] 2차원 배열 달팽이 채우기 4-6
     - \[2046\] 숨겨왔던 나의 소중한 파일을 찾아서
     - \[4536\] 대표값
@@ -48,11 +50,11 @@
     - \[6048\] 정수 2개 입력받아 비교하기 1
 
 <!--
-[AlgoSpot | BOJ] Baekjoon Online Judge
 [CodeUp | 4880] 서울에서 경산까지 (tiny)
 [CodeUp | 2046] 숨겨왔던 나의 소중한 파일을 찾아서
 [BaekJoon | 11054] 가장 긴 바이토닉 부분 수열
 [CodeUp | 1038] 정수 2개 입력받아 합 출력하기 1
+[AtCoder | ABC 187 E] Through Path
 -->
 
 ### 알고리즘 (Algorithm)

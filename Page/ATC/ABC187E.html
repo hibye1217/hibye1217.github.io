@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>ABC 187 E - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../ATC.html">Through Path</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>ABC 187 E</h2>
+            <div class="p">
+                <a href="https://atcoder.jp/contests/abc187/tasks/abc187_e">풀러 가기</a>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>번역</h2>
+            <div class="p">
+                \( N \)개의 정점과 \( N-1 \)개의 간선을 가진 트리가 있습니다.<br>
+                각 정점은 \( 1, 2, \ldots, N \)의 번호가 붙어있고, 각 간선은 \( 1, 2, \ldots, N-1 \)의 번호가 붙어있습니다.<br>
+                \( i \)번 간선은 두 정점 \( a_{i} \)와 \( b_{i} \)를 연결합니다.<br>
+                <br>
+                각 정점에는 숫자가 쓰여있습니다. \( i \)번 정점에 쓰인 숫자를 \( c_{i} \)라고 합시다.<br>
+                초기에는, 모든 \( i \)에 대하여 \( c_{i} = 0 \)입니다.<br>
+                <br>
+                이제, \( Q \)개의 쿼리가 주어집니다.<br>
+                \( i \)번째 쿼리는 세 정수 \( t_{i}, e_{i}, x_{i} \)가 주어집니다.<br>
+                각 정수는 다음을 의미합니다:<br>
+                <ul>
+                    <li>
+                        만약 \( t_{i} \)가 \( 1 \)이라면,<br>
+                        \( a_{ e_{i} } \)번 정점에서 출발해서 \( b_{ e_{i} } \)번 정점을 거치지 않고 도달할 수 있는 모든 정점 \( v \)에 대하여<br>
+                        \( c_{v} \)의 값을 \( c_{v} + x_{i} \)로 바꾼다.
+                    </li>
+                    <li>
+                        만약 \( t_{i} \)가 \( 2 \)이라면,<br>
+                        \( b_{ e_{i} } \)번 정점에서 출발해서 \( a_{ e_{i} } \)번 정점을 거치지 않고 도달할 수 있는 모든 정점 \( v \)에 대하여<br>
+                        \( c_{v} \)의 값을 \( c_{v} + x_{i} \)로 바꾼다.
+                    </li>
+                </ul><br>
+                <br>
+                모든 쿼리를 수행한 후, 각 정점에 쓰인 숫자를 출력하세요.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <div class="p">
+                시간 복잡도는 \( O(N+Q) \)입니다.<br>
+                공간 복잡도는 \( O(N) \)입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <div class="p">
+                두 쿼리는 사실 \( a \)와 \( b \)를 바꾼 것 빼고는 동일한 쿼리입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 2</h2>
+            <div class="p">
+                쿼리에서 주어지는 두 정점은 항상 인접합니다.<br>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 3</h2>
+            <div class="p">
+                \( 1 \)번 정점을 루트로 잡는다면,<br>
+                \( a \)의 자식으로 \( b \)가 있는 경우와<br>
+                \( b \)의 자식으로 \( a \)가 있는 경우만 고려해주면 됩니다.<br>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 4</h2>
+            <div class="p">
+                특정 서브트리에 속하는 모든 정점에 \( x \)를 더하는 연산은<br>
+                어떻게 빠른 속도로 처리할 수 있을까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>풀이</h2>
+            <div class="p">
+                우선 \( t = 1 \)인 경우와 \( t = 2 \)인 경우는<br>
+                \( a \)와 \( b \)를 바꾼 것 빼고는 동일한 쿼리이므로<br>
+                \( t = 1 \)인 경우만 처리한다면<br>
+                \( t = 2 \)인 경우는 \( a \)와 \( b \)를 바꾼 뒤, \( t = 1 \)일 때처럼 처리해주면 됩니다.<br>
+                <br>
+                그럼, \( 1 \)번 정점을 루트로 잡아봅시다.<br>
+                <br>
+                쿼리에서 주어지는 두 정점은 항상 인접하므로, 2가지 경우가 나옵니다.<br>
+                <ol>
+                    <li>\( a \)가 \( b \)의 부모인 경우</li>
+                    <li>\( b \)가 \( a \)의 부모인 경우</li>
+                </ol><br>
+                두 경우를 따로 생각해보죠.<br>
+                <br>
+                <h3>\( a \)가 \( b \)의 부모인 경우</h3>
+                <div class="p">
+                    이 경우, \( b \)의 서브트리에 속하는 정점을 제외한 모든 정점으로 갈 수 있습니다.<br>
+                    즉, 모든 정점에 \( x \)를 더한 뒤, \( b \)의 서브트리에 속하는 정점에 \( x \)를 빼면 됩니다.<br>
+                </div><br>
+                <h3>\( b \)가 \( a \)의 부모인 경우</h3>
+                <div class="p">
+                    이 경우, \( a \)의 서브트리에 속하는 정점으로만 갈 수 있습니다.<br>
+                    즉, \( a \)의 서브트리에 속하는 정점에 \( x \)를 더해주면 됩니다.
+                </div><br>
+                그렇다면, 특정 서브트리에 속하는 모든 정점에 \( x \)를 더하는 건 어떻게 빠르게 처리할 수 있을까요?<br>
+                오일러 투어 테크닉 + 세그먼트 트리로 해결할 수도 있지만, 쿼리를 모두 처리한 뒤 출력한다는 점을 사용하여<br>
+                서브트리의 루트에만 \( x \)를 더한 뒤, 쿼리가 모두 끝난 후 서브트리 전체로 전파해주면 됩니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (C++)</h2>
+            <div class="codeblock">
+                #include&nbsp;&lt;bits/stdc++.h&gt;<br>
+                #define&nbsp;endl&nbsp;'\n'<br>
+                #define&nbsp;fr&nbsp;first<br>
+                #define&nbsp;sc&nbsp;second<br>
+                using&nbsp;ll&nbsp;=&nbsp;long&nbsp;long;<br>
+                using&nbsp;namespace&nbsp;std;<br>
+                <br>
+                vector&lt;int&gt;&nbsp;adj[200020];<br>
+                pair&lt;int,&nbsp;int&gt;&nbsp;edg[200020];<br>
+                int&nbsp;dep[200020];<br>
+                ll&nbsp;c[200020];<br>
+                <br>
+                void&nbsp;dfs(int&nbsp;now,&nbsp;int&nbsp;par,&nbsp;int&nbsp;dpt){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dep[now]&nbsp;=&nbsp;dpt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;nxt&nbsp;:&nbsp;adj[now]){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(nxt&nbsp;!=&nbsp;par){&nbsp;dfs(nxt,&nbsp;now,&nbsp;dpt+1);&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+                <br>
+                void&nbsp;pro(int&nbsp;now,&nbsp;int&nbsp;par,&nbsp;ll&nbsp;val){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;nxt&nbsp;:&nbsp;adj[now]){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(nxt&nbsp;!=&nbsp;par){&nbsp;pro(nxt,&nbsp;now,&nbsp;val&nbsp;+&nbsp;c[now]);&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;c[now]&nbsp;+=&nbsp;val;<br>
+                }<br>
+                <br>
+                void&nbsp;solve(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n;&nbsp;cin&nbsp;&gt;&gt;&nbsp;n;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;i++){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;a,&nbsp;b;&nbsp;cin&nbsp;&gt;&gt;&nbsp;a&nbsp;&gt;&gt;&nbsp;b;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;edg[i].fr&nbsp;=&nbsp;a;&nbsp;adj[a].push_back(b);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;edg[i].sc&nbsp;=&nbsp;b;&nbsp;adj[b].push_back(a);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dfs(1,&nbsp;-1,&nbsp;0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;q;&nbsp;cin&nbsp;&gt;&gt;&nbsp;q;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(q--){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;t,&nbsp;e;&nbsp;ll&nbsp;x;&nbsp;cin&nbsp;&gt;&gt;&nbsp;t&nbsp;&gt;&gt;&nbsp;e&nbsp;&gt;&gt;&nbsp;x;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;a&nbsp;=&nbsp;edg[e].fr,&nbsp;b&nbsp;=&nbsp;edg[e].sc;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(t&nbsp;==&nbsp;2){&nbsp;swap(a,&nbsp;b);&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(dep[a]&nbsp;&lt;&nbsp;dep[b]){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c[1]&nbsp;+=&nbsp;x;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c[b]&nbsp;-=&nbsp;x;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(dep[a]&nbsp;&gt;&nbsp;dep[b]){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c[a]&nbsp;+=&nbsp;x;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;pro(1,&nbsp;-1,&nbsp;0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;1;&nbsp;i&nbsp;&lt;=&nbsp;n;&nbsp;i++){&nbsp;cout&nbsp;&lt;&lt;&nbsp;c[i]&nbsp;&lt;&lt;&nbsp;endl;&nbsp;}<br>
+                }<br>
+                <br>
+                int&nbsp;main(){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ios_base::sync_with_stdio(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cin.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cout.tie(0);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;solve();<br>
+                }
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

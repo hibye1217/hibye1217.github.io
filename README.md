@@ -24,6 +24,7 @@
 - AlgoSpot (AGS)
     - \[BOJ\] Baekjoon Online Judge
     - \[JUMPGAME\] 외발 뛰기
+    - \[MISPELL\] Mispelling
 - AtCoder (ATC)
     - \[ABC 187 C\] 1-SAT
     - \[ABC 187 D\] Choose Me
@@ -55,6 +56,7 @@
 [BaekJoon | 11054] 가장 긴 바이토닉 부분 수열
 [CodeUp | 1038] 정수 2개 입력받아 합 출력하기 1
 [AtCoder | ABC 187 E] Through Path
+[AlgoSpot | MISPELL] Mispelling
 -->
 
 ### 알고리즘 (Algorithm)

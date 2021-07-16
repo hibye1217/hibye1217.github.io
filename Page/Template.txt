@@ -60,7 +60,7 @@
     </section>
     <section class="body">
         <div class="flex">
-            <h2>코드 (C++)</h2>
+            <h2>코드 (언어)</h2>
             <div class="codeblock">
                 
             </div>

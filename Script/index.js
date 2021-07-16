@@ -13,6 +13,7 @@ function AddArticles(){
     PushArticle("Solving CodeForces Problem", "./Page/CDF.html", "CDF", "Solving", [ "Explain", "CodeForces" ]);
     PushArticle("Solving AtCoder Problem", "./Page/ATC.html", "ATC", "Solving", [ "Explain", "AtCoder" ]);
     PushArticle("Solving AlgoSpot Problem", "./Page/AGS.html", "AGS", "Solving", [ "Explain", "AlgoSpot" ]);
+    PushArticle("Solving oj.uz Problem", "./Page/OJZ.html", "OJZ", "Solving", [ "Explain", "oj.uz" ]);
 
     // Algorithm
     // PushArticle("Learning Algorithms", "./Page/ALG.html", "ALG", "Algorithm", [ "Explain" ]);

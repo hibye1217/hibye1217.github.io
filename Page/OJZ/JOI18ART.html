@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Style/index.css">
+    <link rel="stylesheet" href="../../Style/solving.css">
+    <script type="text/javascript" src="../../Script/explainS.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>oj.uz JOI18_art - hi12</title>
+</head>
+<body>
+    <header id="title">
+        <h1 id="header">
+            <a id="headLink" href="../OJZ.html">Art Exhibition</a>
+        </h1>
+    </header>
+    <section class="body">
+        <div class="flex">
+            <h2>oj.uz JOI18_art</h2>
+            <div class="p">
+                <a href="https://oj.uz/problem/view/JOI18_art">풀러 가기</a>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>번역</h2>
+            <div class="p">
+                JOI 공화국에서 미술 전시회가 열릴 예정입니다.<br>
+                여러 나라에서의 여러 미술품들이 이 전시회에 전시될 예정입니다.<br>
+                <br>
+                이번 전시회에 전시할 수 있는 \( N \)개의 후보 미술품들이 있습니다.<br>
+                각각의 미술품은 \( 1 \)부터 \( N \)까지의 숫자를 가지고 있습니다.<br>
+                각각의 미술품을 정의하는 두 가지 숫자가 있습니다: '크기'와 '가치'<br>
+                \( i \)번 미술품의 크기는 \( A_{i} \)이고, 가치는 \( B_{i} \)입니다.<br>
+                <br>
+                전시회에서는, 최소 1개 이상의 미술품이 선택이 되고, 전시됩니다.<br>
+                전시회장은 \( N \)개의 미술품들을 모두 전시할 수 있을 정도로 큽니다.<br>
+                하지만, JOI공화국의 시민들의 심미적 감각 때문에, 전시된 미술품들의 크기 차이를 너무 크게 하지 않게 미술품들을 선택하려 합니다.<br>
+                그와 동시에, 가치가 높은 미술품들을 많이 전시하고 싶기도 하죠.<br>
+                그래서 다음 규칙을 통해서 전시할 미술품들을 결정하기로 했습니다.<br>
+                <ul>
+                    <li>선택된 미술품들 중, 크기가 가장 큰 전시품의 크기를 \( A_{\max} \)라고 합시다.</li>
+                    <li>선택된 미술품들 중, 크기가 가장 큰 전시품의 크기를 \( A_{\min} \)이라고 합시다.</li>
+                    <li>선택된 미술품들의 가치의 합을 \( S \)라고 합시다.</li>
+                    <li>이 때, \( S - (A_{\max} - A_{\min}) \)을 최대화하는 미술품들을 전시합니다.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 0 (시간/공간 복잡도)</h2>
+            <div class="p">
+                서브태스크 1: 시간 복잡도는 \( O(2^N) \)이고, 공간 복잡도는 \( O(N) \)입니다.<br>
+                서브태스크 2: 시간 복잡도는 \( O(N^3) \)이고, 공간 복잡도는 \( O(N) \)입니다.<br>
+                서브태스크 3: 시간 복잡도는 \( O(N^2) \)이고, 공간 복잡도는 \( O(N) \)입니다.<br>
+                서브태스크 4: 시간 복잡도는 \( O(N \log N) \)이고, 공간 복잡도는 \( O(N) \)입니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>서브태스크 1 풀이</h2>
+            <div class="p">
+                그냥 모든 미술품들에 대하여 "전시한다"와 "전시하지 않는다"를 모두 고려해주면 됩니다.<br>
+                백트래킹으로 풀 수 있습니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 1</h2>
+            <div class="p">
+                \( A_{\max} \)와 \( A_{\min} \)이 고정되었다면, 어떤 미술품들을 전시하는 것이 최적일까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>서브태스크 2 풀이</h2>
+            <div class="p">
+                \( A_{\max} \)와 \( A_{\min} \)이 고정되었다면, \( S \)를 최대화하는 것이 최적이 됩니다.<br>
+                그런데, 모든 미술품의 가치가 양수이기 때문에, 이는 다음이 최적해임을 말하게 됩니다.<br>
+                "크기가 \( A_{\min} \)과 \( A_{\max} \) 사이에 있는 모든 미술품들을 전시한다".<br>
+                <br>
+                미술품들을 크기 순으로 정렬한 뒤, 두 변수 \( i, j \)를 잡고<br>
+                \( i \le j \)인 모든 \( (i, j) \) 쌍에 대하여 \( \text{sum}_{i \le k \le j}(B_{k}) - (A_{\max} - A_{\min}) \)을 계산해주면 됩니다.<br>
+                이 때, 미술품들은 크기 순으로 정렬되어있으므로 \( A_{\min} = A_{i} \)가 되고, \( A_{\max} = A_{j} \)가 됩니다.<br>
+                <br>
+                즉, 최종 식은 다음과 같습니다: \( \text{sum}_{i \le k \le j}(B_{k}) - (A_{j} - A_{i}) \)
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 2</h2>
+            <div class="p">
+                과연 미술품의 가치의 합을 매번 구해줘야 할까요?<br>
+                가치의 합을 빠르게 구할 수는 없을까요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>서브태스크 3 풀이</h2>
+            <div class="p">
+                (서브태스크 2의 풀이에서 계속됩니다.)<br>
+                그런데 잠시만요, 어차피 미술품의 크기와 가치는 고정되어있으므로<br>
+                매번 미술품의 합을 일일이 구해줄 필요가 없습니다.<br>
+                <br>
+                미술품들을 크기 순으로 정렬한 뒤,<br>
+                누적합을 사용하여 \( 1 \) ~ \( i \)번 미술품의 가치의 합을 미리 가지고 있다면<br>
+                \( i \le j \)인 모든 \( (i, j) \) 쌍에 대하여 \( \text{sum}_{i \le k \le j}(B_{k}) - (A_{j} - A_{i}) \)을 다음과 같이 계산할 수 있습니다.<br>
+                <br>
+                \( \text{prf}_{i} = 1 \) ~ \( i \)번 미술품의 가치의 합 이라고 정의할 때,<br>
+                \( \text{sum}_{i \le k \le j}(B_{k}) = \text{prf}_{j} - \text{prf}_{i-1} \)임을 알 수 있습니다.<br>
+                <br>
+                즉, 최종 식은 다음과 같습니다: \( \text{prf}_{j} - \text{prf}_{i-1} - (A_{j} - A_{i}) \)
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>힌트 3</h2>
+            <div class="p">
+                식을 잘 봅시다. 무언가 비슷한 부분이 보이지 않나요?
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>서브태스크 4 풀이</h2>
+            <div class="p">
+                (서브태스크 3의 풀이에서 계속됩니다.)<br>
+                일단 괄호를 풀어봅시다.<br>
+                \( \text{prf}_{j} - \text{prf}_{i-1} - (A_{j} - A_{i}) = \text{prf}_{j} - \text{prf}_{i-1} - A_{j} + A_{i} \)
+                <br>
+                그러면, 식의 항들을 이렇게 다시 묶어볼 수도 있습니다.<br>
+                \( \text{prf}_{j} - \text{prf}_{i-1} - A_{j} + A_{i} = \text{prf}_{j} - A_{j} - (\text{prf}_{i-1} - A_{i}) \)<br>
+                <br>
+                \( \text{prf} \)의 정의 상, \( \text{prf}_{i-1} + B_{i} = \text{prf}_{i} \),<br>
+                즉 \( \text{prf}_{i-1} = \text{prf}_{i} - B_{i} \)이므로<br>
+                \( \text{prf}_{j} - A_{j} - (\text{prf}_{i-1} - A_{i}) = \text{prf}_{j} - A_{j} - (\text{prf}_{i} - B_{i} - A_{i}) \)<br>
+                <br>
+                이제 식을 보니까, 비슷한 부분이 보입니다.<br>
+                이를 하나의 수로 묶어봅시다.<br>
+                \( C_{i} = \text{prf}_{i} - A_{i} \)라고 정의하면, 식을 다음과 같이 쓸 수 있습니다.<br>
+                \( \text{prf}_{j} - A_{j} - (\text{prf}_{i} - B_{i} - A_{i}) = C_{j} - (C_{i} - B_{i}) = C_{j} - C_{i} + B_{i} \)<br>
+                <br>
+                이제, \( i \)를 고정시켜봅시다.<br>
+                그렇다면, \( - C_{i} + B_{i} \)는 상수가 되므로, \( C_{j} \)를 최대화하는 문제가 됩니다.<br>
+                이 때, \( i \le j \)이므로, \( C_{j} \)를 최대화한다는 것은<br>
+                \( \max_{i \le k}(C_{k}) \)의 값을 구하는 것과 같게 됩니다.<br>
+                <br>
+                이제 \( C_{i} \)와 \( \max_{i \le k}(C_{k}) \)를 미리 구해둔 뒤,<br>
+                이를 사용하여 \( C_{j} - C_{i} + B_{i} \)의 최댓값을 구해주면 됩니다.
+            </div>
+        </div>
+    </section>
+    <section class="body">
+        <div class="flex">
+            <h2>코드 (언어)</h2>
+            <div class="codeblock">
+                
+            </div>
+        </div>
+    </section>
+    <script> SetPage(); </script>
+</body>
+</html>

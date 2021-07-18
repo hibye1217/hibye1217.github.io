@@ -52,15 +52,6 @@
 - oj.uz (OJZ)
     - \[JOI18_art\] Art Exhibition
 
-<!--
-[CodeUp | 2046] 숨겨왔던 나의 소중한 파일을 찾아서
-[BaekJoon | 11054] 가장 긴 바이토닉 부분 수열
-[CodeUp | 1038] 정수 2개 입력받아 합 출력하기 1
-[AtCoder | ABC 187 E] Through Path
-[AlgoSpot | MISPELL] Mispelling
-[oj.uz | JOI18_ART] Art Exhibition
--->
-
 ### 알고리즘 (Algorithm)
 문제 풀이에 필요한 알고리즘들을 설명하는 글입니다.
 

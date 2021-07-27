@@ -1,6 +1,6 @@
 function AddArticles(){
     // Article
-    PushArticle("leonld94's Fibonacci Function", "./Page/LFF.html", "LFF", "Article", [ "Prove", "Explain", "Math", "Interactive" ]);
+    PushArticle("leonld94's Fibonacci Function", "./LFF/", "LFF", "Article", [ "Prove", "Explain", "Math", "Interactive" ]);
 
     // Project
     PushArticle("Special Function", "./Page/SPF.html", "SPF", "Project", [ "Math", "Play" ]);

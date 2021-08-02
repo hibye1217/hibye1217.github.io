@@ -3,7 +3,7 @@ function AddArticles(){
     PushArticle("leonld94's Fibonacci Function", "./LFF/", "LFF", "Article", [ "Prove", "Explain", "Math", "Interactive" ]);
 
     // Project
-    PushArticle("Special Function", "./Page/SPF/", "SPF", "Project", [ "Math", "Play" ]);
+    PushArticle("Special Function", "./SPF/", "SPF", "Project", [ "Math", "Play" ]);
     PushArticle("Chemical Sentence", "./Page/CMS.html", "CMS", "Project", [ "Play", "Sentence" ]);
     PushArticle("MathJax Converter", "./Page/MJC.html", "MJC", "Project", [ "MathJax", "Play" ]);
 

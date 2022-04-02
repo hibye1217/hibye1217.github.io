@@ -22,7 +22,7 @@ function ShowAllArticle(){
 function LoadArticle(){
     let count = showArray.length;
     const countTag = document.getElementById('counter');
-    countTag.innerHTML = "현재 " + count + "개의 글이 있습니다.";
+    countTag.innerHTML = "현재 " + count + "개의 (단위)가 있습니다.";
 
     const conatiner = document.getElementById('container');
     conatiner.innerHTML = "";

@@ -4,4 +4,5 @@ function AddArticles(){
 
     // Project
     PushArticle("Special Function", "./SPF/", "SPF", "Project", [ "Math", "Play" ]);
+    PushArticle("HanbyeobForces [Under Construction]", "./HBF/", "SPF", "Project", [ "Math", "Play" ]);
 }

@@ -31,7 +31,7 @@ const probability = [
 ]
 const MaxLevel = 25, TotalProbability = 10000;
 
-let currentLevel = 0;
+let currentLevel = 0, failCombo = 0, totalUsed = 0;
 function printResult(){
     const star = document.getElementById('star');
     let starStr = "";
@@ -53,14 +53,29 @@ function printResult(){
         fail.innerHTML = "";
         destroy.innerHTML = "";
     }
+    else if (failCombo == 2){
+        succeed.innerHTML = "성공확률: 100%";
+        fail.innerHTML = "";
+        destroy.innerHTML = "";
+    }
     else{
         succeed.innerHTML = "성공확률: " + (probability[currentLevel].succeed*100/TotalProbability) + "%";
         if (probability[currentLevel].fail == 0){ fail.innerHTML = "실패(유지)확률: " + (probability[currentLevel].asIs*100/TotalProbability) + "%"; }
         else{ fail.innerHTML = "실패(하락)확률: " + (probability[currentLevel].fail*100/TotalProbability) + "%"; }
         destroy.innerHTML = "파괴확률: " + (probability[currentLevel].destroy*100/TotalProbability) + "%";
     }
+
+    const used = document.getElementById('used');
+    used.innerHTML = "사용한 별조각 개수: " + totalUsed + "개";
+
+    const normal = document.getElementById('normal');
+    const noDestroy = document.getElementById('noDestroy');
+    normal.innerHTML = "강화 - ★" + probability[currentLevel].price;
+    if (currentLevel > 17 || probability[currentLevel].destroy == 0){ noDestroy.innerHTML = "파괴 방지 강화 (사용 불가)"; }
+    else{ noDestroy.innerHTML = "파괴 방지 강화 - ★" + (probability[currentLevel].price * 5); }
 }
 
+let randomValue = new Uint32Array(1);
 function powerUp(noDestroy){
     /* for (let i = 0; i < MaxLevel; i++){
         let p = probability[i];
@@ -69,6 +84,37 @@ function powerUp(noDestroy){
     }
     console.log("No Problem"); */
     
-    currentLevel += 1; if (currentLevel > MaxLevel){ currentLevel = 0; }
+    totalUsed += probability[currentLevel].price;
+
+    window.crypto.getRandomValues(randomValue);
+    // console.log(randomValue);
+    while (randomValue[0] >= 4294960000){ window.crypto.getRandomValues(randomValue); }
+    let randomResult = randomValue[0] % 10000;
+    
+    // console.log(randomResult);
+    if (randomResult < probability[currentLevel].succeed || failCombo == 2){
+        console.log("강화 성공!", currentLevel, ">", currentLevel+1);
+        currentLevel += 1; failCombo = 0;
+    }
+    else{
+        randomResult -= probability[currentLevel].succeed;
+        if (randomResult < probability[currentLevel].asIs){
+            console.log("강화 실패...", currentLevel, ">", currentLevel); 
+            currentLevel = currentLevel; failCombo = 0;
+        }
+        else{
+            randomResult -= probability[currentLevel].asIs;
+            if (randomResult < probability[currentLevel].fail){
+                console.log("강화 실패...", currentLevel, ">", currentLevel-1);
+                currentLevel -= 1; failCombo += 1;
+            }
+            else{
+                console.log("프로필 파괴됨......", currentLevel, ">", 12);
+                currentLevel = 12; failCombo = 0;
+            }
+        }
+    }
+    // currentLevel += 1; if (currentLevel > MaxLevel){ currentLevel = 0; }
+
     printResult();
 }

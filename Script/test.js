@@ -31,6 +31,7 @@ const probability = [
 ]
 const MaxLevel = 25, TotalProbability = 10000;
 
+let hanbyeolCatch = false;
 let currentLevel = 0, failCombo = 0, totalUsed = 0;
 function printResult(){
     const star = document.getElementById('star');
@@ -58,6 +59,13 @@ function printResult(){
         fail.innerHTML = "";
         destroy.innerHTML = "";
     }
+    else if (hanbyeolCatch){
+        let val = probability[currentLevel].succeed / 20;
+        succeed.innerHTML = "성공확률: " + ((probability[currentLevel].succeed+val)*100/TotalProbability) + "%";
+        if (probability[currentLevel].fail == 0){ fail.innerHTML = "실패(유지)확률: " + ((probability[currentLevel].asIs-val)*100/TotalProbability) + "%"; }
+        else{ fail.innerHTML = "실패(하락)확률: " + ((probability[currentLevel].fail-val)*100/TotalProbability) + "%"; }
+        destroy.innerHTML = "파괴확률: " + (probability[currentLevel].destroy*100/TotalProbability) + "%";
+    }
     else{
         succeed.innerHTML = "성공확률: " + (probability[currentLevel].succeed*100/TotalProbability) + "%";
         if (probability[currentLevel].fail == 0){ fail.innerHTML = "실패(유지)확률: " + (probability[currentLevel].asIs*100/TotalProbability) + "%"; }
@@ -70,9 +78,11 @@ function printResult(){
 
     const normal = document.getElementById('normal');
     const noDestroy = document.getElementById('noDestroy');
+    const hanbyeolCatchTag = document.getElementById('hanbyeolCatch');
     normal.innerHTML = "강화 - ★" + probability[currentLevel].price;
     if (currentLevel > 17 || probability[currentLevel].destroy == 0){ noDestroy.innerHTML = "파괴 방지 강화 (사용 불가)"; }
     else{ noDestroy.innerHTML = "파괴 방지 강화 - ★" + (probability[currentLevel].price * 5); }
+    if (hanbyeolCatch){ hanbyeolCatchTag.innerHTML = "한별캐치 끄기"; } else{ hanbyeolCatchTag.innerHTML = "한별캐치 켜기"; }
 }
 
 let randomValue = new Uint32Array(1);
@@ -84,27 +94,48 @@ function powerUp(noDestroy){
     }
     console.log("No Problem"); */
     
-    totalUsed += probability[currentLevel].price;
+    // console.log(randomResult);
+    let succeed = probability[currentLevel].succeed;
+    let asIs = probability[currentLevel].asIs;
+    let fail = probability[currentLevel].fail;
+    let destroy = probability[currentLevel].destroy;
+    if (noDestroy){
+        if (12 > currentLevel || currentLevel >= 17){
+            console.info("파괴 방지 사용 불가");
+            return;
+        }
+        console.info("파괴 방지!");
+        if (asIs != 0){ asIs += destroy; } else{ fail += destroy; }
+        destroy = 0;
+    }
+    if (hanbyeolCatch){
+        let val = succeed/20;
+        succeed += val;
+        if (asIs != 0){ asIs -= val; } else{ fail -= val; }
+        console.info("한별캐치~");
+    }
+
+    if (noDestroy){ totalUsed += probability[currentLevel].price*5; }
+    else{ totalUsed += probability[currentLevel].price; }
 
     window.crypto.getRandomValues(randomValue);
     // console.log(randomValue);
     while (randomValue[0] >= 4294960000){ window.crypto.getRandomValues(randomValue); }
     let randomResult = randomValue[0] % 10000;
-    
-    // console.log(randomResult);
-    if (randomResult < probability[currentLevel].succeed || failCombo == 2){
+    console.info(randomResult, "/", succeed, asIs, fail, destroy);
+    if (randomResult < succeed || failCombo == 2){
         console.log("강화 성공!", currentLevel, ">", currentLevel+1);
         currentLevel += 1; failCombo = 0;
     }
     else{
-        randomResult -= probability[currentLevel].succeed;
-        if (randomResult < probability[currentLevel].asIs){
+        randomResult -= succeed;
+        if (randomResult < asIs){
             console.log("강화 실패...", currentLevel, ">", currentLevel); 
             currentLevel = currentLevel; failCombo = 0;
         }
         else{
-            randomResult -= probability[currentLevel].asIs;
-            if (randomResult < probability[currentLevel].fail){
+            randomResult -= asIs;
+            if (randomResult < fail){
                 console.log("강화 실패...", currentLevel, ">", currentLevel-1);
                 currentLevel -= 1; failCombo += 1;
             }
@@ -118,3 +149,4 @@ function powerUp(noDestroy){
 
     printResult();
 }
+function hanbyeol(){ hanbyeolCatch = !hanbyeolCatch; printResult(); }

@@ -5,16 +5,16 @@ body{
 
 * { margin: 0px; }
 
-header, section{
+section{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+header{ margin: 40px 0px; }
 h1{
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 2.5em;
 	font-weight: bolder;
-	margin: 40px 0px;
 }
 
 a{ color: #000000; }

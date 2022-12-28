@@ -8,14 +8,83 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./index.css">
-	<title>solved.ac - 트리 만들기</title>
+	<link rel="stylesheet" href="./test.css">
+	<script src="./util.js"></script> <script src="./test.js"></script>
+	<title>🎄 solved.ac - 트리 만들기</title>
 </head>
 <body onload="Main()">
+	<div style="position: sticky; top: 0px; left: 0px; z-index: 1000;">
+		<div style="position: absolute; top: 0px; left: 0px;">
+			<div id="alert-tag" style="position: sticky; top: 0px; left: 0px; height: 100vh; width: 100vw; display: none">
+				<div class="full-window">
+					<div class="fill"></div>
+				</div>
+				<div class="full-window">
+					<div class="alert-window">
+						<div style="font-size: 2em; font-weight: bold">카드 붙이기</div>
+						<img id="put-target-image" src="" class="">
+						<div>아래에 붙일 카드를 선택해주세요.</div>
+						<div id="put-info">사용한 카드 수: ?, 카드 합: ?</div><br>
+						<div id="put-deck-window">
+							<div id="put-deck" class="deck" style="background-color: #333333; border: 1px solid #555555"></div>
+						</div><br>
+						<button id="put-confirm" onclick="confirm()" class="impossible">확인</button>
+						<button onclick="deny()" class="other">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="position: sticky; top: 0px; left: 0px; z-index: 1000;">
+		<div style="position: absolute; top: 0px; left: 0px;">
+			<div id="throw-tag" style="position: sticky; top: 0px; left: 0px; height: 100vh; width: 100vw; display: none">
+				<div class="full-window">
+					<div class="fill"></div>
+				</div>
+				<div class="full-window">
+					<div class="alert-window">
+						<div style="font-size: 2em; font-weight: bold">카드 버리기</div>
+						<div>버릴 카드를 선택해주세요.</div><br>
+						<div id="throw-deck-window">
+							<div id="throw-deck" class="deck" style="background-color: #333333; border: 1px solid #555555"></div>
+						</div><br>
+						<button onclick="confirmThrow()" class="possible">확인</button>
+						<button onclick="denyThrow()" class="other">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<header>
-		<h1>트리 만들기</h1>
+		<h1>트리 만들기</h1><br>
+		<a href="https://solved.ac/event/221215">이벤트 설명 보러가기</a>
 	</header>
-	<section>
-		
-	</section>
+	<div style="display: block; overflow-x: auto; overflow-y: auto; white-space: nowrap; padding: 15px">
+		<div id="game-board"></div>
+	</div>
+	<div id="game-info">
+		<table style="border: 1px solid white; width: 80%">
+			<tr>
+				<th>받은 카드 수</th>
+				<th>가장 깊은 오너먼트</th>
+				<th>오너먼트 합</th>
+				<th>전체 합</th>
+			</tr>
+			<tr>
+				<td id="total-card">6장</td>
+				<td id="deepest-ornament">0층</td>
+				<td id="ornament-sum">0</td>
+				<td id="total-sum">0</td>
+			</tr>
+		</table>
+	</div>
+	<div id="deck-window">
+		<div id="deck-count" style="font-size: 1.5em; font-weight: bold;">현재 가지고 있는 카드 (0/6)</div>
+		<br>
+		<div id="deck" class="deck"></div><br>
+		<button onclick="getCard()" class="possible">카드 받기</button>
+		<button onclick="showThrow()" class="other">카드 버리기</button>
+	</div>
+	<br>
 </body>
 </html>

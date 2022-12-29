@@ -49,9 +49,9 @@ function Main(){
 		name: "solved.ac 이벤트 모음",
 		helper: "이미 종료된 solved.ac의 이벤트를 즐기고 싶은 사람들을 위해.",
 		childs: [{
-			name: "트리 만들기 (TODO)",
+			name: "트리 만들기",
 			helper: "2022년도 크리스마스 기념 이벤트 (2022.12.16 ~ 2022.12.25)",
-			link: "./test.html"
+			link: "./solvedac-event/121215/"
 		}]
 	});
 

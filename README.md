@@ -1,5 +1,5 @@
 # hibye1217이 이런저런거 하는 곳
-[그러게 뭐하지](hibye1217.github.io)
+[그러게 뭐하지](https://hibye1217.github.io)
 
 ## 가지고 놀 거
 
@@ -9,7 +9,7 @@
 - 한별포스 (TODO) / [원본 링크](https://solved.ac/event/220401)
 - 여름 엽서 꾸미기 (TODO) / [원본 링크](https://solved.ac/event/220626)
 - 솔브드 블랙잭 (TODO) / [원본 링크](https://solved.ac/event/220802)
-- 트리 만들기 (TODO) / [원본 링크](https://solved.ac/event/221215)
+- [트리 만들기](https://hibye1217.github.io/solvedac-event/221215) / [원본 링크](https://solved.ac/event/221215)
 
 ## 주의사항
 - 테스트는 FireFox에서만 되었습니다.

@@ -20,3 +20,12 @@ async function callAPI(time, link, param={}){
 }
 
 function loadMathJax(){ MathJax.typeset(); }
+
+function getValueFromURL(key, def=""){
+	const url = window.location.search;
+	if (url.length == 0){ return def; }
+
+	const parameters = new URLSearchParams(url.substring(1));
+	if (parameters.has(key)){ return parameters.get(key); }
+	else{ return def; }
+}
